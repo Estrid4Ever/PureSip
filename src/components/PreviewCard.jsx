@@ -109,7 +109,7 @@ export default function PreviewCard() {
                 "Häll i grenadine och limejuice.",
                 "Toppa med ginger ale och rör runt försiktigt.",
                 "Garnera med ett körsbär på kanten av glaset.",
-            
+
             ],
             price: 105,
             ingredients: [
@@ -150,8 +150,11 @@ export default function PreviewCard() {
                 src={dish.imageUrl}
                 alt="picture of {dish.title}"
             />
-            <div className="title-time">
-                <h2 className="cardTitle">{dish.title}</h2>
+
+            <h2 className="cardTitle">{dish.title}</h2>
+
+            <div className="rating-time">
+                <StarRating dish={dish} />
 
                 <div className="prep-time">
                     <i className="fa clock">&#xf017;</i>
@@ -159,7 +162,6 @@ export default function PreviewCard() {
                 </div>
             </div>
 
-            <StarRating dish={dish}/>
 
             <p className="description">{dish.description}</p>
         </div>

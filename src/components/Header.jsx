@@ -109,7 +109,7 @@ export default function Header() {
                 "Häll i grenadine och limejuice.",
                 "Toppa med ginger ale och rör runt försiktigt.",
                 "Garnera med ett körsbär på kanten av glaset.",
-            
+
             ],
             price: 105,
             ingredients: [
@@ -148,12 +148,12 @@ export default function Header() {
         <header>
             <h1 className="header-title">PureSip</h1>
             <div className="search-categories">
-                <div>
-                    <SelectMenu recepies={cardData}/>
-                </div>
 
-                <input className="searchbar" type="text" name="search" placeholder="Search..." />
-                <span className="searchbar-icon"><i className="fas fa-search"></i></span>
+                <SelectMenu recepies={cardData} />
+                <div className='search-container'>
+                    <input className="searchbar" type="text" name="search" placeholder="Sök..." />
+                    <span className="searchbar-icon"><i className="fas fa-search"></i></span>
+                </div>
             </div>
         </header>
     </>;
