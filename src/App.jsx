@@ -2,16 +2,14 @@ import "./App.css";
 import PreviewCard from './components/PreviewCard';
 import Header from './components/Header';
 
-function App() {
+export default function App() {
 
   return (
     <>
-      <Header/>
-      <main className="mainContainer">
-        <PreviewCard />
-      </main>
+      <Header />
+
+      <PreviewCard />
+
     </>
   );
 }
-
-export default App;
