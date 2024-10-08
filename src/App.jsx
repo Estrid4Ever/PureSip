@@ -8,16 +8,16 @@ export default function App() {
 
   const [recipes, setRecipes] = useState([]);
 
-    fetchAllRecipes().then((data) => {
-        setRecipes(data);
-    });
+  fetchAllRecipes().then((data) => {
+    setRecipes(data);
+  });
 
 
   return (
     <>
-      <Header recipes={recipes}/>
+      <Header recipes={recipes} />
 
-      <PreviewCard recipes={recipes}/>
+      <PreviewCard recipes={recipes} />
 
     </>
   );
