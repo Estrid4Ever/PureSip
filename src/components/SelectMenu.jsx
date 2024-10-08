@@ -1,11 +1,15 @@
+import { renderToNodeStream } from "react-dom/server";
+
 export default function SelectMenu({ recepies }) {
 
 	const uniqueCategories = [...new Set(
 		recepies.flatMap(drink => drink.categories)
 	)];
 
+	//TODO	if the same category exist with different casing this will probably break. needs a fix.
+
 	uniqueCategories.map(category => (
-		category.charAt(0).toUpperCase() + category.slice(1)
+		category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()
 	));
 
 	const categoryOptions = uniqueCategories.map(category => (

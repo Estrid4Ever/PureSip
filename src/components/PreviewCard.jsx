@@ -1,14 +1,6 @@
-import { useState, useEffect } from "react";
 import StarRating from './StarRating';
-import fetchRecipes from '../apiCalls';
 
-export default function PreviewCard() {
-
-    const [recipes, setRecipes] = useState([]);
-
-    fetchRecipes().then((data) => {
-        setRecipes(data);
-    });
+export default function PreviewCard({recipes}) {
 
     const cards = recipes.map(dish =>
         <div key={dish._id} className="card">
