@@ -8,9 +8,11 @@ export default function App() {
 
   const [recipes, setRecipes] = useState([]);
 
-  fetchAllRecipes().then((data) => {
-    setRecipes(data);
-  });
+  useEffect(() => {
+    fetchAllRecipes().then((data) => {
+      setRecipes(data);
+    });
+  }, []); 
 
 
   return (
