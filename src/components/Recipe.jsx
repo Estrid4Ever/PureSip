@@ -1,46 +1,41 @@
-import React from 'react';
+import React from "react";
+import { fetchRecipeById } from "../apiCalls";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Recipe() {
-    const drink = {
-        title: "Big Appleberry",
-        imageUrl: "../src/assets/images/BigAppleberry-500x650___media_library_original_500_650.jpg",
-        ingredients: [
-            "5 cl konjak",
-            "6 st röda vinbär",
-            "3 st gröna kärnfria vindruvor",
-            "2 cl björnbär",
-            "2 cl sockerlag",
-            "8 cl pressad äpplejuice",
-            "Is",
-            "Färska hallon",
-            "Färska björnbär"
-        ],
-        instructions: [
-            "Häll all frukt i en shaker och mortla.",
-            "Tillsätt sedan konjak, pressad äpplejuice och sockerlag.",
-            "Skaka ordentligt så att frukt och konjak blandas väl.",
-            "Sila över i ett slingglas fyllt med iskuber.",
-            "Garnera med ett hallon och ett björnbär."
-        ]
-    };
+	const [drink, setDrink] = useState({});
+	const { recipeId } = useParams();
+    console.log(drink)
+	useEffect(() => {
+        if(recipeId){
+            fetchRecipeById(recipeId).then((data) => {
+                
+                setDrink(data);
+            });
+        }
+	}, [recipeId]);
 
-    return (
-        <div className="recipe-detail-container">
-            <img className="recipe-image" src={drink.imageUrl} alt={drink.title} />
-            <div className="recipe-info">
-                <h1>{drink.title} ingredienser</h1>
-                <ul>
-                    {drink.ingredients.map((ingredient, index) => (
-                        <li key={index}>{ingredient}</li>
-                    ))}
-                </ul>
-                <h2>Så här blandar du en {drink.title}</h2>
-                <ol>
-                    {drink.instructions.map((step, index) => (
-                        <li key={index}>{step}</li>
-                    ))}
-                </ol>
-            </div>
-        </div>
-    );
+    const hhhh = drink.ingredients ? <div className="recipe-detail-container">
+    <img
+        className="recipe-image"
+        src={drink.imageUrl}
+        alt={"Photo of " + drink.title}
+    />
+    <div className="recipe-info">
+        <h1>{drink.title} ingredienser</h1>
+        <ul>
+            {drink.ingredients.map((ingredient, index) => (
+                <li key={index}>{ingredient.name}</li>
+            ))}
+        </ul>
+        <h2>Så här blandar du en {drink.title}</h2>
+        <ul>
+            {drink.instructions.map((step, index) => (
+                <li key={index}>{step}</li>
+            ))}
+        </ul>
+    </div>
+</div> : ""
+	return (<>{hhhh}</>);
 }

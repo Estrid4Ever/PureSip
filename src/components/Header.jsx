@@ -1,6 +1,16 @@
 import SelectMenu from './SelectMenu';
+import { useState, useEffect } from "react";
+import fetchAllRecipes from "../apiCalls";
 
-export default function Header({recipes}) {
+export default function Header() {
+
+    const [recipes, setRecipes] = useState([]);
+
+	useEffect(() => {
+		fetchAllRecipes().then((data) => {
+			setRecipes(data);
+		});
+	}, []);
 
     return <>
         <header>
