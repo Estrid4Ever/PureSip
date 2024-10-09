@@ -18,7 +18,7 @@ export default function PreviewCard() {
 				<img
 					className="cardImg"
 					src={dish.imageUrl}
-					alt="picture of {dish.title}"
+					alt={`Picture of ` + dish.title}
 				/>
 
 				<h2 className="cardTitle">{dish.title}</h2>

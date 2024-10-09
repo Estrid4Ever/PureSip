@@ -2,6 +2,7 @@ import React from "react";
 import { fetchRecipeById } from "../apiCalls";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Ingredients from "./Ingredients";
 
 export default function Recipe() {
 
@@ -23,9 +24,7 @@ export default function Recipe() {
         <div className="recipe-info">
             <h1>{drink.title} ingredienser</h1>
             <ul>
-                {drink.ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient.name}</li>
-                ))}
+                <Ingredients ingredients={drink.ingredients}/>
             </ul>
             <h2>Så här blandar du en {drink.title}</h2>
             <ul>

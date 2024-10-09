@@ -12,8 +12,8 @@ export default function StarRating({ dish }) {
         starClass[i] = starClass[i] + " checked";
     }
 
-    const stars = starClass.map(star =>
-        <span className={star}></span>
+    const stars = starClass.map((star, index) =>
+        <span key={index} className={star}></span>
     );
 
     return <><div className="rating">
