@@ -1,6 +1,7 @@
 import "./App.css";
 import PreviewCard from "./components/PreviewCard";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Recipe from "./components/Recipe";
 import ErrorPage from "./components/error-page";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
 			<>
 				<Header />
 				<PreviewCard />
+        <Footer/>
 			</>
 		),
 		errorElement: <ErrorPage />,
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
 			<>
 				<Header />
 				<Recipe />
+        <Footer/>
 			</>
 		),
 	},
