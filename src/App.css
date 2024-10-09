@@ -182,3 +182,46 @@ input[type=text] {
     grid-template-columns: auto;
   }
 }
+
+@media screen and (max-width:700px) {
+  .mainContainer {
+    grid-template-columns: auto;
+  }
+}
+
+.recipe-detail-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem; 
+}
+
+.recipe-image {
+    max-width: 500px;
+    height: auto;
+    border-radius: 1rem;
+    margin-left: 3cm; 
+}
+
+.recipe-info {
+    max-width: 600px;
+    color: black; 
+    font-size: 0.8rem
+}
+
+.recipe-info h1, .recipe-info h2 {
+    color: black; 
+}
+
+.recipe-info ul, .recipe-info ol {
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    color: black; 
+}
+
+.recipe-info ul li, .recipe-info ol li {
+    margin-bottom: 0.5rem;
+}

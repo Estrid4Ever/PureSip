@@ -1,13 +1,15 @@
 import "./App.css";
 import PreviewCard from './components/PreviewCard';
 import Header from './components/Header';
+import Recipe from './components/Recipe';
 
 function App() {
 
   return (
     <>
       <Header/>
-      <main className="mainContainer">
+       <Recipe />
+       <main className="mainContainer">
         <PreviewCard />
       </main>
     </>
