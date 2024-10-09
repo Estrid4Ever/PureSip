@@ -4,6 +4,7 @@ import fetchAllRecipes from "../apiCalls";
 import { Outlet, Link, useLoaderData } from "react-router-dom";
 
 export default function PreviewCard() {
+    
 	const [recipes, setRecipes] = useState([]);
 
 	useEffect(() => {
@@ -11,8 +12,6 @@ export default function PreviewCard() {
 			setRecipes(data);
 		});
 	}, []);
-
-    console.log(recipes)
 
 	const cards = recipes.map((dish) => (
 		<Link key={dish._id} className="card" to={`recipe/${dish._id}`}>

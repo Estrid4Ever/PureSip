@@ -8,7 +8,7 @@ export default function StarRating({ dish }) {
 
     let starClass = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"];
 
-    for (let i = 0; i < dish.avgRating; i++) {
+    for (let i = 0; i < dish.avgRating - 1; i++) {
         starClass[i] = starClass[i] + " checked";
     }
 
