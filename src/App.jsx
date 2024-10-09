@@ -1,28 +1,39 @@
 import "./App.css";
-import PreviewCard from './components/PreviewCard';
-import Header from './components/Header';
-import Recipe from './components/Recipe';
-import { useState, useEffect } from "react";
-import fetchAllRecipes from './apiCalls';
+import PreviewCard from "./components/PreviewCard";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Recipe from "./components/Recipe";
+import ErrorPage from "./components/error-page";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: (
+			<>
+				<Header />
+				<PreviewCard />
+        <Footer/>
+			</>
+		),
+		errorElement: <ErrorPage />,
+	},
+	{
+		path: "recipe/:recipeId",
+		element: (
+			<>
+				<Header />
+				<Recipe />
+        <Footer/>
+			</>
+		),
+	},
+]);
 
 export default function App() {
-
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    fetchAllRecipes().then((data) => {
-      setRecipes(data);
-    });
-  }, []); 
-
-
-  return (
-    <>
-      <Header recipes={recipes} />
-
-      <Recipe/>
-
-      <PreviewCard recipes={recipes} />
-    </>
-  );
+	return (
+		<>
+			<RouterProvider router={router} />
+		</>
+	);
 }
