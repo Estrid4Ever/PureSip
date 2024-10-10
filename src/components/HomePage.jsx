@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import fetchAllRecipes from '../apiCalls';
+import {fetchAllRecipes} from '../apiCalls';
 import Header from './Header';
 import PreviewCard from './PreviewCard';
 import Footer from "./Footer";
 
 export default function HomePage() {
-    
+
     const [recipes, setRecipes] = useState([]);  // State för att hålla recepten
     const [loading, setLoading] = useState(true);  // State för laddning
     const [error, setError] = useState(null);  // State för felhantering

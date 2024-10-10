@@ -1,4 +1,4 @@
-export default async function fetchAllRecipes() {
+async function fetchAllRecipes() {
     try {
         const response = await fetch('https://recept8-turen.reky.se/recipes');
         if (!response.ok) {
@@ -11,7 +11,7 @@ export default async function fetchAllRecipes() {
     }
 }
 
-export async function fetchRecipeById(recipeId) {
+async function fetchRecipeById(recipeId) {
     try {
         const response = await fetch(`https://recept8-turen.reky.se/recipes/${recipeId}`);
         if (!response.ok) {
@@ -24,3 +24,5 @@ export async function fetchRecipeById(recipeId) {
         console.error('Error fetching data:', error);
     }
 }
+
+export {fetchAllRecipes, fetchRecipeById}
