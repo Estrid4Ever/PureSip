@@ -1,4 +1,5 @@
 import StarRating from "./StarRating";
+import PrepTime from "./PrepTime";
 import { Outlet, Link, useLoaderData } from "react-router-dom";
 
 export default function PreviewCard({ recipes }) {
@@ -16,10 +17,7 @@ export default function PreviewCard({ recipes }) {
 			<div className="rating-time">
 				<StarRating dish={dish} />
 
-				<div className="prep-time">
-					<i className="fa clock">&#xf017;</i>
-					<p className="time">{dish.timeInMins} min</p>
-				</div>
+				<PrepTime dish={dish}/>
 			</div>
 
 			<p className="description">{dish.description}</p>
