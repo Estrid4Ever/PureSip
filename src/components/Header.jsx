@@ -1,17 +1,7 @@
 import SelectMenu from './SelectMenu';
-import { useState, useEffect } from "react";
-import fetchAllRecipes from "../apiCalls";
 import { Outlet, Link, useLoaderData } from "react-router-dom";
 
-export default function Header({ setSearchTerm }) {  // Ta emot setSearchTerm
-
-    const [recipes, setRecipes] = useState([]);
-
-    useEffect(() => {
-        fetchAllRecipes().then((data) => {
-            setRecipes(data);
-        });
-    }, []);
+export default function Header({ recipes, setSearchTerm }) {  // Ta emot setSearchTerm
 
     return( <>
         <header>
@@ -20,7 +10,7 @@ export default function Header({ setSearchTerm }) {  // Ta emot setSearchTerm
             </Link>
             <div className="search-categories">
 
-                <SelectMenu recepies={recipes} />
+                <SelectMenu recipes={recipes} />
                 <div className='search-container'>
                     <input className="searchbar"
                         type="text"
