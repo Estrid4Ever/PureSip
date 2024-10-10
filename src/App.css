@@ -91,6 +91,10 @@ header {
       var(--cream) 100%);
 }
 
+.header-title-link{
+  color: var(--charcoal);
+}
+
 .mainContainer {
   margin: 0 auto;
   max-width: 1280px;
@@ -98,7 +102,7 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* 3 items per row */
-  row-gap: .5rem;
+  row-gap: 1rem;
 }
 
 .searchbar-icon {
@@ -227,4 +231,96 @@ input[type=text] {
 
 .recipe-info ul li, .recipe-info ol li {
     margin-bottom: 0.5rem;
+}
+
+/*FOOTER*/
+
+.subscription {
+  margin-bottom: 2rem;
+}
+
+.subscription h3 {
+  color: var(--gold);
+}
+
+.subscription-form input {
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 30px;
+  border: none;
+  width: 250px;
+}
+
+.subscription-form button {
+  background-color: var(--charcoal);
+  color: var(--gold);
+  padding: 1rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--tan);
+}
+
+.company-info, .footer-links, .social-media {
+  margin-bottom: 1rem;
+}
+
+.footer-links a, .social-media a {
+  color: var(--charcoal);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.social-media a:hover {
+  color: var(--gold);
+}
+
+
+.logo {
+  max-width: 250px;
+  margin-right: 1rem;
+}
+
+.footer {
+  background-color: var(--gold);
+  color: var(--charcoal); 
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem; 
+}
+
+.logo-text-container {
+  display: flex;
+  align-items: center; 
+}
+
+.company-details {
+  text-align: left; 
+}
+
+.company-details p {
+  margin: 0; 
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; 
+}
+
+.social-media a {
+  color: var(--charcoal); 
+  font-size: 2rem; 
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  color: var(--charcoal); 
 }
