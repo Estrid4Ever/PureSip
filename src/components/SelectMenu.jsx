@@ -1,9 +1,8 @@
-import { renderToNodeStream } from "react-dom/server";
 
-export default function SelectMenu({ recepies }) {
+export default function SelectMenu({ recipes }) {
 
 	const uniqueCategories = [...new Set(
-		recepies
+		recipes
 			.flatMap(drink => drink.categories)
 			.map(category => category.charAt(0).toUpperCase() + category.slice(1).toLowerCase())
 	)];
