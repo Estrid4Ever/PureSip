@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import fetchAllRecipes from '../apiCalls';
+import { fetchRecipeById, fetchAllRecipes } from "../apiCalls";
+import { useParams } from "react-router-dom";
 import Header from './Header';
 import Recipe from "./Recipe";
 import Footer from "./Footer";
+import Comments from "./Comments";
 
 export default function RecipePage() {
 
@@ -28,6 +30,9 @@ export default function RecipePage() {
             });
     }, []);
 
+    const { recipeId } = useParams();
+    const drink = recipes.find(recipe => recipe._id === recipeId)
+
     if (loading) {
         return <p>Loading...</p>;  // Visa laddningsindikator
     }
@@ -44,7 +49,8 @@ export default function RecipePage() {
     return (
         <>
             <Header recipes={recipes} setSearchTerm={setSearchTerm} /> {/* Skicka recipes och setSearchTerm till Header */}
-            <Recipe />
+            <Recipe drink={drink} />
+            <Comments />
             <Footer />
         </>
     );

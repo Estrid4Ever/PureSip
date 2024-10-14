@@ -1,19 +1,7 @@
 import React from "react";
-import { fetchRecipeById } from "../apiCalls";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import Ingredients from "./Ingredients";
 
-export default function Recipe() {
-
-    const [drink, setDrink] = useState({});
-    const { recipeId } = useParams();
-    
-    useEffect(() => {
-        fetchRecipeById(recipeId).then((data) => {
-            setDrink(data);
-        });
-    }, []);
+export default function Recipe( {drink} ) {
 
     const drinkPage = drink.ingredients ? <div className="recipe-detail-container">
         <img
