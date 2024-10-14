@@ -50,7 +50,7 @@ export default function RecipePage() {
         <>
             <Header recipes={recipes} setSearchTerm={setSearchTerm} /> {/* Skicka recipes och setSearchTerm till Header */}
             <Recipe drink={drink} />
-            <Comments />
+            <Comments recipeId={recipeId}/>
             <Footer />
         </>
     );

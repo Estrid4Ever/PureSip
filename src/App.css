@@ -91,7 +91,7 @@ header {
       var(--cream) 100%);
 }
 
-.header-title-link{
+.header-title-link {
   color: var(--charcoal);
 }
 
@@ -115,14 +115,14 @@ header {
 }
 
 input[type=text] {
-  padding: 9px;
+  /* padding: 9px;
   border: none;
   font-size: 18px;
   background: none;
   color: var(--charcoal);
   text-align: left;
   text-indent: 8px;
-  outline: none;
+  outline: none; */
 }
 
 .searchbar,
@@ -131,6 +131,15 @@ input[type=text] {
   border-bottom-right-radius: 30px;
   margin-right: 0;
   /* width: 100%; */
+
+  padding: 9px;
+  border: none;
+  font-size: 18px;
+  background: none;
+  color: var(--charcoal);
+  text-align: left;
+  text-indent: 8px;
+  outline: none;
 }
 
 .search-categories {
@@ -197,40 +206,43 @@ input[type=text] {
 }
 
 .recipe-detail-container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: flex-start;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 2rem; 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
 }
 
 .recipe-image {
-    max-width: 500px;
-    height: auto;
-    border-radius: 1rem;
-    margin-left: 3cm; 
+  max-width: 500px;
+  height: auto;
+  border-radius: 1rem;
+  margin-left: 3cm;
 }
 
 .recipe-info {
-    max-width: 600px;
-    color: black; 
-    font-size: 0.8rem
+  max-width: 600px;
+  color: black;
+  font-size: 0.8rem
 }
 
-.recipe-info h1, .recipe-info h2 {
-    color: black; 
+.recipe-info h1,
+.recipe-info h2 {
+  color: black;
 }
 
-.recipe-info ul, .recipe-info ol {
-    padding-left: 1.5rem;
-    font-size: 1rem;
-    color: black; 
+.recipe-info ul,
+.recipe-info ol {
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  color: black;
 }
 
-.recipe-info ul li, .recipe-info ol li {
-    margin-bottom: 0.5rem;
+.recipe-info ul li,
+.recipe-info ol li {
+  margin-bottom: 0.5rem;
 }
 
 /*FOOTER*/
@@ -268,11 +280,14 @@ input[type=text] {
   border-top: 1px solid var(--tan);
 }
 
-.company-info, .footer-links, .social-media {
+.company-info,
+.footer-links,
+.social-media {
   margin-bottom: 1rem;
 }
 
-.footer-links a, .social-media a {
+.footer-links a,
+.social-media a {
   color: var(--charcoal);
   text-decoration: none;
   margin: 0 0.5rem;
@@ -290,37 +305,102 @@ input[type=text] {
 
 .footer {
   background-color: var(--gold);
-  color: var(--charcoal); 
+  color: var(--charcoal);
   padding: 1rem;
   text-align: center;
-  margin-top: 1rem; 
+  margin-top: 1rem;
 }
 
 .logo-text-container {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .company-details {
-  text-align: left; 
+  text-align: left;
 }
 
 .company-details p {
-  margin: 0; 
+  margin: 0;
 }
 
 .social-media {
   display: flex;
   justify-content: center;
-  gap: 1.5rem; 
+  gap: 1.5rem;
 }
 
 .social-media a {
-  color: var(--charcoal); 
-  font-size: 2rem; 
+  color: var(--charcoal);
+  font-size: 2rem;
   text-decoration: none;
 }
 
 .social-media a:hover {
-  color: var(--charcoal); 
+  color: var(--charcoal);
+}
+
+/* Comments */
+
+.comments-container {
+  margin: auto;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  /* padding: .5rem; */
+
+  color: var(--charcoal);
+  background-color: #d6ad60;
+}
+
+.comments-title {
+  margin-right: .5rem;
+}
+
+.comments-title-amount {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.comments-add-comment {
+  & input {
+    display: flex;
+    flex-direction: column;
+    border-radius: .2rem;
+    rows: 3;
+    background-color: var(--cream) !important;
+    width: 90%;
+    margin: auto;
+    word-break: break-word;
+  }
+}
+
+.comments-buttons {
+  text-align: right;
+  /* padding: 1rem; */
+
+  & button {
+    margin-left: 1rem;
+  }
+}
+
+.comments-list {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+
+.comments-name-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & h3 {
+    margin: 0;
+  }
+
+  & p {
+    margin: 0;
+  }
 }
