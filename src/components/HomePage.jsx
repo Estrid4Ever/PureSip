@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {fetchAllRecipes} from '../apiCalls';
+import { fetchAllRecipes } from '../apiCalls';
 import Header from './Header';
 import PreviewCard from './PreviewCard';
 import Footer from "./Footer";
@@ -10,6 +10,7 @@ export default function HomePage() {
     const [loading, setLoading] = useState(true);  // State för laddning
     const [error, setError] = useState(null);  // State för felhantering
     const [searchTerm, setSearchTerm] = useState("");  // State för sökord
+    const [selectedCategory, setSelectedCategory] = useState("all");  // State för vald kategori
 
     useEffect(() => {
         fetchAllRecipes()
@@ -36,15 +37,20 @@ export default function HomePage() {
         return <p>{error}</p>;  // Visa felmeddelande
     }
 
-    // Filtrera recepten baserat på sökordet
+    // Filtrera recepten baserat på både sökord och vald kategori
     const filteredRecipes = recipes.filter(recipe =>
-        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+        (selectedCategory === "all" || recipe.categories.includes(selectedCategory.toLowerCase())) &&  // Kategorifiltrering
+        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())  // Sökfiltrering
     );
 
     return (
         <>
-            <Header recipes={recipes} setSearchTerm={setSearchTerm} /> {/* Skicka recipes och setSearchTerm till Header */}
-            <PreviewCard recipes={filteredRecipes} /> {/* Använd filtrerade recept */}
+            <Header 
+                setSearchTerm={setSearchTerm} 
+                recipes={recipes} 
+                setSelectedCategory={setSelectedCategory}  // Skicka setSelectedCategory till Header för kategorifiltrering
+            />
+            <PreviewCard recipes={filteredRecipes} />  {/* Använd filtrerade recept */}
             <Footer />
         </>
     );

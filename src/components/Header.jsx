@@ -1,29 +1,37 @@
-import SelectMenu from './SelectMenu';
-import { Outlet, Link, useLoaderData } from "react-router-dom";
+export default function Header({ setSearchTerm, recipes, setSelectedCategory }) {
 
-export default function Header({ recipes, setSearchTerm }) {  // Ta emot setSearchTerm
+    // Dynamiskt generera kategorier från recepten
+    const uniqueCategories = recipes && recipes.length > 0 ? [...new Set(
+        recipes
+            .flatMap(drink => drink.categories || [])  // Säkerställ att drink.categories existerar
+            .map(category => category.charAt(0).toUpperCase() + category.slice(1).toLowerCase())
+    )] : [];
 
-    return( <>
-        <header>
-            <Link className="header-title-link" to={`/`}>
-                <h1 className="header-title">PureSip</h1>
-            </Link>
-            <div className="search-categories">
+    const categoryOptions = uniqueCategories.map(category => (
+        <option className="category-select-option" key={category} value={category}>
+            {category}
+        </option>
+    ));
 
-                <SelectMenu recipes={recipes} />
-                <div className='search-container'>
-                    <input className="searchbar"
-                        type="text"
-                        name="search"
-                        placeholder="Sök..."
-                        onChange={(e) => setSearchTerm(e.target.value)} // Uppdatera sökordet
-                    />
-                    <span className="searchbar-icon">
-                        <i className="fas fa-search"></i>
-                    </span>
-                </div>
+    return (
+        <header className="header-container">
+            <h1 className="header-title">PureSip</h1>  {/* Titel */}
+            <div className="header-controls">
+                <select 
+                    className="category-select" 
+                    name="category" 
+                    onChange={(e) => setSelectedCategory(e.target.value)}  // Uppdatera kategorin
+                >
+                    <option className="default-select-value" defaultValue="Kategorier" hidden>Kategorier</option>
+                    {categoryOptions}
+                </select>
+                <input
+                    className="search-input"
+                    type="text"
+                    placeholder="Sök..."
+                    onChange={(e) => setSearchTerm(e.target.value)}  // Uppdatera sökterm
+                />
             </div>
         </header>
-    </>
     );
 }
