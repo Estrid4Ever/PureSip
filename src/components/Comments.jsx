@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { fetchRecipeComments, postRecipeComments } from "../apiCalls";
 
 export default function Comments({ recipeId }) {
 
     const [newComment, setNewComment] = useState("");
     const [commentName, setCommentName] = useState("");
+    const [comments, setComments] = useState([]);
 
     const publishNewComment = () => {
 

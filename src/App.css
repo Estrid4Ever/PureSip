@@ -400,8 +400,8 @@ input[type=text] {
     color: var(--charcoal);
     border-radius: 1rem;
     font-size: medium;
-    min-width: 45%;
-    max-width: 220px;
+    width: 60%;
+    max-width: 200px;
   }
 }
 
