@@ -9,7 +9,7 @@ export default function Comments({ recipeId }) {
 
     const publishNewComment = () => {
 
-        var
+        
 
         console.log("send");
     };
