@@ -2,8 +2,6 @@
   margin: 0 auto;
   width: 100%;
   margin-top: 0;
-  /* padding: 2rem; */
-  /* text-align: center; */
   --charcoal: #122620;
   --cream: #f4ebd0;
   --tan: #b68d40;
@@ -12,8 +10,6 @@
 
 .card {
   background: var(--gold);
-  /* background: linear-gradient(180deg, rgba(165, 161, 223, 1) 0%,
-      rgba(165, 161, 223, 0.3) 100%); */
   color: var(--charcoal);
   margin: .5rem;
   border-radius: .5rem;
@@ -80,15 +76,11 @@
 header {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
-  /* background-color: var(--gold); */
   padding-left: 1rem;
   padding-right: 1rem;
   color: var(--charcoal);
-
-  background: linear-gradient(180deg, var(--tan) 0%,
-      var(--cream) 100%);
+  background: linear-gradient(180deg, var(--tan) 0%, var(--cream) 100%);
 }
 
 .header-title-link {
@@ -101,38 +93,22 @@ header {
   width: fit-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* 3 items per row */
   row-gap: 1rem;
 }
 
 .searchbar-icon {
   position: relative;
-  right: 30px;
+  right: 15px;
   top: 0px;
   background-color: transparent;
   color: var(--charcoal);
   cursor: pointer;
 }
 
-input[type=text] {
-  /* padding: 9px;
-  border: none;
-  font-size: 18px;
-  background: none;
-  color: var(--charcoal);
-  text-align: left;
-  text-indent: 8px;
-  outline: none; */
-}
-
 .searchbar,
 input[type=text] {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
   margin-right: 0;
-  /* width: 100%; */
-
-  padding: 9px;
+  /* padding: 9px; */
   border: none;
   font-size: 18px;
   background: none;
@@ -155,22 +131,21 @@ input[type=text] {
 .category-select {
   border: none;
   font-size: 18px;
-  background: none;
+  background-color: var(--gold);
   color: var(--charcoal);
   padding: 9px;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   text-transform: capitalize;
-  /* width: 100%; */
   text-indent: 2px;
   text-align: center;
-
 }
 
 .search-container {
-  background: none;
+  background-color: var(--gold);
   border-left: solid var(--tan);
-
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .category-select-option {
@@ -182,20 +157,13 @@ input[type=text] {
   padding-right: .5rem;
 }
 
-.fa-search {
+/* .fa-search {
   width: 0;
-}
+} */
 
 @media screen and (max-width:1040px) {
   .mainContainer {
     grid-template-columns: repeat(2, 1fr);
-    /* 2 items per row */
-  }
-}
-
-@media screen and (max-width:700px) {
-  .mainContainer {
-    grid-template-columns: auto;
   }
 }
 
@@ -225,7 +193,7 @@ input[type=text] {
 .recipe-info {
   max-width: 600px;
   color: black;
-  font-size: 0.8rem
+  font-size: 0.8rem;
 }
 
 .recipe-info h1,
@@ -245,8 +213,7 @@ input[type=text] {
   margin-bottom: 0.5rem;
 }
 
-/*FOOTER*/
-
+/* Footer */
 .subscription {
   margin-bottom: 2rem;
 }
@@ -297,7 +264,6 @@ input[type=text] {
   color: var(--gold);
 }
 
-
 .logo {
   max-width: 250px;
   margin-right: 1rem;
@@ -314,10 +280,6 @@ input[type=text] {
 .logo-text-container {
   display: flex;
   align-items: center;
-}
-
-.company-details {
-  text-align: left;
 }
 
 .company-details p {
@@ -340,8 +302,7 @@ input[type=text] {
   color: var(--charcoal);
 }
 
-/* Comments */
-
+/* Comments Section */
 .comments-container {
   margin: auto;
   max-width: 700px;
@@ -353,10 +314,6 @@ input[type=text] {
   color: var(--charcoal);
 
   /* background-color:burlywood; */
-}
-
-.comments-title {
-  margin-right: .5rem;
 }
 
 .comments-title-amount {
@@ -451,16 +408,19 @@ input[type=text] {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
 
-  & h3 {
-    margin: 0;
-  }
-
-  & p {
-    margin: 0;
-  }
+.comments-name-date h3, 
+.comments-name-date p {
+  margin: 0;
 }
 
 .comments-text {
   margin: 0;
+}
+
+/* Hover-effekter */
+.category-select:hover {
+  background-color: var(--tan);  
+  outline: none;
 }

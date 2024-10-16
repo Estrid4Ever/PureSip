@@ -1,27 +1,33 @@
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function SelectMenu({ recipes }) {
+export default function SelectMenu({ categoryOptions }) {  // Lägg till setSelectedCategory i props
 
-	const uniqueCategories = [...new Set(
-		recipes
-			.flatMap(drink => drink.categories)
-			.map(category => category.charAt(0).toUpperCase() + category.slice(1).toLowerCase())
-	)];
+    const navigate = useNavigate();
 
-	const categoryOptions = uniqueCategories.map(category => (
-		<option className="category-select-option" key={category} value={category}>
-			{category}
-		</option>
-	));
+    const { categoryId } = useParams();
 
-	return (
-		<>
-			<div className="categories-container">
-				<label htmlFor="category"></label>
-				<select className="category-select" name="category">
-					<option className="default-select-value" defaultValue="Kategorier" hidden>Kategorier</option>
-					{categoryOptions}
-				</select>
-			</div>
-		</>
-	);
+    const defaultValue = categoryId ? categoryId : "Kategorier";
+
+    function handleSelect(categoryValue) {
+        navigate(`/category/${categoryValue}`, { replace: true });
+    }
+
+    return (
+        <>
+            <div className="categories-container">
+                <label htmlFor="category"></label>
+                <select
+                    className="category-select"
+                    name="category"
+                    onChange={(e) => handleSelect(e.target.value)} // Uppdatera kategorin baserat på användarens val
+                    
+                >
+                    <option className="default-select-value" defaultValue={defaultValue} hidden>{defaultValue}</option>
+                    {categoryOptions}
+                </select>
+            </div>
+        </>
+    );
 }
+

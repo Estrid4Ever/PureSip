@@ -5,7 +5,7 @@ import { Outlet, Link, useLoaderData } from "react-router-dom";
 export default function PreviewCard({ recipes }) {
 
 	const cards = recipes.map((dish) => (
-		<Link key={dish._id} className="card" to={`recipe/${dish._id}`}>
+		<Link key={dish._id} className="card" to={`/recipe/${dish._id}`}>
 			<img
 				className="cardImg"
 				src={dish.imageUrl}
