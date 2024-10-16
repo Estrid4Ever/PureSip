@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import { fetchRecipeComments, postRecipeComments } from "../apiCalls";
+import { postRecipeComments } from "../apiCalls";
+import CommentList from "./CommentList";
 
 export default function Comments({ recipeId }) {
 
     const [newComment, setNewComment] = useState("");
     const [commentName, setCommentName] = useState("");
-    const [comments, setComments] = useState([]);
 
     const publishNewComment = () => {
+
+        var
 
         console.log("send");
     };
@@ -16,6 +18,12 @@ export default function Comments({ recipeId }) {
         setNewComment("")
         setCommentName("")
     };
+
+    // useEffect(() => {
+    //     fetchRecipeComments(recipeId).then((data) => {
+    //         setComments(data);
+    //     });
+    // }, []);
 
     return <>
         <div className="comments-container">
@@ -42,15 +50,7 @@ export default function Comments({ recipeId }) {
 
             </div>
 
-            <ul className="comments-list">
-                <li>
-                    <div className="comments-name-date">
-                        <h4>name</h4>
-                        <p>date</p>
-                    </div>
-                    <p className="comments-text">kommentaren lyder så här! bla bla bla...</p>
-                </li>
-            </ul>
+            <CommentList recipeId={recipeId}/>
 
         </div>
     </>;
