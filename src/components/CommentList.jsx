@@ -1,51 +1,21 @@
-import { useState, useEffect } from "react";
-import { fetchRecipeComments } from "../apiCalls";
 
-export default function CommentList({ recipeId }) {
+export default function CommentList({ comments }) {
 
-    const [comments, setComments] = useState([]);
-    const [loading, setLoading] = useState(true);  // State för laddning
-    const [error, setError] = useState(null);  // State för felhantering
+    var listItems = [<li key={"empty"}><p className="comments-empty">Inga kommentarer finns än...</p></li>];
 
-    useEffect(() => {
-        fetchRecipeComments(recipeId)
-            .then((data) => {
-                if (data) {
-                    setComments(data);  // Sätt recepten
-                } else {
-                    setError("No data available");
-                }
-            })
-            .catch(() => {
-                setError("Failed to fetch recipes");
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
+    if (comments.length > 0) {
+        listItems = comments.map((comment) => 
+            <li key={comment._id}>
+                <div className="comments-name-date">
+                    <h4>{comment.name}</h4>
+                    <p>{comment.createdAt.split("T")[0]}</p>
+                </div>
+                <p className="comments-text">{comment.comment}</p>
+            </li>
+        );
 
-    // const { recipeId } = useParams();
-    // const drink = recipes.find(recipe => recipe._id === recipeId)
-
-    if (loading) {
-        return <p>Loading...</p>;  // Visa laddningsindikator
+        listItems.reverse();
     }
-
-    if (error) {
-        return <p>{error}</p>;  // Visa felmeddelande
-    }
-
-    const listItems = comments.length > 0 ? comments.map((comment) => {
-        <li>
-            <div className="comments-name-date">
-                <h4>{comment.name.split}</h4>
-                <p>date</p>
-            </div>
-            <p className="comments-text">{comment.comment}</p>
-        </li>
-    })
-        : <li><p className="comments-empty">Inga kommentarer finns än...</p></li>;
-
 
     return <>
         <ul className="comments-list">

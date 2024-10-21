@@ -1,56 +1,45 @@
 import { useState, useEffect } from "react";
-import { postRecipeComments } from "../apiCalls";
 import CommentList from "./CommentList";
+import AddComment from "./AddComment";
+import { fetchRecipeComments } from "../apiCalls";
 
 export default function Comments({ recipeId }) {
 
-    const [newComment, setNewComment] = useState("");
-    const [commentName, setCommentName] = useState("");
+    const [comments, setComments] = useState([]);
+    const [loading, setLoading] = useState(true);  // State för laddning
+    const [error, setError] = useState(null);  // State för felhantering
 
-    const publishNewComment = () => {
+    useEffect(() => {
+        fetchRecipeComments(recipeId)
+            .then((data) => {
+                if (data) {
+                    setComments(data);
+                } else {
+                    setError("No data available");
+                }
+            })
+            .catch(() => {
+                setError("Failed to fetch recipes");
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
 
-        
+    if (loading) {
+        return <p>Loading...</p>;  // Visa laddningsindikator
+    }
 
-        console.log("send");
-    };
-
-    const cancelComment = () => {
-        setNewComment("")
-        setCommentName("")
-    };
-
-    // useEffect(() => {
-    //     fetchRecipeComments(recipeId).then((data) => {
-    //         setComments(data);
-    //     });
-    // }, []);
+    if (error) {
+        return <p>{error}</p>;  // Visa felmeddelande
+    }
 
     return <>
         <div className="comments-container">
 
-            <div className="comments-add-comment">
+            <AddComment comments={comments} recipeId={recipeId}/>
 
-                <div className="comments-title-amount">
-                    <h2 className="comments-title">Kommentarer</h2>
-                    <p className="comments-total-amount">(4st)</p>
-                </div>
-
-                <textarea className="comments-text-input" placeholder="Skriv din kommentar" value={newComment} onChange={e => setNewComment(e.target.value)} />
-
-                <div className="comments-name-buttons">
-                    
-                    <input className="comments-name" type="text" placeholder="Ange namn" value={commentName} onChange={e => setCommentName(e.target.value)}/>
-
-                    <div className="comments-buttons">
-                        <button onClick={() => cancelComment()} className="comments-button cancel" >Avbryt</button>
-                        <button onClick={publishNewComment} className="comments-button send" >Skicka</button>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <CommentList recipeId={recipeId}/>
+            <CommentList comments={comments}/>
 
         </div>
     </>;

@@ -387,6 +387,17 @@ input[type=text] {
     background-color: var(--gold);
     color: var(--charcoal);
     width: 5rem;
+    
+  }
+
+  & .invalid-send {
+    background-color: var(--gold);
+    color: var(--charcoal);
+    width: 5rem;
+    cursor:not-allowed;
+    &:hover {
+      transform: none;
+    }
   }
 
   & .cancel {
@@ -397,11 +408,16 @@ input[type=text] {
 
 .comments-list {
   list-style: none;
-  padding: 1rem;
   margin: 0;
+  padding: 1rem;
 
   & li {
-    margin-bottom: .5rem;
+    margin-bottom: 1.5rem;
+    border-top: dotted 2px rgba(128, 128, 128, 0.445);
+  }
+
+  & li:first-of-type{
+    border: none;
   }
 }
 
@@ -411,13 +427,28 @@ input[type=text] {
   justify-content: space-between;
 }
 
-.comments-name-date h3, 
+.comments-name-date h4, 
 .comments-name-date p {
-  margin: 0;
+  margin: .5rem;
 }
 
 .comments-text {
   margin: 0;
+  padding-left: 1rem;
+}
+
+.comments-thanks {
+  /* background-color: var(--gold);
+  border-radius: .3rem; */
+  font-size: larger;
+  color: var(--charcoal);
+  text-align: center;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Hover-effekter */

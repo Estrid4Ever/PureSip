@@ -39,27 +39,28 @@ async function fetchRecipeComments(recipeId) {
     }
 }
 
-async function postRecipeComments(recipeId) {
-
-    fetch('http://------------:8080/', {  // Enter your IP address here
-
-        method: 'POST', 
-        mode: 'cors', 
-        body: JSON.stringify(jsonData) // body data type must match "Content-Type" header
-  
-      })
+async function postRecipeComments(recipeId ,commentData) {
       
-    // try {
-    //     const response = await fetch(`https://recept8-turen.reky.se/recipes/${recipeId}/comments`);
-    //     if (!response.ok) {
-    //         throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-    //     const data = await response.json();
+    try {
+        const response = await fetch(`https://recept8-turen.reky.se/recipes/${recipeId}/comments`, {  // Enter your IP address here
 
-    //     return data;
-    // } catch (error) {
-    //     console.error('Error fetching data:', error);
-    // }
+            method: 'POST',  
+            body: JSON.stringify(commentData),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              }
+            
+          });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 
 export {fetchAllRecipes, fetchRecipeById, fetchRecipeComments, postRecipeComments}
+

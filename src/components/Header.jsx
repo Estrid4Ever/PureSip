@@ -6,6 +6,7 @@ export default function Header({ recipes, setSearchTerm }) {
 
     const navigate = useNavigate();
     const [searchParam, setSearchParam] = useState("");
+    // const [searchBarValue, setSearchBarValue] = useState("");
 
     // Dynamiskt generera kategorier från recepten
     const uniqueCategories = recipes && recipes.length > 0 ? [...new Set(
@@ -21,16 +22,15 @@ export default function Header({ recipes, setSearchTerm }) {
     ));
 
     function handleSearch(searchValue) {
-        setSearchTerm(searchValue)
+        // setSearchBarValue(searchValue);
+        setSearchTerm(searchValue);
         setSearchParam("/search/" + searchValue);
-        console.log(searchParam)
     }
 
     
     function handleKeyDown(event) {
         
         if(event.code == 'Enter') {
-            console.log(searchParam)
             navigate(searchParam, { replace: true });
         }
     }
@@ -51,7 +51,8 @@ export default function Header({ recipes, setSearchTerm }) {
                         type="text"
                         name="search"
                         placeholder="Sök..."
-                        onChange={(e) => handleSearch(e.target.value)} // Uppdatera sökordet
+                        // value={searchBarValue}
+                        onInput={(e) => handleSearch(e.target.value)} // Uppdatera sökordet
                         onKeyDown={(e) => handleKeyDown(e)}
                     />
                     <Link className="searchbar-icon" to={searchParam}>
