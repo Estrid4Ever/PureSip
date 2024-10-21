@@ -312,8 +312,6 @@ input[type=text] {
   margin-bottom: 3rem;
 
   color: var(--charcoal);
-
-  /* background-color:burlywood; */
 }
 
 .comments-title-amount {
@@ -365,7 +363,6 @@ input[type=text] {
 
 .comments-buttons {
   text-align: right;
-  /* padding-right: .5rem; */
   width: 100%;
 
   & button {
@@ -424,4 +421,251 @@ input[type=text] {
 .category-select:hover {
   background-color: var(--tan);  
   outline: none;
+}
+
+/* Responsiv design för footern */
+@media screen and (max-width: 768px) {
+  .footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .footer-info {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+
+  .company-info, 
+  .footer-links, 
+  .social-media {
+      margin-bottom: 15px;
+      text-align: center;
+  }
+
+  .subscription-form {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .subscription-form input {
+      width: 80%;
+      margin: 5px 0;
+  }
+
+  .subscription-form button {
+      width: 80%;
+      margin: 10px 0;
+  }
+
+  .social-media {
+      justify-content: center;
+      gap: 1rem;
+  }
+
+  .logo {
+      max-width: 150px; /* Justera logotypstorlek på mindre skärmar */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .subscription-form input {
+      width: 90%; /* Mindre fält på små skärmar */
+  }
+
+  .subscription-form button {
+      width: 90%;
+  }
+
+  .footer-info {
+      gap: 15px;
+  }
+
+  .company-info img {
+      max-width: 100px; /* Anpassad storlek på logotyp för små skärmar */
+  }
+
+  .footer {
+      padding: 2rem 1rem;
+  }
+}
+
+
+
+
+
+/* Terms.jsx */
+.terms-container {
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 2rem; 
+  font-family: 'Georgia', serif; 
+  color: #333; 
+  line-height: 1.8; 
+  font-size: 16px; 
+}
+
+/* Rubriker */
+.terms-container h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #111; 
+}
+
+.terms-container h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #111; /* underrubriker */
+}
+
+/* Styckena */
+.terms-container p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333; 
+}
+
+/* För kontaktinformation eller specialstycken */
+.terms-container p.contact-info {
+  font-weight: bold;
+}
+
+
+.terms-container hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2rem 0;
+}
+
+
+
+
+
+/* About.jsx */
+.about-container {
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 2rem; 
+  font-family: 'Georgia', serif; 
+  color: #333; 
+  line-height: 1.8; 
+  font-size: 16px; 
+}
+
+/* Rubriker */
+.about-container h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #111; 
+}
+
+/* Styckena */
+.about-container p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333; 
+}
+
+.privacy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Georgia', serif;
+  color: #333;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.privacy-container h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #111;
+}
+
+.privacy-container h2 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+  color: #222;
+}
+
+.privacy-container h3 {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  color: #444;
+}
+
+.privacy-container p {
+  margin-bottom: 1rem;
+}
+
+.privacy-container ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-container ul li {
+  margin-bottom: 0.5rem;
+}
+
+.privacy-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.privacy-container th, .privacy-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.privacy-container th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.privacy-container td {
+  background-color: #fff;
+}
+
+.privacy-container section {
+  margin-top: 2rem;
+}
+
+/* mobilvyer */
+@media screen and (max-width: 600px) {
+  .privacy-container {
+      padding: 1rem;
+      font-size: 14px;
+  }
+
+  .privacy-container h1 {
+      font-size: 2rem;
+  }
+
+  .privacy-container h2 {
+      font-size: 1.6rem;
+  }
+
+  .privacy-container h3 {
+      font-size: 1.2rem;
+  }
+
+  .privacy-container table th, .privacy-container table td {
+      font-size: 12px;
+      padding: 6px;
+  }
 }

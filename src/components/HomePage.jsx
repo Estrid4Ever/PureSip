@@ -3,7 +3,6 @@ import { fetchAllRecipes } from '../apiCalls';
 import { useParams } from "react-router-dom";
 import Header from './Header';
 import PreviewCard from './PreviewCard';
-import Footer from "./Footer";
 
 export default function HomePage() {
 
@@ -66,7 +65,7 @@ export default function HomePage() {
                 recipes={recipes}
             />
             <PreviewCard recipes={filteredRecipes} />  {/* Använd filtrerade recept */}
-            <Footer />
         </>
     );
 }
+

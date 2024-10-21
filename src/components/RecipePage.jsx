@@ -3,7 +3,6 @@ import { fetchRecipeById, fetchAllRecipes } from "../apiCalls";
 import { useParams } from "react-router-dom";
 import Header from './Header';
 import Recipe from "./Recipe";
-import Footer from "./Footer";
 import Comments from "./Comments";
 
 export default function RecipePage() {
@@ -53,7 +52,6 @@ export default function RecipePage() {
             <Header recipes={recipes} setSearchTerm={setSearchTerm} /> {/* Skicka recipes och setSearchTerm till Header */}
             <Recipe drink={drink} />
             <Comments recipeId={recipeId}/>
-            <Footer />
         </>
     );
 }
