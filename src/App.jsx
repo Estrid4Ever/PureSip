@@ -7,6 +7,9 @@ import Terms from "./components/Terms"; // Importera Allmänna villkor-komponent
 import Privacy from "./components/Privacy"; // Importera Personuppgiftspolicy-komponenten
 import Footer from "./components/Footer"; // Importera Footer-komponenten
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useState, useEffect } from "react";
+import fetchAllRecipes from './apiCalls';
+import PreviewCard from './components/PreviewCard';
 
 const router = createBrowserRouter([
     {
