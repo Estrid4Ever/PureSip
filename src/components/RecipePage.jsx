@@ -31,7 +31,9 @@ export default function RecipePage() {
     }, []);
 
     const { recipeId } = useParams();
+
     const drink = recipes.find(recipe => recipe._id === recipeId)
+
 
     if (loading) {
         return <p>Loading...</p>;  // Visa laddningsindikator

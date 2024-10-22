@@ -8,12 +8,24 @@ const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <HomePage />,
-		errorElement: <ErrorPage />,
 	},
 	{
-		path: "recipe/:recipeId",
+		path: "/category/:categoryId",
+		element: <HomePage />,
+	},
+	{
+		path: "/search/:searchId",
+		element: <HomePage />,
+	},
+	{
+		path: "/recipe/:recipeId",
 		element: <RecipePage />,
 	},
+	{
+		path: "*",
+		element: <ErrorPage />,
+	},
+
 ]);
 
 export default function App() {

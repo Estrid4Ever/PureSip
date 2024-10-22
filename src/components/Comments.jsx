@@ -1,35 +1,45 @@
+import { useState, useEffect } from "react";
+import CommentList from "./CommentList";
+import AddComment from "./AddComment";
+import { fetchRecipeComments } from "../apiCalls";
+
 export default function Comments({ recipeId }) {
 
+    const [comments, setComments] = useState([]);
+    const [loading, setLoading] = useState(true);  // State för laddning
+    const [error, setError] = useState(null);  // State för felhantering
 
+    useEffect(() => {
+        fetchRecipeComments(recipeId)
+            .then((data) => {
+                if (data) {
+                    setComments(data);
+                } else {
+                    setError("No data available");
+                }
+            })
+            .catch(() => {
+                setError("Failed to fetch recipes");
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [comments]);
+
+    if (loading) {
+        return <p>Loading...</p>;  // Visa laddningsindikator
+    }
+
+    if (error) {
+        return <p>{error}</p>;  // Visa felmeddelande
+    }
 
     return <>
         <div className="comments-container">
 
-            <div className="comments-add-comment">
+            <AddComment comments={comments} recipeId={recipeId}/>
 
-                <div className="comments-title-amount">
-                    <h2 className="comments-title">Kommentarer</h2>
-                    <p className="comments-total-amount">(4st)</p>
-                </div>
-
-                <input type="text" className="comments-text-input" placeholder="Skriv din kommentar" required/>
-
-                <div className="comments-buttons">
-                    <button className="comments-button cancel" >Avbryt</button>
-                    <button className="comments-button send" >Skicka</button>
-                </div>
-
-            </div>
-
-            <ul className="comments-list">
-                <li>
-                    <div className="comments-name-date">
-                        <h3>name</h3>
-                        <p>date</p>
-                    </div>
-                    <p>kommentaren lyder så här! bla bla bla...</p>
-                </li>
-            </ul>
+            <CommentList comments={comments}/>
 
         </div>
     </>;
