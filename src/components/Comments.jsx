@@ -24,7 +24,7 @@ export default function Comments({ recipeId }) {
             .finally(() => {
                 setLoading(false);
             });
-    }, []);
+    }, [comments]);
 
     if (loading) {
         return <p>Loading...</p>;  // Visa laddningsindikator

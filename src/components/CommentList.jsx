@@ -8,7 +8,7 @@ export default function CommentList({ comments }) {
             <li key={comment._id}>
                 <div className="comments-name-date">
                     <h4>{comment.name}</h4>
-                    <p>{comment.createdAt.split("T")[0]}</p>
+                    <i>{comment.createdAt.split("T")[0]}</i>
                 </div>
                 <p className="comments-text">{comment.comment}</p>
             </li>
