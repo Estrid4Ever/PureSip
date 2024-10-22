@@ -1,18 +1,36 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { postRecipeComments } from "../apiCalls";
 
 export default function AddComment({ comments, recipeId }) {
 
     const [newComment, setNewComment] = useState("");
     const [commentName, setCommentName] = useState("");
-    const [fieldsAreValid, setFieldsAreValid] = useState(false)
+    const [fieldsAreValid, setFieldsAreValid] = useState(false);
     const [commentIsSent, setCommentIsSet] = useState(false);
+    const [nameFieldWarning, setNameFieldWarning] = useState(false);
+    const [commentFieldWarning, setCommentFieldWarning] = useState(false);
 
     const publishNewComment = () => {
 
-        if(commentName === "" || newComment === "") {
+        if (commentName === "" || newComment === "") {
             setFieldsAreValid(false);
-            return
+
+            if (commentName === "") {
+                setNameFieldWarning(true);
+                
+            }
+
+            if (newComment === "") {
+                setCommentFieldWarning(true);
+                
+            }
+
+            setTimeout(function(){
+                setNameFieldWarning(false);
+                setCommentFieldWarning(false);
+            }, 1000);
+
+            return;
         }
 
         const date = new Date();
@@ -39,44 +57,66 @@ export default function AddComment({ comments, recipeId }) {
     function commentOnChangeHandler(value) {
         setNewComment(value);
 
-        if(commentName !== "" && newComment !== "") {
+        if (commentName !== "" && newComment !== "") {
             setFieldsAreValid(true);
         } else {
-            setFieldsAreValid(false)
+            setFieldsAreValid(false);
         }
     }
 
     function nameOnChangeHandler(value) {
         setCommentName(value);
 
-        if(commentName !== "" && newComment !== "") {
+        if (commentName !== "" && newComment !== "") {
             setFieldsAreValid(true);
         } else {
-            setFieldsAreValid(false)
+            setFieldsAreValid(false);
         }
     }
 
-    const addCommentOrThanksForComment = commentIsSent ? <div className="comments-thanks"> <h2 className="comments-thanks-text">Tack för din kommentar!</h2> </div>: <div className="comments-add-comment">
+    function toolTipText() {
+        var text = "Vänligen fyll i fält för ";
 
-    <div className="comments-title-amount">
-        <h2 className="comments-title">Kommentarer</h2>
-        <p className="comments-total-amount">({comments.length})</p>
-    </div>
+        if (commentName === "") {
+            text = text + "namn";
 
-    <textarea className="comments-text-input" placeholder="Skriv din kommentar" value={newComment} onChange={e => commentOnChangeHandler(e.target.value)} />
+            if (newComment === "") {
+                text = text + " och kommentar.";
+            } else {
+                text = text + ".";
+            }
+        } else if (newComment === "") {
+            text = text + "kommentar.";
+        }
 
-    <div className="comments-name-buttons">
+        return text;
+    }
 
-        <input className="comments-name" type="text" placeholder="Ange namn" value={commentName} onChange={e => nameOnChangeHandler(e.target.value)} />
+    const addCommentOrThanksForComment = commentIsSent ? <div className="comments-thanks">
+        <h2 className="comments-thanks-text">Tack för din kommentar!</h2>
+    </div> : <div className="comments-add-comment">
 
-        <div className="comments-buttons">
-            <button onClick={() => cancelComment()} className="comments-button cancel" >Avbryt</button>
-            <button onClick={publishNewComment} className={fieldsAreValid ? "comments-button send" : "comments-button invalid-send"} >Skicka</button>
+        <div className="comments-title-amount">
+            <h2 className="comments-title">Kommentarer</h2>
+            <p className="comments-total-amount">({comments.length})</p>
         </div>
 
-    </div>
+        <textarea className={commentFieldWarning ? "comments-text-input comments-input invalid-field" : "comments-text-input comments-input"}
+            placeholder="Skriv din kommentar" value={newComment} onChange={e => commentOnChangeHandler(e.target.value)} />
 
-</div>
+        <div className="comments-name-buttons">
+
+            <input className={nameFieldWarning ? "comments-name comments-input invalid-field" : "comments-name comments-input"} type="text" placeholder="Ange namn" value={commentName} onChange={e => nameOnChangeHandler(e.target.value)} />
+
+            <div className="comments-buttons">
+                <button onClick={() => cancelComment()} className="comments-button cancel" >Avbryt</button>
+                <button onClick={publishNewComment} className={fieldsAreValid ? "comments-button send" : "comments-button invalid-send"}
+                    title={fieldsAreValid ? "" : toolTipText()} >Skicka</button>
+            </div>
+
+        </div>
+
+    </div>;
 
     return <>{addCommentOrThanksForComment}</>;
 }

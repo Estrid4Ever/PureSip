@@ -442,6 +442,18 @@ input[type=text] {
   }
 }
 
+.comments-input {
+  box-shadow: 0px 0px 0px 2px #ff000000;
+  transition: box-shadow 1s linear;
+  /* transition-delay: 1s; */
+  margin: 0.3em;
+}
+
+.invalid-field {
+  transition: none;
+  box-shadow: 0px 0px 0px 2px #ff0000c5;
+}
+
 .comments-list {
   list-style: none;
   margin: 0;
@@ -485,6 +497,11 @@ input[type=text] {
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  100% { opacity: 0; }
+  0% { opacity: 1; }
 }
 
 /* Hover-effekter */
