@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { postRecipeComments } from "../apiCalls";
 
 export default function AddComment({ comments, recipeId }) {

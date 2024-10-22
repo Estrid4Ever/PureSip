@@ -33,12 +33,12 @@ export default function HomePage() {
             if (categoryId) {
                 setSelectedCategory(categoryId);
             } else {
-                setSelectedCategory("all");
+                setSelectedCategory("Kategorier");
             }
 
             if(searchId){
                 setSearchTerm(searchId);
-                setSelectedCategory("all");
+                setSelectedCategory("Kategorier");
             } else {
                 setSearchTerm("");
             }
@@ -55,7 +55,7 @@ export default function HomePage() {
 
     // Filtrera recepten baserat på både sökord och vald kategori
     const filteredRecipes = recipes.filter(recipe =>
-        (selectedCategory === "all" || recipe.categories.includes(selectedCategory.toLowerCase())) &&  // Kategorifiltrering
+        (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory.toLowerCase())) &&  // Kategorifiltrering
         recipe.title.toLowerCase().includes(searchTerm.toLowerCase())  // Sökfiltrering
     );
 
