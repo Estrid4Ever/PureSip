@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchRecipeById, fetchAllRecipes } from "../apiCalls";
+import { fetchAllRecipes } from "../apiCalls";
 import { useParams } from "react-router-dom";
 import Header from './Header';
 import Recipe from "./Recipe";

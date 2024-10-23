@@ -1,11 +1,21 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import SelectMenu from './SelectMenu';
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Header({ recipes, setSearchTerm }) {
 
     const navigate = useNavigate();
     const [searchParam, setSearchParam] = useState("");
+    const [searchValue, setSearchValue] = useState("");
+    const { categoryId, searchId } = useParams();
+
+    useEffect(()=> {
+        if(!searchId) {
+            setSearchValue("");
+        }
+    },[categoryId, searchId])
+    
 
     // Dynamiskt generera kategorier från recepten
     const uniqueCategories = recipes && recipes.length > 0 ? [...new Set(
@@ -21,16 +31,15 @@ export default function Header({ recipes, setSearchTerm }) {
     ));
 
     function handleSearch(searchValue) {
-        setSearchTerm(searchValue)
+        setSearchValue(searchValue);
+        setSearchTerm(searchValue);
         setSearchParam("/search/" + searchValue);
-        console.log(searchParam)
     }
 
     
     function handleKeyDown(event) {
         
         if(event.code == 'Enter') {
-            console.log(searchParam)
             navigate(searchParam, { replace: true });
         }
     }
@@ -44,14 +53,15 @@ export default function Header({ recipes, setSearchTerm }) {
 
             <div className="search-categories">
 
-                <SelectMenu categoryOptions={categoryOptions} />
+                <SelectMenu categoryOptions={categoryOptions}/>
 
                 <div className='search-container'>
                     <input className="searchbar"
                         type="text"
                         name="search"
                         placeholder="Sök..."
-                        onChange={(e) => handleSearch(e.target.value)} // Uppdatera sökordet
+                        value={searchValue}
+                        onInput={(e) => handleSearch(e.target.value)} // Uppdatera sökordet
                         onKeyDown={(e) => handleKeyDown(e)}
                     />
                     <Link className="searchbar-icon" to={searchParam}>

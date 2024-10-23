@@ -12,38 +12,27 @@ import fetchAllRecipes from './apiCalls';
 import PreviewCard from './components/PreviewCard';
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <HomePage />,
-    },
-    {
-        path: "/category/:categoryId",
-        element: <HomePage />,
-    },
-    {
-        path: "/search/:searchId",
-        element: <HomePage />,
-    },
-    {
-        path: "/recipe/:recipeId",
-        element: <RecipePage />,
-    },
-    {
-        path: "/about",
-        element: <About />, // Rutt för Om PureSip
-    },
-    {
-        path: "/terms",
-        element: <Terms />, // Rutt för Allmänna villkor
-    },
-    {
-        path: "/privacy",
-        element: <Privacy />, // Rutt för Personuppgiftspolicy
-    },
-    {
-        path: "*",
-        element: <ErrorPage />,
-    },
+	{
+		path: "/",
+		element: <HomePage />,
+	},
+	{
+		path: "/category/:categoryId",
+		element: <HomePage />,
+	},
+	{
+		path: "/search/:searchId",
+		element: <HomePage />,
+	},
+	{
+		path: "/recipe/:recipeId",
+		element: <RecipePage />,
+	},
+	{
+		path: "*",
+		element: <ErrorPage />,
+	},
+
 ]);
 
 export default function App() {
