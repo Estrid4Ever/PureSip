@@ -106,7 +106,8 @@ export default function AddComment({ comments, recipeId }) {
 
         <div className="comments-name-buttons">
 
-            <input className={nameFieldWarning ? "comments-name comments-input invalid-field" : "comments-name comments-input"} type="text" placeholder="Ange namn" value={commentName} onChange={e => nameOnChangeHandler(e.target.value)} />
+            <input className={nameFieldWarning ? "comments-name comments-input invalid-field" : "comments-name comments-input"} 
+            type="text" placeholder="Ange namn" value={commentName} onChange={e => nameOnChangeHandler(e.target.value)} />
 
             <div className="comments-buttons">
                 <button onClick={() => cancelComment()} className="comments-button cancel" >Avbryt</button>
