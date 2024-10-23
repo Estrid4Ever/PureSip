@@ -40,7 +40,7 @@ export default function MainContainer({ recipes, filteredRecipes, selectedCatego
                 <i className="fa-solid fa-mug-hot"></i>
                 <i className="fa-solid fa-champagne-glasses"></i>
                 <i className="fa-solid fa-whiskey-glass"></i>
-                <i class="fa-solid fa-mug-saucer"></i>
+                <i className="fa-solid fa-mug-saucer"></i>
             </div>
 
             <div className="main-cards easy-cards">
