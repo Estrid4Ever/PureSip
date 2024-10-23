@@ -18,9 +18,10 @@
   height: 100%;
 
   scroll-snap-align: center;
+  scroll-snap-type: proximity;
 
   display: inline-block;
-  
+
 }
 
 .description {
@@ -32,7 +33,8 @@
 }
 
 .cardImg {
-  width: 100%;
+  width: 330px;
+  height: 330px;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
@@ -96,10 +98,51 @@ header {
   font-style: normal; */
 }
 
+.info-banner {
+  width: 100%;
+  background-image: url("/images/cocktailguiden-headline-1920-600-ny___media_library_original_1606_502.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+
+  & h2 {
+    padding: 5rem;
+    backdrop-filter: blur(4px);
+    text-shadow: 2px 2px var(--charcoal);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.homepage-main {
+  margin: 0 auto;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-cards {
+  /* width: fit-content; */
+  margin: 0 auto;
+  margin-bottom: 4rem;
+
+  & .main-cards-title {
+    margin: 0 auto;
+    color: var(--charcoal);
+    font-weight: 500;
+    /* margin-left: 1rem; */
+    margin-bottom: 0;
+    padding-bottom: .1rem;
+    padding-left: .5rem;
+    width: 1020px;
+    max-width: 95%;
+  }
+}
+
 .mainContainer {
   margin: 0 auto;
   width: 1020px;
-  max-width: 95%;
+  max-width: 100%;
 
   & a {
     margin: 0;
@@ -112,7 +155,7 @@ header {
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
-  gap: .5rem;
+  gap: .8rem;
 
   transform: rotateX(180deg);
 
@@ -125,6 +168,37 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
+}
+
+.homepage-article {
+  width: 900px;
+  max-width: 90%;
+  margin: 0 auto;
+  color: var(--charcoal);
+  display: flex;
+  margin-bottom: 3rem;
+  background-color: var(--tan);
+  gap: 1rem;
+  border-radius: 1rem;
+  & img {
+    max-width: 500px;
+    /* border-radius: .5rem; */
+  }
+
+  & div {
+    padding: 0rem 1rem 1rem 1rem;
+  }
+}
+
+.icons {
+  color: var(--gold);
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .searchbar-icon {
@@ -192,8 +266,24 @@ input[type=text] {
 }
 
 @media screen and (max-width:1040px) {
-  .mainContainer {
+  /* .mainContainer {
     grid-template-columns: repeat(2, 1fr);
+  } */
+
+  .sidescroll-container {
+    & a {
+      &:first-of-type {
+        margin-left: 1rem;
+      }
+  
+      &:last-of-type {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .homepage-article {
+    flex-direction: column;
   }
 
   .company-info {
@@ -222,9 +312,9 @@ input[type=text] {
 }
 
 @media screen and (max-width:700px) {
-  .mainContainer {
+  /* .mainContainer {
     grid-template-columns: auto;
-  }
+  } */
 }
 
 .recipe-detail-container {
@@ -237,7 +327,7 @@ input[type=text] {
   align-items: center;
   justify-content: space-evenly;
   padding: 2rem;
-  
+
   gap: 2rem;
 }
 
@@ -417,7 +507,7 @@ input[type=text] {
   padding: .5rem;
   margin: auto;
   width: 95%;
-  
+
 
   & input {
     background-color: var(--gold);
@@ -454,14 +544,15 @@ input[type=text] {
     background-color: var(--gold);
     color: var(--charcoal);
     width: 5rem;
-    
+
   }
 
   & .invalid-send {
     background-color: var(--gold);
     color: var(--charcoal);
     width: 5rem;
-    cursor:not-allowed;
+    cursor: not-allowed;
+
     &:hover {
       transform: none;
     }
@@ -495,7 +586,7 @@ input[type=text] {
     border-top: dotted 2px rgba(128, 128, 128, 0.445);
   }
 
-  & li:first-of-type{
+  & li:first-of-type {
     border: none;
   }
 }
@@ -506,7 +597,7 @@ input[type=text] {
   justify-content: space-between;
 }
 
-.comments-name-date h4, 
+.comments-name-date h4,
 .comments-name-date p {
   margin: .5rem;
 }
@@ -526,17 +617,27 @@ input[type=text] {
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  100% { opacity: 0; }
-  0% { opacity: 1; }
+  100% {
+    opacity: 0;
+  }
+
+  0% {
+    opacity: 1;
+  }
 }
 
 /* Hover-effekter */
 .category-select:hover {
-  background-color: var(--tan);  
+  background-color: var(--tan);
   outline: none;
 }

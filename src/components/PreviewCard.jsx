@@ -3,6 +3,12 @@ import PrepTime from "./PrepTime";
 import { Outlet, Link, useLoaderData } from "react-router-dom";
 
 export default function PreviewCard({ recipes }) {
+
+	function shortenDescription(text) {
+		const sentences = text.split(".");
+		return sentences[0] + "."
+	}
+
 	const cards = recipes.map((dish) => (
 		<Link key={dish._id} to={`/recipe/${dish._id}`}>
 			<div className="card">
@@ -20,7 +26,7 @@ export default function PreviewCard({ recipes }) {
 					<PrepTime dish={dish} />
 				</div>
 
-				<p className="description">{dish.description}</p>
+				<p className="description">{shortenDescription(dish.description)}</p>
 			</div>
 		</Link>
 	));

@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { fetchAllRecipes } from '../apiCalls';
 import { useParams } from "react-router-dom";
 import Header from './Header';
-import PreviewCard from './PreviewCard';
 import Footer from "./Footer";
+import InfoBanner from "./InfoBanner";
+import MainContainer from "./MainContainer";
 
 export default function HomePage() {
 
@@ -30,18 +31,18 @@ export default function HomePage() {
                 setLoading(false);
             });
 
-            if (categoryId) {
-                setSelectedCategory(categoryId);
-            } else {
-                setSelectedCategory("Kategorier");
-            }
+        if (categoryId) {
+            setSelectedCategory(categoryId);
+        } else {
+            setSelectedCategory("Kategorier");
+        }
 
-            if(searchId){
-                setSearchTerm(searchId);
-                setSelectedCategory("Kategorier");
-            } else {
-                setSearchTerm("");
-            }
+        if (searchId) {
+            setSearchTerm(searchId);
+            setSelectedCategory("Kategorier");
+        } else {
+            setSearchTerm("");
+        }
 
     }, [categoryId, searchId]);
 
@@ -65,7 +66,13 @@ export default function HomePage() {
                 setSearchTerm={setSearchTerm}
                 recipes={recipes}
             />
-            <PreviewCard recipes={filteredRecipes} />  {/* Använd filtrerade recept */}         
+            <InfoBanner />
+            <MainContainer 
+                recipes={recipes} 
+                filteredRecipes={filteredRecipes}
+                selectedCategory={selectedCategory}
+                searchTerm={searchTerm}
+                />
             <Footer />
         </>
     );
