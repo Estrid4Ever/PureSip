@@ -27,7 +27,7 @@ export default function PreviewCard({ recipes }) {
 
 	return (
 		<>
-			<main className="mainContainer">{cards}</main>
+			<main className="mainContainer sidescroll-container">{cards}</main>
 		</>
 	);
 }
