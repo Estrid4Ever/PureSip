@@ -11,11 +11,16 @@
 .card {
   background: var(--gold);
   color: var(--charcoal);
-  margin: .5rem;
+  /* margin: .5rem; */
   border-radius: .5rem;
-  max-width: 360px;
+  max-width: 330px;
   min-width: 330px;
   height: 100%;
+
+  scroll-snap-align: center;
+
+  display: inline-block;
+  
 }
 
 .description {
@@ -85,15 +90,41 @@ header {
 
 .header-title-link {
   color: var(--charcoal);
+  /* font-family: "Rowdies", sans-serif;
+  font-size: x-large;
+  font-weight:400;
+  font-style: normal; */
 }
 
 .mainContainer {
   margin: 0 auto;
-  max-width: 1280px;
-  width: fit-content;
+  width: 1020px;
+  max-width: 95%;
+
+  & a {
+    margin: 0;
+    padding: .5rem 0;
+  }
+}
+
+.sidescroll-container {
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  gap: .5rem;
+
+  transform: rotateX(180deg);
+
+  & a>div {
+    transform: rotateX(180deg);
+  }
+}
+
+.grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 1rem;
+  column-gap: 1rem;
 }
 
 .searchbar-icon {
@@ -253,7 +284,7 @@ input[type=text] {
 }
 
 .subscription h3 {
-  color: var(--gold);
+  color: var(--charcoal);
 }
 
 .subscription-form input {

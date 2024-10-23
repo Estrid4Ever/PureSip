@@ -64,7 +64,8 @@ export default function HomePage() {
                 setSearchTerm={setSearchTerm}
                 recipes={recipes}
             />
-            <PreviewCard recipes={filteredRecipes} />  {/* Använd filtrerade recept */}
+            <PreviewCard recipes={filteredRecipes} />  {/* Använd filtrerade recept */}         
+            <Footer />
         </>
     );
 }
