@@ -10,17 +10,16 @@ export default function Header({ recipes, setSearchTerm }) {
     const [searchValue, setSearchValue] = useState("");
     const { categoryId, searchId } = useParams();
 
-    useEffect(()=> {
-        if(!searchId) {
+    useEffect(() => {
+        if (!searchId) {
             setSearchValue("");
         }
-    },[categoryId, searchId])
-    
+    }, [categoryId, searchId]);
 
     // Dynamiskt generera kategorier från recepten
     const uniqueCategories = recipes && recipes.length > 0 ? [...new Set(
         recipes
-            .flatMap(drink => drink.categories || [])  // Säkerställ att drink.categories existerar
+            .flatMap(drink => drink.categories || [])
             .map(category => category.charAt(0).toUpperCase() + category.slice(1).toLowerCase())
     )] : [];
 
@@ -36,24 +35,21 @@ export default function Header({ recipes, setSearchTerm }) {
         setSearchParam("/search/" + searchValue);
     }
 
-    
     function handleKeyDown(event) {
-        
-        if(event.code == 'Enter') {
+        if (event.code === 'Enter') {
             navigate(searchParam, { replace: true });
         }
     }
-    
+
     return (
         <header className="header-container">
 
             <Link className="header-title-link" to={`/`}>
                 <h1 className="header-title">PureSip</h1>
-            </Link>  {/* Titel */}
+            </Link>
 
             <div className="search-categories">
-
-                <SelectMenu categoryOptions={categoryOptions}/>
+                <SelectMenu categoryOptions={categoryOptions} />
 
                 <div className='search-container'>
                     <input className="searchbar"
@@ -61,18 +57,16 @@ export default function Header({ recipes, setSearchTerm }) {
                         name="search"
                         placeholder="Sök..."
                         value={searchValue}
-                        onInput={(e) => handleSearch(e.target.value)} // Uppdatera sökordet
+                        onInput={(e) => handleSearch(e.target.value)}
                         onKeyDown={(e) => handleKeyDown(e)}
                     />
                     <Link className="searchbar-icon" to={searchParam}>
-
                         <i className="fas fa-search"></i>
-
                     </Link>
                 </div>
-
             </div>
 
         </header>
     );
 }
+

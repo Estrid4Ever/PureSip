@@ -3,21 +3,62 @@ import { fetchAllRecipes } from '../apiCalls';
 import { useParams } from "react-router-dom";
 import Header from './Header';
 import PreviewCard from './PreviewCard';
+import Footer from "./Footer";
 
 export default function HomePage() {
 
-    const [recipes, setRecipes] = useState([]);  // State för att hålla recepten
-    const [loading, setLoading] = useState(true);  // State för laddning
-    const [error, setError] = useState(null);  // State för felhantering
-    const [searchTerm, setSearchTerm] = useState("");  // State för sökord
-    const [selectedCategory, setSelectedCategory] = useState("");  // State för vald kategori
+    const [recipes, setRecipes] = useState([]);  
+    const [loading, setLoading] = useState(true);  
+    const [error, setError] = useState(null);  
+    const [searchTerm, setSearchTerm] = useState("");  
+    const [selectedCategory, setSelectedCategory] = useState("");  
     const { categoryId, searchId } = useParams();
+
+    
+    const exampleDifficultDrinks = [
+        {
+            id: 1,
+            title: "Blueberry Cooler",
+            difficulty: "Svår",
+            imageUrl: "src/assets/images/Bluerry cooler.jpg",
+            description: "En uppfriskande bärdrink.",
+            categories: ["mocktails"],
+            time: 7
+        },
+        {
+            id: 2,
+            title: "Golden Milk (Gurkmejalatte)",
+            difficulty: "Svår",
+            imageUrl: "src/assets/images/Golden Milk - Gurkmejalatte.jpg",
+            description: "En kryddig varm dryck med gurkmeja.",
+            categories: ["varma-drycker"],
+            time: 10
+        },
+        {
+            id: 3,
+            title: "Varm Choklad med Havremjölk",
+            difficulty: "Svår",
+            imageUrl: "src/assets/images/Varm choklad med havremjölk.jpg",
+            description: "En rik och krämig chokladdryck.",
+            categories: ["varma-drycker"],
+            time: 8
+        },
+        {
+            id: 4,
+            title: "Chai Latte",
+            difficulty: "Svår",
+            imageUrl: "src/assets/images/Chai Latte.jpg",
+            description: "En varm och kryddig dryck med mjölk.",
+            categories: ["varma-drycker"],
+            time: 9
+        }
+    ];
 
     useEffect(() => {
         fetchAllRecipes()
             .then((data) => {
                 if (data) {
-                    setRecipes(data);  // Sätt recepten
+                    setRecipes(data); 
                 } else {
                     setError("No data available");
                 }
@@ -29,18 +70,18 @@ export default function HomePage() {
                 setLoading(false);
             });
 
-            if (categoryId) {
-                setSelectedCategory(categoryId);
-            } else {
-                setSelectedCategory("Kategorier");
-            }
+        if (categoryId) {
+            setSelectedCategory(categoryId);
+        } else {
+            setSelectedCategory("Kategorier");
+        }
 
-            if(searchId){
-                setSearchTerm(searchId);
-                setSelectedCategory("Kategorier");
-            } else {
-                setSearchTerm("");
-            }
+        if (searchId) {
+            setSearchTerm(searchId);
+            setSelectedCategory("Kategorier");
+        } else {
+            setSearchTerm("");
+        }
 
     }, [categoryId, searchId]);
 
@@ -52,21 +93,32 @@ export default function HomePage() {
         return <p>{error}</p>;  // Visa felmeddelande
     }
 
-    // Filtrera recepten baserat på både sökord och vald kategori
+    
     const filteredRecipes = recipes.filter(recipe =>
-        (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory.toLowerCase())) &&  // Kategorifiltrering
-        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())  // Sökfiltrering
+        (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory.toLowerCase())) &&  
+        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())  
     );
 
     return (
         <>
             <Header
                 setSearchTerm={setSearchTerm}
-                recipes={recipes}
+                recipes={recipes} 
             />
-            <PreviewCard recipes={filteredRecipes} />  {/* Använd filtrerade recept */}         
-            <Footer />
+            <PreviewCard recipes={filteredRecipes} />  
+
+            
+            <h2>Svår</h2>
+            {exampleDifficultDrinks.length > 0 ? (
+                <PreviewCard recipes={exampleDifficultDrinks} />
+            ) : (
+                <p>Inga svåra drinkar tillgängliga.</p>
+            )}
+
+            
         </>
     );
 }
+
+
 
