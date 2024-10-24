@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { fetchAllRecipes } from '../apiCalls';
 import { useParams } from "react-router-dom";
 import Header from './Header';
-import PreviewCard from './PreviewCard';
 import Footer from "./Footer";
+import InfoBanner from "./InfoBanner";
+import MainContainer from "./MainContainer";
 
 export default function HomePage() {
 
@@ -116,6 +117,14 @@ export default function HomePage() {
             )}
 
             
+            <InfoBanner />
+            <MainContainer 
+                recipes={recipes} 
+                filteredRecipes={filteredRecipes}
+                selectedCategory={selectedCategory}
+                searchTerm={searchTerm}
+                />
+            <Footer />
         </>
     );
 }
