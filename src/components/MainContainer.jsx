@@ -26,7 +26,7 @@ export default function MainContainer({ recipes, filteredRecipes, selectedCatego
 
     const fiveRandomRecipes = [...recipes].sort(() => Math.random() - 0.5).slice(0, 5);
 
-    const fourRandomRecipes = [...recipes].sort(() => Math.random() - 0.5).slice(0, 4);
+    const topFiveRecipes = [...recipes].sort((a, b) => b.avgRating - a.avgRating).slice(0, 5);
 
     return (
         <div className="homepage-main">
@@ -51,8 +51,8 @@ export default function MainContainer({ recipes, filteredRecipes, selectedCatego
             <CategoryArticles />
 
             <div className="main-cards easy-cards">
-                <h2 className='main-cards-title easy-cards-title'>Populära</h2>
-                <PreviewCard recipes={fourRandomRecipes} />  {/* Använd filtrerade recept */}
+                <h2 className='main-cards-title easy-cards-title'>Populära val</h2>
+                <PreviewCard recipes={topFiveRecipes} />  {/* Använd filtrerade recept */}
             </div>
         </div>
     );

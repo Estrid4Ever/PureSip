@@ -233,7 +233,7 @@ header {
     min-width: 100%;
     color: var(--charcoal);
     display: flex;
-    margin-bottom: 3rem;
+    margin-bottom: .5rem;
     background-color: var(--tan);
     /* gap: 1rem; */
     border-radius: 1rem;
