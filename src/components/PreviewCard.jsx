@@ -1,12 +1,19 @@
 import StarRating from "./StarRating";
 import PrepTime from "./PrepTime";
 import { Outlet, Link, useLoaderData } from "react-router-dom";
+import React, { useRef } from "react";
 
 export default function PreviewCard({ recipes }) {
 
+	const cardRef = useRef(0);
+
+	const scroll = (scrollOffset) => {
+		cardRef.current.scrollLeft += scrollOffset;
+	};
+
 	function shortenDescription(text) {
 		const sentences = text.split(".");
-		return sentences[0] + "."
+		return sentences[0] + ".";
 	}
 
 	const cards = recipes.map((dish) => (
@@ -31,9 +38,20 @@ export default function PreviewCard({ recipes }) {
 		</Link>
 	));
 
+	
+
+	var scrollButtons = recipes.length > 3 ? <div className="scroll-buttons">
+		<button onClick={() => scroll(-330)}><i className="fa-solid fa-angle-left"></i></button>
+		<button onClick={() => scroll(330)}><i className="fa-solid fa-angle-right"></i></button>
+	</div> : recipes.length <= 1 ? <></> : <div className="scroll-buttons" id="three-or-less">
+		<button onClick={() => scroll(-330)}><i className="fa-solid fa-angle-left"></i></button>
+		<button onClick={() => scroll(330)}><i className="fa-solid fa-angle-right"></i></button>
+	</div>;
+
 	return (
 		<>
-			<main className="mainContainer sidescroll-container">{cards}</main>
+			<main ref={cardRef} className="mainContainer sidescroll-container">{cards}</main>
+			{scrollButtons}
 		</>
 	);
 }

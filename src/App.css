@@ -155,16 +155,48 @@ header {
 
 .sidescroll-container {
   scroll-snap-type: x mandatory;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   display: flex;
   gap: .8rem;
+  scroll-behavior: smooth;
 
   transform: rotateX(180deg);
 
   & a>div {
     transform: rotateX(180deg);
   }
+}
+
+#three-or-less {
+  display: none;
+}
+
+.scroll-buttons {
+
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 95%;
+
+  & button {
+    background-color: #0000008f;
+    border-radius: .3rem;
+    cursor: pointer;
+    border: none;
+    color: var(--gold);
+    font-size: 3rem;
+    display: inline-block;
+    position: relative;
+    top: -20rem;
+
+    transition: all ease-out 0.2s;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+
 }
 
 .grid-container {
@@ -299,6 +331,10 @@ input[type=text] {
       &:last-of-type {
         margin-right: 1rem;
       }
+
+      &:only-of-type {
+        margin: auto;
+      }
     }
   }
 
@@ -344,6 +380,10 @@ input[type=text] {
 }
 
 @media screen and (max-width:750px) {
+
+  #three-or-less {
+    display: flex;
+  }
 
   .homepage-article {
     display: flex;
