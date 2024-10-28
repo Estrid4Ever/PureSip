@@ -41,6 +41,7 @@ export default function PreviewCard({ recipes }) {
 					poster={dish.imageUrl}
 					onMouseOver={event => setSrcAndPlay(event)}
 					onMouseOut={event => deleteSrcAndPause(event)}
+					onEnded={() => setVideoSrc("")}
 					src={videoSrc} >
 				</video>
 				{/* <img

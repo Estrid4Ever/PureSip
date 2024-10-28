@@ -278,7 +278,7 @@ header {
   width: 500px;
   max-width: 100%;
   margin: 0 auto;
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
   font-size: 3rem;
   display: flex;
   justify-content: space-evenly;
