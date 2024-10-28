@@ -182,6 +182,7 @@ header {
   justify-content: space-between;
   margin: 0 auto;
   width: 95%;
+  height: 0;
 
   & button {
     background-color: #0000008f;
@@ -193,6 +194,7 @@ header {
     display: inline-block;
     position: relative;
     top: -20rem;
+    height: fit-content;
 
     transition: all ease-out 0.2s;
 
