@@ -127,7 +127,7 @@ header {
   /* width: fit-content; */
   max-width: 100%;
   margin: 0 auto;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
 
   & .main-cards-title {
     margin: 0 auto;
@@ -148,13 +148,9 @@ header {
   max-width: 100%;
 
   & a {
-    
+
     margin: 0;
     padding: .5rem 0;
-
-    &::hover {
-      video: url(https://videos.pexels.com/video-files/854128/854128-sd_640_360_25fps.mp4);
-    }
   }
 }
 
@@ -168,7 +164,8 @@ header {
 
   transform: rotateX(180deg);
 
-  & a>div {
+  & a>div,
+  article {
     transform: rotateX(180deg);
   }
 }
@@ -176,6 +173,8 @@ header {
 #three-or-less {
   display: none;
 }
+
+
 
 .scroll-buttons {
 
@@ -209,40 +208,59 @@ header {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
 }
-/* 940-1060 img problem */
-.homepage-article {
-  width: 900px;
+
+.category-articles {
+  width: 1020px;
   max-width: 90%;
-  margin: 0 auto;
-  color: var(--charcoal);
-  display: flex;
-  margin-bottom: 3rem;
-  background-color: var(--tan);
-  /* gap: 1rem; */
-  border-radius: 1rem;
-  
-  & img {
-    display: block;
-    width: 500px;
-    max-width: 100%;
-    height: auto;
-    float: left;
-    border-top-left-radius: .5rem;
-    border-bottom-left-radius: .5rem;
+
+  & div>button {
+    top: -15rem;
   }
+}
 
-  & div {
-    padding: 0rem 1rem 1rem 1rem;
-    text-align: justify;
+/* 940-1060 img problem */
+.homepage-articles {
+  
+  
+  margin: 0 auto;
 
-    & h2 {
-      margin-bottom: 0;
-      margin-top: .5em;
+  & article {
+    scroll-snap-align: center;
+    scroll-snap-type: proximity;
+
+    display: inline-block;
+
+    min-width: 100%;
+    color: var(--charcoal);
+    display: flex;
+    margin-bottom: 3rem;
+    background-color: var(--tan);
+    /* gap: 1rem; */
+    border-radius: 1rem;
+
+    & img {
+      display: block;
+      width: 500px;
+      /* max-width: 100%; */
+      height: auto;
+      float: left;
+      border-top-left-radius: .5rem;
+      border-bottom-left-radius: .5rem;
     }
 
-    & p {
-      margin-top: .5em;
-      margin-bottom: .5em;
+    & div {
+      padding: 0rem 1rem 1rem 1rem;
+      text-align: justify;
+
+      & h2 {
+        margin-bottom: 0;
+        margin-top: .5em;
+      }
+
+      & p {
+        margin-top: .5em;
+        margin-bottom: .5em;
+      }
     }
   }
 }
@@ -332,7 +350,7 @@ input[type=text] {
       &:first-of-type {
         margin-left: 1rem;
       }
-  
+
       &:last-of-type {
         margin-right: 1rem;
       }
@@ -343,7 +361,7 @@ input[type=text] {
     }
   }
 
-  
+
 
   .company-info {
     margin: auto;
@@ -371,15 +389,18 @@ input[type=text] {
 }
 
 @media screen and (max-width:960px) {
-  .homepage-article {
-    /* flex-direction: column; */
-    display: inline-block;
-    align-self: center;
-    text-align: center;
+  .homepage-articles {
+    & article {
 
-    & img {
-      margin-right: 1rem;
-      border-bottom-left-radius: 0;
+      /* flex-direction: column; */
+      display: inline-block;
+      align-self: center;
+      text-align: center;
+
+      & img {
+        margin-right: 1rem;
+        border-bottom-left-radius: 0;
+      }
     }
   }
 }
@@ -390,14 +411,18 @@ input[type=text] {
     display: flex;
   }
 
-  .homepage-article {
-    display: flex;
-    flex-direction: column;
+  .homepage-articles {
 
-    & img {
-      margin: 0 auto;
-      width: 100%;
-      border-top-right-radius: .5rem;
+    & article {
+
+      display: flex;
+      flex-direction: column;
+
+      & img {
+        margin: 0 auto;
+        width: 100%;
+        border-top-right-radius: .5rem;
+      }
     }
   }
 
@@ -736,8 +761,10 @@ input[type=text] {
 
 /* Mörk bakgrund när betyg ges */
 .dark-background {
-  background-color: rgba(0, 0, 0, 0.5); /* Mörkare bakgrund */
-  transition: background-color 0.3s ease; /* Smidig övergång */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Mörkare bakgrund */
+  transition: background-color 0.3s ease;
+  /* Smidig övergång */
 }
 
 .star-rating {
@@ -749,14 +776,20 @@ input[type=text] {
 }
 
 .star {
-  font-size: 24px; /* Justera storleken på stjärnorna om nödvändigt */
-  color: black; /* Gör stjärnorna svarta */
-  cursor: pointer; /* Gör stjärnorna klickbara */
+  font-size: 24px;
+  /* Justera storleken på stjärnorna om nödvändigt */
+  color: black;
+  /* Gör stjärnorna svarta */
+  cursor: pointer;
+  /* Gör stjärnorna klickbara */
 }
 
 .star.filled {
-  color: gold; /* Fyllt stjärnor ska också vara svarta */
+  color: gold;
+  /* Fyllt stjärnor ska också vara svarta */
 }
+
 .star.hovered {
-  color: gold; /* Change color when hovered */
+  color: gold;
+  /* Change color when hovered */
 }
