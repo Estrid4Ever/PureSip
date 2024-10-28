@@ -148,8 +148,13 @@ header {
   max-width: 100%;
 
   & a {
+    
     margin: 0;
     padding: .5rem 0;
+
+    &::hover {
+      video: url(https://videos.pexels.com/video-files/854128/854128-sd_640_360_25fps.mp4);
+    }
   }
 }
 

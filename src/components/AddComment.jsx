@@ -12,17 +12,17 @@ export default function AddComment({ comments, recipeId }) {
 
     const publishNewComment = () => {
 
-        if (commentName === "" || newComment === "") {
+        if (commentName.trim() === "" || newComment.trim() === "") {
             setFieldsAreValid(false);
 
-            if (commentName === "") {
+            if (commentName.trim() === "") {
                 setNameFieldWarning(true);
-                
+                setCommentName("");
             }
 
-            if (newComment === "") {
+            if (newComment.trim() === "") {
                 setCommentFieldWarning(true);
-                
+                setNewComment("");
             }
 
             setTimeout(function(){
@@ -31,20 +31,22 @@ export default function AddComment({ comments, recipeId }) {
             }, 1000);
 
             return;
+        } else {
+
+            const date = new Date();
+    
+            const newCommentData = {
+                "name": commentName,
+                "comment": newComment
+            };
+    
+            postRecipeComments(recipeId, newCommentData).then((data) => {
+                console.log(data);
+            });
+    
+            setCommentIsSet(true);
         }
 
-        const date = new Date();
-
-        const newCommentData = {
-            "name": commentName,
-            "comment": newComment
-        };
-
-        postRecipeComments(recipeId, newCommentData).then((data) => {
-            console.log(data);
-        });
-
-        setCommentIsSet(true);
 
     };
 
@@ -57,7 +59,7 @@ export default function AddComment({ comments, recipeId }) {
     function commentOnChangeHandler(value) {
         setNewComment(value);
 
-        if (commentName !== "" && newComment !== "") {
+        if (commentName.trim() !== "" && newComment.trim() !== "") {
             setFieldsAreValid(true);
         } else {
             setFieldsAreValid(false);
@@ -67,7 +69,7 @@ export default function AddComment({ comments, recipeId }) {
     function nameOnChangeHandler(value) {
         setCommentName(value);
 
-        if (commentName !== "" && newComment !== "") {
+        if (commentName.trim() !== "" && newComment.trim() !== "") {
             setFieldsAreValid(true);
         } else {
             setFieldsAreValid(false);
