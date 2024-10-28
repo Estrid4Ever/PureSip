@@ -61,8 +61,39 @@ async function postRecipeComments(recipeId ,commentData) {
         console.error('Error fetching data:', error);
     }
 }
+async function postRecipeRating(recipeId ,ratingData) {
+      
+    try {
+        const response = await fetch(`https://recept8-turen.reky.se/recipes/${recipeId}/ratings`, {  // Enter your IP address here
 
-export {fetchAllRecipes, fetchRecipeById, fetchRecipeComments, postRecipeComments}
+            method: 'POST',  
+            body: JSON.stringify(ratingData),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              }
+            
+          });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+export const fetchRecipesWithRatings = async () => {
+    try {
+        const response = await axios.get('/api/recipes'); // Adjust endpoint as necessary
+        return response.data; // Assuming this returns recipes with ratings included
+    } catch (error) {
+        console.error("Error fetching recipes:", error);
+        throw error;
+    }
+};
+
+export {fetchAllRecipes, fetchRecipeById, fetchRecipeComments, postRecipeComments, postRecipeRating, }
 
 //this is only a temporary function for updating info in the db.
 

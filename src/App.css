@@ -376,6 +376,7 @@ input[type=text] {
 }
 
 .recipe-name {
+  font-family: 'Cormorant Garamond', serif;
   color: var(--charcoal);
   text-align: center;
   margin-bottom: 0;
@@ -684,4 +685,33 @@ input[type=text] {
 .category-select:hover {
   background-color: var(--tan);
   outline: none;
+}
+
+/* STAR RATING */
+
+/* Mörk bakgrund när betyg ges */
+.dark-background {
+  background-color: rgba(0, 0, 0, 0.5); /* Mörkare bakgrund */
+  transition: background-color 0.3s ease; /* Smidig övergång */
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  color: black;
+}
+
+.star {
+  font-size: 24px; /* Justera storleken på stjärnorna om nödvändigt */
+  color: black; /* Gör stjärnorna svarta */
+  cursor: pointer; /* Gör stjärnorna klickbara */
+}
+
+.star.filled {
+  color: gold; /* Fyllt stjärnor ska också vara svarta */
+}
+.star.hovered {
+  color: gold; /* Change color when hovered */
 }
