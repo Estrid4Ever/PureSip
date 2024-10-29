@@ -15,22 +15,31 @@ export default function StarRating({ dish }) {
         endIndex = i;
     }
 
-    if(endIndex < 5) {
-        var decimal = dish.avgRating % 1;
-        var rounded = Math.round(decimal * 10) / 10
-
-        console.log(dish.title + " rating-decimal: " + decimal)
-
-        //switch för 0.25, 0.5 och 0.75
-
-        starClass[endIndex + 1] = starClass[endIndex + 1] + " partial-checked";
-    }
 
     const stars = starClass.map((star, index) =>
         <span key={index} className={star}></span>
     );
 
-    return <><div className="rating">
+    if (endIndex < 5) {
+
+        var decimalInPercent = Math.round((dish.avgRating % 1) * 100);
+
+        if (decimalInPercent !== 0) {
+
+            const mystyle = {
+                background: `linear-gradient(to right, yellow ${decimalInPercent}%, var(--tan) ${decimalInPercent}%)`,
+            };
+
+            stars[endIndex + 1] = <span key={endIndex + 1} className={starClass[endIndex + 1]} id="checked-partial" style={mystyle}></span >;
+
+        } else {
+            
+            stars[endIndex + 1] = <span key={endIndex + 1} className={starClass[endIndex + 1] + " checked"}></span >;
+        }
+
+    }
+
+    return <><div className="rating" title={`${Math.round(dish.avgRating * 10) / 10} av 5 Stjärnor`}>
         {stars}
         {/* <span> ({dish.ratings.length})</span> */}
     </div></>;

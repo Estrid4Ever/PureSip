@@ -82,9 +82,8 @@
   color: yellow;
 }
 
-.partial-checked {
-  background: linear-gradient(to right, yellow 50%, var(--tan) 50%);
-  background-clip: text;
+#checked-partial {
+  background-clip: text !important;
   color: transparent;
 }
 
@@ -185,8 +184,6 @@ header {
 #three-or-less {
   display: none;
 }
-
-
 
 .scroll-buttons {
 
