@@ -1,13 +1,12 @@
 import StarRating from "./StarRating";
 import PrepTime from "./PrepTime";
+import CardMedia from "./CardMedia";
 import { Outlet, Link, useLoaderData } from "react-router-dom";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 export default function PreviewCard({ recipes }) {
 
 	const cardRef = useRef(0);
-
-	const [videoSrc, setVideoSrc] = useState("https://videos.pexels.com/video-files/854128/854128-sd_640_360_25fps.mp4");
 
 	const scroll = (scrollOffset) => {
 		cardRef.current.scrollLeft += scrollOffset;
@@ -18,38 +17,10 @@ export default function PreviewCard({ recipes }) {
 		return sentences[0] + ".";
 	}
 
-	function setSrcAndPlay(event) {
-		setVideoSrc(`https://videos.pexels.com/video-files/854128/854128-sd_640_360_25fps.mp4`);
-
-		setTimeout(function () {
-			event.target.play();
-		}, 1);
-	}
-
-	function deleteSrcAndPause(event) {
-		event.target.pause();
-		setVideoSrc("");
-	}
-
-	const cards = recipes.map((dish) => (
+	const cards = recipes.map((dish, index) => (
 		<Link key={dish._id} to={`/recipe/${dish._id}`}>
 			<div className="card">
-				<video
-					key={dish._id}
-					className="cardImg"
-					alt={`Picture of ` + dish.title}
-					poster={dish.imageUrl}
-					onMouseOver={event => setSrcAndPlay(event)}
-					onMouseOut={event => deleteSrcAndPause(event)}
-					onEnded={() => setVideoSrc("")}
-					src={videoSrc} >
-				</video>
-				{/* <img
-					className="cardImg"
-					src={dish.imageUrl}
-					alt={`Picture of ` + dish.title}
-				/> */}
-
+				<CardMedia dish={dish}/>
 				<h2 className="cardTitle">{dish.title}</h2>
 
 				<div className="rating-time">
