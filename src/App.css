@@ -70,7 +70,7 @@
 
 .fa {
   padding-right: 1px;
-  color: aliceblue;
+  color: var(--tan);
 }
 
 .clock {
@@ -80,6 +80,12 @@
 
 .checked {
   color: yellow;
+}
+
+.partial-checked {
+  background: linear-gradient(to right, yellow 50%, var(--tan) 50%);
+  background-clip: text;
+  color: transparent;
 }
 
 header {
