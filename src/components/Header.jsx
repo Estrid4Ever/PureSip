@@ -10,12 +10,12 @@ export default function Header({ recipes, setSearchTerm }) {
     const [searchValue, setSearchValue] = useState("");
     const { categoryId, searchId } = useParams();
 
-    useEffect(()=> {
-        if(!searchId) {
+    useEffect(() => {
+        if (!searchId) {
             setSearchValue("");
         }
-    },[categoryId, searchId])
-    
+    }, [categoryId, searchId]);
+
 
     // Dynamiskt generera kategorier från recepten
     const uniqueCategories = recipes && recipes.length > 0 ? [...new Set(
@@ -36,24 +36,28 @@ export default function Header({ recipes, setSearchTerm }) {
         setSearchParam("/search/" + searchValue);
     }
 
-    
+
     function handleKeyDown(event) {
-        
-        if(event.code == 'Enter') {
+
+        if (event.code == 'Enter') {
             navigate(searchParam, { replace: true });
         }
     }
-    
+
     return (
         <header className="header-container">
 
-            <Link className="header-title-link" to={`/`}>
-                <h1 className="header-title">PureSip</h1>
-            </Link>  {/* Titel */}
+            <div>
+                <Link className="header-title-link" to={`/`}>
+                    <h1 className="header-title">PureSip</h1>
+                </Link>  {/* Titel */}
+
+                <img src="/PureSip_Logo-small.png" alt="puresip logo" />
+            </div>
 
             <div className="search-categories">
 
-                <SelectMenu categoryOptions={categoryOptions}/>
+                <SelectMenu categoryOptions={categoryOptions} />
 
                 <div className='search-container'>
                     <input className="searchbar"

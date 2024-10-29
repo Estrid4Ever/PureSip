@@ -95,6 +95,20 @@ header {
   padding-right: 1rem;
   color: var(--charcoal);
   background: linear-gradient(180deg, var(--tan) 0%, var(--cream) 100%);
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    & img {
+      width: 7rem;
+      height: auto;
+      margin: 2rem 0rem 2rem 2rem;
+    }
+
+
+  }
 }
 
 .header-title-link {
@@ -103,6 +117,15 @@ header {
   font-size: x-large;
   font-weight:400;
   font-style: normal; */
+}
+
+.info-text{
+  width: 900px;
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--charcoal);
+  font-style: italic;
 }
 
 .info-banner {
@@ -249,11 +272,13 @@ header {
     /* gap: 1rem; */
     border-radius: 1rem;
 
+    cursor: pointer;
+
     & img {
       display: block;
-      width: 500px;
+      width: auto;
       /* max-width: 100%; */
-      height: auto;
+      max-height: 500px;
       float: left;
       border-top-left-radius: .5rem;
       border-bottom-left-radius: .5rem;
