@@ -22,7 +22,7 @@ export default function CategoryArticles() {
         {
             img: "/images/Mocktails.jpg",
             imgAlt: "Bild på en mocktail.",
-            navUrl: "/category/mocktails",
+            navUrl: "/category/Mocktails",
             title: "Varför mocktails?",
             text: "Mocktails är perfekta för dig som vill njuta av festliga smaker utan alkohol. De är smakrika och kan göras med färska frukter, örter och kryddor för en uppfriskande upplevelse. Oavsett om det är en vardagskväll eller en fest, ger mocktails en lyxig känsla och är enkla att anpassa efter säsong och smak."
         },
@@ -43,7 +43,7 @@ export default function CategoryArticles() {
         {
             img: "/images/Juicer.jpg",
             imgAlt: "Bild på olika juicer och frukter.",
-            navUrl: "/category/juicer",
+            navUrl: "/category/Juicer",
             title: "Varför juicer?",
             text: "Juicer är fulla av naturlig smak och näring, perfekta för att få i sig frukt och grönsaker på ett enkelt sätt. De är lätta att anpassa med olika ingredienser för en fräsch och uppiggande dryck som ger energi och hjälper till att hålla vätskebalansen."
         },
@@ -56,7 +56,7 @@ export default function CategoryArticles() {
     </div>;
 
     const articles = articlesData.map(article => 
-        <article onClick={() => navigate(article.navUrl, { replace: true })}>
+        <article key={article.title} onClick={() => navigate(article.navUrl, { replace: true })}>
             <img src={article.img} alt={article.imgAlt} />
             <div>
                 <h2>{article.title}</h2>

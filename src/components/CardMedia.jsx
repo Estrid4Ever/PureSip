@@ -5,6 +5,7 @@ export default function CardMedia({ dish }) {
     const [videoSrc, setVideoSrc] = useState("");
 
     const [isVideoAvailable, setIsVideoAvailable] = useState(false);
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
     useEffect(() => {
         // Check if the video URL is accessible
@@ -18,6 +19,7 @@ export default function CardMedia({ dish }) {
                     response.headers.forEach((header) => {
                         if (header === "video/mp4") {
                             setIsVideoAvailable(true);
+                            setIsVideoLoaded(true);
                             setVideoSrc("/videos/" + dish.title.toLowerCase() + ".mp4");
                         }
                     });
@@ -30,21 +32,18 @@ export default function CardMedia({ dish }) {
         checkVideo();
     }, [dish]);
 
-    function setSrcAndPlay(event, title) {
+    function setSrcAndPlay(event) {
 
-        setVideoSrc("/videos/" + title.toLowerCase() + ".mp4");
-
-
-        setTimeout(function () {
-
+        if (isVideoLoaded) {
             event.target.play();
-
-        }, 50);
+        }
     }
 
     function deleteSrcAndPause(event) {
+
         event.target.pause();
-        setVideoSrc("");
+        setIsVideoLoaded(false);
+        event.target.load();
     }
 
 
@@ -54,9 +53,10 @@ export default function CardMedia({ dish }) {
             className="cardImg"
             alt={`Picture of ` + dish.title}
             poster={dish.imageUrl}
-            onMouseOver={event => setSrcAndPlay(event, dish.title)}
+            onMouseOver={event => setSrcAndPlay(event)}
             onMouseOut={event => deleteSrcAndPause(event)}
-            onEnded={() => setVideoSrc("")}
+            onEnded={(event) => event.target.load()}
+            onCanPlayThrough={() => setIsVideoLoaded(true)}
             src={videoSrc} >
         </video>) :
             (<img

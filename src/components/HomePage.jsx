@@ -62,7 +62,7 @@ export default function HomePage() {
 
     // Filtrera recepten baserat på både sökord och vald kategori
     const filteredRecipes = recipes.filter(recipe =>
-        (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory.toLowerCase())) &&  // Kategorifiltrering
+        (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory)) &&  // Kategorifiltrering
         recipe.title.toLowerCase().includes(searchTerm.toLowerCase())  // Sökfiltrering
     );
 
