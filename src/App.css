@@ -130,14 +130,14 @@ header {
 
 .info-banner {
   width: 100%;
-  background-image: url("/images/cocktailguiden-headline-1920-600-ny___media_library_original_1606_502.jpg");
+  background-image: url("/images/Banner PureSip.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
 
   & h2 {
-    padding: 5rem;
+    padding: 8rem 0;
     backdrop-filter: blur(4px);
     text-shadow: 2px 2px var(--charcoal);
     background-color: rgba(0, 0, 0, 0.4);

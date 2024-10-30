@@ -55,8 +55,7 @@ async function postRecipeComments(recipeId ,commentData) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-
-        return data;
+        return response;
     } catch (error) {
         console.error('Error fetching data:', error);
     }

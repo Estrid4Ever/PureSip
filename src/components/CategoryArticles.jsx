@@ -13,7 +13,7 @@ export default function CategoryArticles() {
 
     const articlesData = [
         {
-            img: "/images/Are-you-as-healthy-as-you-think-iStock-1140193165-1916673535.jpg",
+            img: "/images/Smoothies.jpg",
             imgAlt: "Bild på en hälsosam tjej.",
             navUrl: "/category/Smoothies",
             title: "Varför smoothies?",
