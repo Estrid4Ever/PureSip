@@ -930,3 +930,43 @@ input[type=text] {
   }
 }
 
+
+
+.sidescroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  min-width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardImg {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.rating-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.description {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
