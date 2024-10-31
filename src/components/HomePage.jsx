@@ -19,7 +19,7 @@ export default function HomePage() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, [pathname]);
+    }, [pathname]);
 
     useEffect(() => {
         fetchAllRecipes()
@@ -76,13 +76,14 @@ export default function HomePage() {
             <p className="info-text">På PureSip skapar vi smakrika, alkoholfria drycker för dig som vill njuta av festliga smaker utan alkohol.
                 Varje dryck är noggrant framtagen med naturliga ingredienser för att ge en upplevelse som passar alla tillfällen, från vardag till fest.
                 Utforska vår värld av hälsosamma och kreativa alternativ som bjuder på allt från fräschör till lyxiga nyanser.</p>
-            <MainContainer 
-                recipes={recipes} 
+            <MainContainer
+                recipes={recipes}
                 filteredRecipes={filteredRecipes}
                 selectedCategory={selectedCategory}
                 searchTerm={searchTerm}
-                />
+            />
             <Footer />
+
         </>
     );
 }
