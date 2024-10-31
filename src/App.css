@@ -115,7 +115,7 @@ header {
     align-items:center;
 
     & img {
-      width: 7rem;
+      width: 12rem;
       height: auto;
       margin: 2rem 0rem 2rem 2rem;
     }
@@ -876,4 +876,6 @@ input[type=text] {
 }
 
 /* STAR RATING */
+
+
 
