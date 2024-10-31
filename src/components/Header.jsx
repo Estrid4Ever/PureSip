@@ -39,7 +39,7 @@ export default function Header({ recipes, setSearchTerm }) {
 
     function handleKeyDown(event) {
 
-        if (event.code == 'Enter') {
+        if (event.code == 'Enter' && searchValue.trim() !== "") {
             navigate(searchParam, { replace: true });
         }
     }

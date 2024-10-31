@@ -5,6 +5,7 @@ import Header from './Header';
 import Footer from "./Footer";
 import InfoBanner from "./InfoBanner";
 import MainContainer from "./MainContainer";
+import Loading from "./loading";
 
 export default function HomePage() {
 
@@ -66,7 +67,7 @@ export default function HomePage() {
     }, [categoryId, searchId]);
 
     if (loading) {
-        return <p>Loading...</p>;  // Visa laddningsindikator
+        return <Loading></Loading>;  // Visa laddningsindikator
     }
 
     if (error) {

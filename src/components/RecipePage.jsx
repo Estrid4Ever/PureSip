@@ -6,6 +6,7 @@ import Recipe from "./Recipe";
 import Footer from "./Footer";
 import Comments from "./Comments";
 import StarRating from './StarRating'; // Se till att denna import är korrekt
+import Loading from "./loading";
 
 export default function RecipePage() {
     const [recipes, setRecipes] = useState([]);
@@ -34,7 +35,7 @@ export default function RecipePage() {
     const drink = recipes.find(recipe => recipe._id === recipeId);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <Loading></Loading>;
     }
 
     if (error) {

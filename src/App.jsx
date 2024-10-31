@@ -8,23 +8,28 @@ import Privacy from "./components/Privacy";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Loading from "./components/loading";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <HomePage />,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/category/:categoryId",
         element: <HomePage />,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/search/:searchId",
         element: <HomePage />,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/recipe/:recipeId",
         element: <RecipePage />,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/about",
@@ -32,6 +37,7 @@ const router = createBrowserRouter([
             <About />
             <Footer />
         </>,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/terms",
@@ -39,6 +45,7 @@ const router = createBrowserRouter([
                 <Terms />
                 <Footer />
             </>,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/privacy",
@@ -46,17 +53,18 @@ const router = createBrowserRouter([
                 <Privacy />
                 <Footer />
             </>,
+        errorElement: <ErrorPage />,
     },
     {
-        path: "*",
-        element: <ErrorPage />,
+        path: ":*",
+        errorElement: <ErrorPage />,
     },
 ]);
 
 export default function App() {
     return (
         <>
-            <RouterProvider router={router} />
+            <RouterProvider router={router} fallbackElement={<Loading></Loading>}/>
         </>
     );
 }

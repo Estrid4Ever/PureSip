@@ -28,6 +28,78 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+#error-page {
+  text-align: center;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.loading {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  text-align: center;
+  font-size: 200px;
+
+  background: linear-gradient(180deg, var(--gold) 0%, var(--cream) 50%, var(--gold) 100%);
+
+  & .wave {
+    position: absolute;
+    z-index: 0;
+
+    margin-inline: auto;
+
+    width: 1000px;
+    height: 200px;
+    background-color: var(--tan);
+    --mask:
+      radial-gradient(67.08px at 50% 90px, #000 99%, #0000 101%) calc(50% - 60px) 0/120px 100%,
+      radial-gradient(67.08px at 50% -60px, #0000 99%, #000 101%) 50% 30px/120px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    
+
+    animation: slide;
+    animation-duration: 6s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+
+  }
+
+  & .window {
+    
+    position: relative;
+    z-index: 3;
+    left: -12px;
+    top: -171px;
+    margin-inline: auto;
+    width: 128px;
+    height: 110px;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-color: var(--cream);
+    overflow: hidden;
+  }
+
+  & i {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-inline: auto;
+    width: fit-content;
+  }
+}
+
+@keyframes slide {
+  0%   {left: -850px; top: 0px;}
+  100%  {left: 0px; top: 0px;}
+}
+
 a {
   text-decoration: inherit;
   transition: all ease-out 0.2s;
@@ -965,13 +1037,13 @@ input[type=text] {
 
 /* Terms.jsx */
 .terms-container {
-  max-width: 800px; 
-  margin: 0 auto; 
-  padding: 2rem; 
-  font-family: 'Georgia', serif; 
-  color: #333; 
-  line-height: 1.8; 
-  font-size: 16px; 
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Georgia', serif;
+  color: #333;
+  line-height: 1.8;
+  font-size: 16px;
 }
 
 /* Rubriker */
@@ -980,7 +1052,7 @@ input[type=text] {
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: bold;
-  color: #111; 
+  color: #111;
 }
 
 .terms-container h2 {
@@ -988,14 +1060,15 @@ input[type=text] {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: bold;
-  color: #111; /* underrubriker */
+  color: #111;
+  /* underrubriker */
 }
 
 /* Styckena */
 .terms-container p {
   font-size: 1rem;
   margin-bottom: 1rem;
-  color: #333; 
+  color: #333;
 }
 
 /* För kontaktinformation eller specialstycken */
@@ -1013,13 +1086,13 @@ input[type=text] {
 
 /* ABOUT OCH PRIVACY */
 .about-container {
-  max-width: 800px; 
-  margin: 0 auto; 
-  padding: 2rem; 
-  font-family: 'Georgia', serif; 
-  color: #333; 
-  line-height: 1.8; 
-  font-size: 16px; 
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Georgia', serif;
+  color: #333;
+  line-height: 1.8;
+  font-size: 16px;
 }
 
 /* Rubriker */
@@ -1028,14 +1101,14 @@ input[type=text] {
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: bold;
-  color: #111; 
+  color: #111;
 }
 
 /* Styckena */
 .about-container p {
   font-size: 1rem;
   margin-bottom: 1rem;
-  color: #333; 
+  color: #333;
 }
 
 .privacy-container {
@@ -1089,7 +1162,8 @@ input[type=text] {
   margin: 2rem 0;
 }
 
-.privacy-container th, .privacy-container td {
+.privacy-container th,
+.privacy-container td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
@@ -1112,24 +1186,25 @@ input[type=text] {
 /* mobilvyer */
 @media screen and (max-width: 600px) {
   .privacy-container {
-      padding: 1rem;
-      font-size: 14px;
+    padding: 1rem;
+    font-size: 14px;
   }
 
   .privacy-container h1 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .privacy-container h2 {
-      font-size: 1.6rem;
+    font-size: 1.6rem;
   }
 
   .privacy-container h3 {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
 
-  .privacy-container table th, .privacy-container table td {
-      font-size: 12px;
-      padding: 6px;
+  .privacy-container table th,
+  .privacy-container table td {
+    font-size: 12px;
+    padding: 6px;
   }
 }
