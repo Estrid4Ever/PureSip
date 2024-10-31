@@ -1,14 +1,37 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CategoryArticles() {
 
     const cardRef = useRef(0);
     const navigate = useNavigate();
+    const [halfWindowSize, setHalfWindowSize] = useState(window.innerWidth / 2);
 
     const scroll = (scrollOffset) => {
         cardRef.current.scrollLeft += scrollOffset;
+        console.log(scrollOffset);
     };
+
+    const handleResize = () => {
+        setHalfWindowSize(window.innerWidth / 2);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    function handleClick(article) {
+
+        const y = document.getElementsByClassName("main-cards")[0].getBoundingClientRect().top + window.scrollY;
+        window.scroll({
+            top: y -100,
+            behavior: 'smooth'
+        });
+
+        navigate(article.navUrl, { replace: true });
+    }
 
 
     const articlesData = [
@@ -49,17 +72,14 @@ export default function CategoryArticles() {
         },
     ];
 
-    const halfWindowSize = window.innerWidth/2;
-    
-
 
     var scrollButtons = <div className="scroll-buttons">
         <button onClick={() => scroll(-halfWindowSize)}><i className="fa-solid fa-angle-left"></i></button>
         <button onClick={() => scroll(halfWindowSize)}><i className="fa-solid fa-angle-right"></i></button>
     </div>;
 
-    const articles = articlesData.map(article => 
-        <article key={article.title} onClick={() => navigate(article.navUrl, { replace: true })}>
+    const articles = articlesData.map(article =>
+        <article key={article.title} onClick={() => handleClick(article)}>
             <img src={article.img} alt={article.imgAlt} />
             <div>
                 <h2>{article.title}</h2>

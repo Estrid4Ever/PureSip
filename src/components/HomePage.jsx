@@ -15,11 +15,6 @@ export default function HomePage() {
     const [searchTerm, setSearchTerm] = useState("");  // State för sökord
     const [selectedCategory, setSelectedCategory] = useState("");  // State för vald kategori
     const { categoryId, searchId } = useParams();
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [pathname]);
 
     useEffect(() => {
         fetchAllRecipes()
