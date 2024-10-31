@@ -5,7 +5,6 @@ import Header from './Header';
 import Footer from "./Footer";
 import InfoBanner from "./InfoBanner";
 import MainContainer from "./MainContainer";
-import { useLocation } from 'react-router-dom';
 
 export default function HomePage() {
 
@@ -34,15 +33,25 @@ export default function HomePage() {
 
         if (categoryId) {
             setSelectedCategory(categoryId);
+            scrollToResults();
         } else {
             setSelectedCategory("Kategorier");
         }
 
         if (searchId) {
             setSearchTerm(searchId);
+            scrollToResults();
             setSelectedCategory("Kategorier");
         } else {
             setSearchTerm("");
+        }
+
+        function scrollToResults() {
+            const y = document.getElementsByClassName("main-cards")[0].getBoundingClientRect().top + window.scrollY;
+            window.scroll({
+                top: y - 100,
+                behavior: 'smooth'
+            });
         }
 
     }, [categoryId, searchId]);
