@@ -4,8 +4,6 @@ import Header from "./Header";
 
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error);
-  //lala
 
   return (
     <>
