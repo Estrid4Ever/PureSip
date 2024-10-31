@@ -1,11 +1,68 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --charcoal: #122620;
+  --cream: #f4ebd0;
+  --white: #fff2da;
+  --tan: #b68d40;
+  --gold: #d6ad60;
+  --bright-gold: rgb(255, 215, 0);
+  --yellow: rgb(255, 255, 0);
+  --transparent-black-1: #0000008f;
+  --transparent-black-2: rgba(0, 0, 0, 0.4);
+  --transparent-black-3: rgba(0, 0, 0, 0.2);
+  --black: rgb(0, 0, 0);
+  --gray: rgba(128, 128, 128, 0.445);
+  --red: #ff0000c5;
+
+  line-height: 1.5;
+  margin-top: 0;
+  color-scheme: light dark;
+
+  color: var(--charcoal);
+  background-color: var(--cream);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: inherit;
+  transition: all ease-out 0.2s;
+}
+
+a:hover {
+  transform: scale(1.01);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button:hover {
+  border-color: var(--black);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px auto -webkit-focus-ring-color;
+}
+
 #root {
   margin: 0 auto;
   width: 100%;
   margin-top: 0;
-  --charcoal: #122620;
-  --cream: #f4ebd0;
-  --tan: #b68d40;
-  --gold: #d6ad60;
+
 }
 
 .card {
@@ -29,7 +86,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   text-wrap: wrap;
-  
+
 }
 
 .cardImg {
@@ -37,7 +94,6 @@
   height: 330px;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  /* background-color: black; */
 }
 
 .slowzoom {
@@ -91,7 +147,7 @@
 }
 
 .checked {
-  color: yellow;
+  color: var(--yellow);
 }
 
 #checked-partial {
@@ -111,7 +167,7 @@ header {
   & div {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 
     & img {
       width: 12rem;
@@ -127,7 +183,7 @@ header {
   color: var(--charcoal);
 }
 
-.info-text{
+.info-text {
   width: 900px;
   max-width: 95%;
   margin: 0 auto;
@@ -149,7 +205,8 @@ header {
     padding: 8rem 0;
     backdrop-filter: blur(4px);
     text-shadow: 2px 2px var(--charcoal);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--transparent-black-2);
+    color: var(--white);
   }
 }
 
@@ -229,7 +286,7 @@ header {
   height: 0;
 
   & button {
-    background-color: #0000008f;
+    background-color: var(--transparent-black-1);
     border-radius: .3rem;
     cursor: pointer;
     border: none;
@@ -269,7 +326,7 @@ header {
   max-width: 1020px;
   width: 96%;
   height: auto;
-  
+
   margin: 0 auto;
 
   & article {
@@ -508,20 +565,20 @@ input[type=text] {
 .recipe-info {
   max-width: 500px;
   width: fit-content;
-  color: black;
+  color: var(--black);
   /* font-size: 0.8rem; */
 }
 
 .recipe-info h1,
 .recipe-info h2 {
-  color: black;
+  color: var(--black);
 }
 
 .recipe-info ul,
 .recipe-info ol {
   padding-left: 1.5rem;
   font-size: 1rem;
-  color: black;
+  color: var(--black);
 }
 
 .recipe-info ul li,
@@ -728,7 +785,7 @@ input[type=text] {
 }
 
 .comments-input {
-  box-shadow: 0px 0px 0px 2px #ff000000;
+  box-shadow: 0px 0px 0px 2px transparent;
   transition: box-shadow 1s linear;
   /* transition-delay: 1s; */
   margin: 0.3em;
@@ -736,7 +793,7 @@ input[type=text] {
 
 .invalid-field {
   transition: none;
-  box-shadow: 0px 0px 0px 2px #ff0000c5;
+  box-shadow: 0px 0px 0px 2px var(--red);
 }
 
 .comments-list {
@@ -746,7 +803,7 @@ input[type=text] {
 
   & li {
     margin-bottom: 1.5rem;
-    border-top: dotted 2px rgba(128, 128, 128, 0.445);
+    border-top: dotted 2px var(--gray);
   }
 
   & li:first-of-type {
@@ -808,70 +865,94 @@ input[type=text] {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  color: black;
+  color: var(--black);
 }
 
 .star {
   font-size: 24px;
   /* Justera storleken på stjärnorna om nödvändigt */
-  color: black;
+  color: var(--black);
   /* Gör stjärnorna svarta */
   cursor: pointer;
   /* Gör stjärnorna klickbara */
 }
 
 .star.filled {
-  color: gold;
+  color: var(--bright-gold);
   /* Fyllt stjärnor ska också vara svarta */
 }
 
 .star.hovered {
-  color: gold;
+  color: var(--bright-gold);
   /* Change color when hovered */
 
-   /* KNAPP */
-}
-.star-button {
-  font-size: 19px;
-  display: block; /* Ensure it's a block element for centering */
-  margin: 1cm auto 0; /* Add 1cm margin at the top, auto for left and right */
-  text-align: center; /* Center the text inside the button */
-  background: transparent; /* Remove the gray background */
-  border: none; /* Optional: Remove border if present */
-  cursor: pointer; /* Optional: Change cursor to pointer */
-  color: #000; /* Change text color if needed */
-}
-.star-button:hover {
-  transform: scale(1.05); /* Slightly increase the size of the button */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  /* KNAPP */
 }
 
- /* MODAL */
+.star-button {
+  font-size: 19px;
+  display: block;
+  /* Ensure it's a block element for centering */
+  margin: 1cm auto 0;
+  /* Add 1cm margin at the top, auto for left and right */
+  text-align: center;
+  /* Center the text inside the button */
+  background: transparent;
+  /* Remove the gray background */
+  border: none;
+  /* Optional: Remove border if present */
+  cursor: pointer;
+  /* Optional: Change cursor to pointer */
+  color: var(--black);
+  /* Change text color if needed */
+}
+
+.star-button:hover {
+  transform: scale(1.05);
+  /* Slightly increase the size of the button */
+  box-shadow: 0 4px 8px var(--transparent-black-3);
+  /* Add shadow on hover */
+}
+
+/* MODAL */
 
 
 .modal-overlay {
-  position: fixed;         /* Position fixed to cover the whole viewport */
-  top: 0;                 /* Align to the top of the viewport */
-  left: 0;                /* Align to the left of the viewport */
-  width: 100vw;           /* Full width of the viewport */
-  height: 100vh;          /* Full height of the viewport */
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  display: flex;          /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
-  z-index: 1000;         /* Ensure modal is above other content */
+  position: fixed;
+  /* Position fixed to cover the whole viewport */
+  top: 0;
+  /* Align to the top of the viewport */
+  left: 0;
+  /* Align to the left of the viewport */
+  width: 100vw;
+  /* Full width of the viewport */
+  height: 100vh;
+  /* Full height of the viewport */
+  background: var(--transparent-black-2);
+  /* Semi-transparent background */
+  display: flex;
+  /* Use flexbox for centering */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  z-index: 1000;
+  /* Ensure modal is above other content */
 }
 
 .modal-content {
-  background: #fff2da;      /* Background color for modal content */
-  padding: 5px;          /* Space inside the modal */
-  border-radius: 8px;     /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  max-width: 500px;      /* Max width of the modal */
-  width: 90%;            /* Full width on smaller screens */
+  background: var(--white);
+  /* Background color for modal content */
+  padding: 5px;
+  /* Space inside the modal */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px var(--transparent-black-3);
+  /* Shadow for depth */
+  max-width: 500px;
+  /* Max width of the modal */
+  width: 90%;
+  /* Full width on smaller screens */
 }
 
 /* STAR RATING */
-
-
-
