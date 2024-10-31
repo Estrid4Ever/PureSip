@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import CategoryArticles from './CategoryArticles';
 
 export default function MainContainer({ recipes, filteredRecipes, selectedCategory, searchTerm }) {
-
     const [mainCardsTitle, setMainCardsTitle] = useState("");
 
     useEffect(() => {
@@ -17,16 +16,15 @@ export default function MainContainer({ recipes, filteredRecipes, selectedCatego
             setMainCardsTitle(selectedCategory);
         }
 
-        if (filteredRecipes === undefined || filteredRecipes.length == 0) {
+        if (filteredRecipes === undefined || filteredRecipes.length === 0) {
             setMainCardsTitle("Inga resultat hittades...");
         }
-    }
-    );
-
+    }, [searchTerm, selectedCategory, filteredRecipes]); // Ensure useEffect has dependencies
 
     const fiveRandomRecipes = [...recipes].sort(() => Math.random() - 0.5).slice(0, 5);
 
     const topFiveRecipes = [...recipes].sort((a, b) => b.avgRating - a.avgRating).slice(0, 5);
+
 
     return (
         <div className="homepage-main">

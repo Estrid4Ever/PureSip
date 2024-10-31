@@ -5,19 +5,19 @@ import Header from './Header';
 import Recipe from "./Recipe";
 import Footer from "./Footer";
 import Comments from "./Comments";
+import StarRating from './StarRating'; // Se till att denna import är korrekt
 
 export default function RecipePage() {
-
-    const [recipes, setRecipes] = useState([]);  // State för att hålla recepten
-    const [loading, setLoading] = useState(true);  // State för laddning
-    const [error, setError] = useState(null);  // State för felhantering
-    const [searchTerm, setSearchTerm] = useState("");  // State för sökord
+    const [recipes, setRecipes] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         fetchAllRecipes()
             .then((data) => {
                 if (data) {
-                    setRecipes(data);  // Sätt recepten
+                    setRecipes(data);
                 } else {
                     setError("No data available");
                 }
@@ -31,28 +31,25 @@ export default function RecipePage() {
     }, []);
 
     const { recipeId } = useParams();
-
-    const drink = recipes.find(recipe => recipe._id === recipeId)
-
+    const drink = recipes.find(recipe => recipe._id === recipeId);
 
     if (loading) {
-        return <p>Loading...</p>;  // Visa laddningsindikator
+        return <p>Loading...</p>;
     }
 
     if (error) {
-        return <p>{error}</p>;  // Visa felmeddelande
+        return <p>{error}</p>;
     }
 
-    // Filtrera recepten baserat på sökordet
     const filteredRecipes = recipes.filter(recipe =>
         recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
         <>
-            <Header recipes={recipes} setSearchTerm={setSearchTerm} /> {/* Skicka recipes och setSearchTerm till Header */}
+            <Header recipes={recipes} setSearchTerm={setSearchTerm} />
             <Recipe drink={drink} />
-            <Comments recipeId={recipeId}/>
+            <Comments recipeId={recipeId} />
             <Footer />
         </>
     );
