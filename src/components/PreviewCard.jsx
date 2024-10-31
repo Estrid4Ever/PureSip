@@ -1,7 +1,5 @@
 import StarRating from "./StarRating";
 import PrepTime from "./PrepTime";
-
-import CardMedia from "./CardMedia";
 import { Outlet, Link, useLoaderData } from "react-router-dom";
 import React, { useRef, useState, useEffect } from "react";
 
@@ -27,7 +25,7 @@ export default function PreviewCard({ recipes }) {
 	const cards = recipes.map((dish, index) => (
         <Link key={dish._id} to={`/recipe/${dish._id}`}>
             <div className="card">
-                <CardMedia dish={dish}/>
+                <div className="cardImg slowzoom" style={{backgroundImage: `url('${dish.imageUrl}')`}}></div>
                 <h2 className="cardTitle">{dish.title}</h2>
  
                 <div className="rating-time">

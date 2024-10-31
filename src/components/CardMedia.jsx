@@ -1,3 +1,6 @@
+// this components is no longer used due to videos being to slow to render smoothly
+// if this is to be used, optimizations are recomended
+
 import React, { useRef, useState, useEffect } from "react";
 
 export default function CardMedia({ dish }) {
