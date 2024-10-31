@@ -72,10 +72,10 @@ export default function HomePage() {
                 setSearchTerm={setSearchTerm}
                 recipes={recipes}
             />
+            <InfoBanner />
             <p className="info-text">På PureSip skapar vi smakrika, alkoholfria drycker för dig som vill njuta av festliga smaker utan alkohol.
                 Varje dryck är noggrant framtagen med naturliga ingredienser för att ge en upplevelse som passar alla tillfällen, från vardag till fest.
                 Utforska vår värld av hälsosamma och kreativa alternativ som bjuder på allt från fräschör till lyxiga nyanser.</p>
-            <InfoBanner />
             <MainContainer 
                 recipes={recipes} 
                 filteredRecipes={filteredRecipes}

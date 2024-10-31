@@ -49,10 +49,13 @@ export default function CategoryArticles() {
         },
     ];
 
+    const halfWindowSize = window.innerWidth/2;
+    
+
 
     var scrollButtons = <div className="scroll-buttons">
-        <button onClick={() => scroll(-550)}><i className="fa-solid fa-angle-left"></i></button>
-        <button onClick={() => scroll(550)}><i className="fa-solid fa-angle-right"></i></button>
+        <button onClick={() => scroll(-halfWindowSize)}><i className="fa-solid fa-angle-left"></i></button>
+        <button onClick={() => scroll(halfWindowSize)}><i className="fa-solid fa-angle-right"></i></button>
     </div>;
 
     const articles = articlesData.map(article => 
