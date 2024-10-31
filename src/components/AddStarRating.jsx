@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import {postRecipeRating} from "../apiCalls";
-
+import React, { useState, useEffect } from 'react';
+import { postRecipeRating } from "../apiCalls";
 
 const AddStarRating = ({ recipeId }) => {
     const [rating, setRating] = useState(0);
@@ -8,28 +7,34 @@ const AddStarRating = ({ recipeId }) => {
     const [hasRated, setHasRated] = useState(false);
     const [message, setMessage] = useState("");
 
+    useEffect(() => {
+        const storedRating = localStorage.getItem(`recipeRating_${recipeId}`);
+        if (storedRating) {
+            setRating(parseInt(storedRating, 10));
+            setHasRated(true);
+            setMessage("Du har redan lämnat ett betyg.");
+        }
+    }, [recipeId]);
+
     const handleStarClick = (starRating) => {
         if (hasRated) {
-            setMessage("Du har redan lämnat ett betyg");
+            setMessage("Du har redan lämnat ett betyg.");
             return;
         }
         setRating(starRating);
         setHasRated(true);
         setMessage("Tack för ditt betyg!");
-        console.log (starRating);
-        const newRatingData = {
-          "rating": starRating
-        };
 
-        postRecipeRating (recipeId, newRatingData).then((data) => {
+        localStorage.setItem(`recipeRating_${recipeId}`, starRating);
+        const newRatingData = { rating: starRating };
+        postRecipeRating(recipeId, newRatingData).then((data) => {
             console.log(data);
         });
-        
     };
 
     const renderStars = () => {
         return [...Array(5)].map((_, index) => {
-            var starRating = index + 1;
+            const starRating = index + 1;
             return (
                 <span
                     key={starRating}
@@ -47,12 +52,12 @@ const AddStarRating = ({ recipeId }) => {
     };
 
     return (
-        <div className="star-rating">
-            <h3>Vad tycker du? Sätt betyg på receptet</h3>
-            <div className="stars">
+        <div className="star-rating" style={{ textAlign: 'center' }}> {/* Centering the content */}
+            <h3 style={{ color: '#333' }}>Vad tycker du? Sätt betyg på receptet.</h3> {/* Change color if needed */}
+            <div className="stars" style={{ display: 'inline-block' }}> {/* Ensure stars are inline-block for centering */}
                 {renderStars()}
             </div>
-            {message && <p>{message}</p>}
+            {message && <p style={{ color: '#333' }}>{message}</p>} {/* Change color if needed */}
         </div>
     );
 };

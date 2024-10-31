@@ -681,6 +681,8 @@ input[type=text] {
     font-size: medium;
     padding: .5rem;
     border-radius: .2rem;
+
+    margin: auto;
     cursor: pointer;
     border-style: none;
 
@@ -787,21 +789,9 @@ input[type=text] {
   }
 }
 
-/* Hover-effekter */
-.category-select:hover {
-  background-color: var(--tan);
-  outline: none;
-}
 
-/* STAR RATING */
+/* ADD-STAR-RATING */
 
-/* Mörk bakgrund när betyg ges */
-.dark-background {
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Mörkare bakgrund */
-  transition: background-color 0.3s ease;
-  /* Smidig övergång */
-}
 
 .star-rating {
   display: flex;
@@ -828,4 +818,48 @@ input[type=text] {
 .star.hovered {
   color: gold;
   /* Change color when hovered */
+
+   /* KNAPP */
 }
+.star-button {
+  font-size: 19px;
+  display: block; /* Ensure it's a block element for centering */
+  margin: 1cm auto 0; /* Add 1cm margin at the top, auto for left and right */
+  text-align: center; /* Center the text inside the button */
+  background: transparent; /* Remove the gray background */
+  border: none; /* Optional: Remove border if present */
+  cursor: pointer; /* Optional: Change cursor to pointer */
+  color: #000; /* Change text color if needed */
+}
+.star-button:hover {
+  transform: scale(1.05); /* Slightly increase the size of the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+ /* MODAL */
+
+
+.modal-overlay {
+  position: fixed;         /* Position fixed to cover the whole viewport */
+  top: 0;                 /* Align to the top of the viewport */
+  left: 0;                /* Align to the left of the viewport */
+  width: 100vw;           /* Full width of the viewport */
+  height: 100vh;          /* Full height of the viewport */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;          /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  z-index: 1000;         /* Ensure modal is above other content */
+}
+
+.modal-content {
+  background: #fff2da;      /* Background color for modal content */
+  padding: 5px;          /* Space inside the modal */
+  border-radius: 8px;     /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  max-width: 500px;      /* Max width of the modal */
+  width: 90%;            /* Full width on smaller screens */
+}
+
+/* STAR RATING */
+

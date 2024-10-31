@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Ingredients from "./Ingredients";
 import AddStarRating from "./AddStarRating";
 import StarRating from "./StarRating";
+
 export default function Recipe({ drink }) {
+    const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
 
     const drinkPage = drink.ingredients ? (
         <div className="recipe-detail-container">
             <h1 className="recipe-name">{drink.title}</h1>
             <div className="rating-time">
-                <AddStarRating recipeId={drink._id} />
+                {/* Modal Implementation */}
+                {isModalOpen && (
+                    <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+                        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                            <button className="close-button" onClick={() => setIsModalOpen(false)}>X</button>
+                            <AddStarRating recipeId={drink._id} /> {/* Only one instance here */}
+                        </div>
+                    </div>
+                )}
             </div>
-            <button><StarRating dish = {drink}></StarRating></button>
+            <button className="star-button" onClick={() => setIsModalOpen(true)}>
+            <StarRating dish={drink} starClassName="button-star" />
+            </button>
             <div className="recipe-image-info">
                 <img
                     className="recipe-image"
