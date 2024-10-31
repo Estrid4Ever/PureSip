@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Ingredients from "./Ingredients";
 import AddStarRating from "./AddStarRating";
 import StarRating from "./StarRating";
+import PrepTime from "./PrepTime";
 
 export default function Recipe({ drink }) {
     const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
@@ -21,7 +22,7 @@ export default function Recipe({ drink }) {
                 )}
             </div>
             <button className="star-button" onClick={() => setIsModalOpen(true)}>
-            <StarRating dish={drink} starClassName="button-star" />
+                <StarRating dish={drink} starClassName="button-star" />
             </button>
             <div className="recipe-image-info">
                 <img
@@ -30,6 +31,9 @@ export default function Recipe({ drink }) {
                     alt={"Photo of " + drink.title}
                 />
                 <div className="recipe-info">
+                    <div className="difficulty-time">
+                        <PrepTime dish={drink} />
+                    </div>
                     <h2>Ingredienser</h2>
                     <ul>
                         <Ingredients ingredients={drink.ingredients} />
@@ -42,6 +46,7 @@ export default function Recipe({ drink }) {
                     </ul>
                 </div>
             </div>
+
         </div>
     ) : "";
 

@@ -39,7 +39,7 @@ export default function Header({ recipes, setSearchTerm }) {
 
     function handleKeyDown(event) {
 
-        if (event.code == 'Enter') {
+        if (event.code == 'Enter' && searchValue.trim() !== "") {
             navigate(searchParam, { replace: true });
         }
     }
@@ -49,10 +49,9 @@ export default function Header({ recipes, setSearchTerm }) {
 
             <div>
                 <Link className="header-title-link" to={`/`}>
-                    <h1 className="header-title">PureSip</h1>
+                <img src="/PURESIP logoo in black.png" alt="puresip logo" />
                 </Link>  {/* Titel */}
 
-                <img src="/PureSip_Logo-small.png" alt="puresip logo" />
             </div>
 
             <div className="search-categories">

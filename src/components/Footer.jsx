@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from '../assets/images/image.png';  // Importera bilden korrekt
 
 export default function Footer() {
@@ -11,20 +12,19 @@ export default function Footer() {
                     <input type="tel" placeholder="+46 Mobilnummer" />
                     <button type="submit">Börja prenumerera</button>
                 </form>
-                <p>Genom att anmäla dig godkänner du PureSip:s <a href="#">allmänna villkor</a> och <a href="#">integritetspolicy</a>.</p>
+                <p>Genom att anmäla dig godkänner du PureSip:s <a href="/terms">allmänna villkor</a> och <a href="/privacy">integritetspolicy</a>.</p>
             </div>
             <div className="footer-info">
                 <div className="company-info">
-                    {/* Ändra img-taggen för att använda importen */}
                     <img src={logo} alt="PureSip logo" className="logo" />
                     <p>PureSip</p>
                     <p>Trekantsvägen 1, 117 43 Stockholm</p>
                     <p><a href="mailto:info@iths.se">info@iths.se</a></p>
                 </div>
                 <div className="footer-links">
-                    <a href="#">Om PureSip</a>
-                    <a href="#">Allmänna villkor</a>
-                    <a href="#">Personuppgiftspolicy</a>
+                    <a href="/about">Om PureSip</a>
+                    <a href="/terms">Allmänna villkor</a>
+                    <a href="/privacy">Personuppgiftspolicy</a>
                 </div>
                 <div className="social-media">
                     <a href="https://www.facebook.com/ITHogskolan" target="_blank" rel="noopener noreferrer" className="fab fa-facebook"></a>
