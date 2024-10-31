@@ -1,51 +1,50 @@
 import { useState } from "react";
 import { postRecipeComments } from "../apiCalls";
 
-export default function AddComment({ comments, recipeId }) {
+export default function AddComment({ comments, recipeId, commentIsSent, setCommentIsSent }) {
 
     const [newComment, setNewComment] = useState("");
     const [commentName, setCommentName] = useState("");
     const [fieldsAreValid, setFieldsAreValid] = useState(false);
-    const [commentIsSent, setCommentIsSet] = useState(false);
     const [nameFieldWarning, setNameFieldWarning] = useState(false);
     const [commentFieldWarning, setCommentFieldWarning] = useState(false);
 
     const publishNewComment = () => {
 
-        if (commentName === "" || newComment === "") {
+        if (commentName.trim() === "" || newComment.trim() === "") {
             setFieldsAreValid(false);
 
-            if (commentName === "") {
+            if (commentName.trim() === "") {
                 setNameFieldWarning(true);
-                
+                setCommentName("");
             }
 
-            if (newComment === "") {
+            if (newComment.trim() === "") {
                 setCommentFieldWarning(true);
-                
+                setNewComment("");
             }
 
-            setTimeout(function(){
+            setTimeout(function () {
                 setNameFieldWarning(false);
                 setCommentFieldWarning(false);
             }, 1000);
 
             return;
+        } else {
+
+            const date = new Date();
+
+            const newCommentData = {
+                "name": commentName,
+                "comment": newComment
+            };
+
+            postRecipeComments(recipeId, newCommentData).then((response) => {
+                if (response.ok) {
+                    setCommentIsSent(true);
+                }
+            });
         }
-
-        const date = new Date();
-
-        const newCommentData = {
-            "name": commentName,
-            "comment": newComment
-        };
-
-        postRecipeComments(recipeId, newCommentData).then((data) => {
-            console.log(data);
-        });
-
-        setCommentIsSet(true);
-
     };
 
     const cancelComment = () => {
@@ -57,7 +56,7 @@ export default function AddComment({ comments, recipeId }) {
     function commentOnChangeHandler(value) {
         setNewComment(value);
 
-        if (commentName !== "" && newComment !== "") {
+        if (commentName.trim() !== "" && newComment.trim() !== "") {
             setFieldsAreValid(true);
         } else {
             setFieldsAreValid(false);
@@ -67,7 +66,7 @@ export default function AddComment({ comments, recipeId }) {
     function nameOnChangeHandler(value) {
         setCommentName(value);
 
-        if (commentName !== "" && newComment !== "") {
+        if (commentName.trim() !== "" && newComment.trim() !== "") {
             setFieldsAreValid(true);
         } else {
             setFieldsAreValid(false);
@@ -106,8 +105,8 @@ export default function AddComment({ comments, recipeId }) {
 
         <div className="comments-name-buttons">
 
-            <input className={nameFieldWarning ? "comments-name comments-input invalid-field" : "comments-name comments-input"} 
-            type="text" placeholder="Ange namn" value={commentName} onChange={e => nameOnChangeHandler(e.target.value)} />
+            <input className={nameFieldWarning ? "comments-name comments-input invalid-field" : "comments-name comments-input"}
+                type="text" placeholder="Ange namn" value={commentName} onChange={e => nameOnChangeHandler(e.target.value)} />
 
             <div className="comments-buttons">
                 <button onClick={() => cancelComment()} className="comments-button cancel" >Avbryt</button>

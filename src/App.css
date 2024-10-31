@@ -30,6 +30,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   text-wrap: wrap;
+  
 }
 
 .cardImg {
@@ -37,6 +38,7 @@
   height: 330px;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+  background-color: black;
 }
 
 .prep-time {
@@ -68,7 +70,7 @@
 
 .fa {
   padding-right: 1px;
-  color: aliceblue;
+  color: var(--tan);
 }
 
 .clock {
@@ -80,6 +82,11 @@
   color: yellow;
 }
 
+#checked-partial {
+  background-clip: text !important;
+  color: transparent;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -88,6 +95,20 @@ header {
   padding-right: 1rem;
   color: var(--charcoal);
   background: linear-gradient(180deg, var(--tan) 0%, var(--cream) 100%);
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    & img {
+      width: 7rem;
+      height: auto;
+      margin: 2rem 0rem 2rem 2rem;
+    }
+
+
+  }
 }
 
 .header-title-link {
@@ -98,16 +119,25 @@ header {
   font-style: normal; */
 }
 
+.info-text{
+  width: 900px;
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--charcoal);
+  font-style: italic;
+}
+
 .info-banner {
   width: 100%;
-  background-image: url("/images/cocktailguiden-headline-1920-600-ny___media_library_original_1606_502.jpg");
+  background-image: url("/images/Banner PureSip.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
 
   & h2 {
-    padding: 5rem;
+    padding: 8rem 0;
     backdrop-filter: blur(4px);
     text-shadow: 2px 2px var(--charcoal);
     background-color: rgba(0, 0, 0, 0.4);
@@ -121,13 +151,17 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  & div {
+    margin-bottom: 1em;
+  }
 }
 
 .main-cards {
   /* width: fit-content; */
   max-width: 100%;
   margin: 0 auto;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
 
   & .main-cards-title {
     margin: 0 auto;
@@ -148,6 +182,7 @@ header {
   max-width: 100%;
 
   & a {
+
     margin: 0;
     padding: .5rem 0;
   }
@@ -155,16 +190,51 @@ header {
 
 .sidescroll-container {
   scroll-snap-type: x mandatory;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   display: flex;
   gap: .8rem;
+  scroll-behavior: smooth;
 
   transform: rotateX(180deg);
 
-  & a>div {
+  & a>div,
+  article {
     transform: rotateX(180deg);
   }
+}
+
+#three-or-less {
+  display: none;
+}
+
+.scroll-buttons {
+
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 95%;
+  height: 0;
+
+  & button {
+    background-color: #0000008f;
+    border-radius: .3rem;
+    cursor: pointer;
+    border: none;
+    color: var(--gold);
+    font-size: 3rem;
+    display: inline-block;
+    position: relative;
+    top: -20rem;
+    height: fit-content;
+
+    transition: all ease-out 0.2s;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+
 }
 
 .grid-container {
@@ -172,40 +242,62 @@ header {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
 }
-/* 940-1060 img problem */
-.homepage-article {
-  width: 900px;
+
+.category-articles {
+  width: 1020px;
   max-width: 90%;
-  margin: 0 auto;
-  color: var(--charcoal);
-  display: flex;
-  margin-bottom: 3rem;
-  background-color: var(--tan);
-  /* gap: 1rem; */
-  border-radius: 1rem;
-  
-  & img {
-    display: block;
-    width: 500px;
-    max-width: 100%;
-    height: auto;
-    float: left;
-    border-top-left-radius: .5rem;
-    border-bottom-left-radius: .5rem;
+
+  & div>button {
+    top: -18rem;
   }
+}
 
-  & div {
-    padding: 0rem 1rem 1rem 1rem;
-    text-align: justify;
+/* 940-1060 img problem */
+.homepage-articles {
+  
+  
+  margin: 0 auto;
 
-    & h2 {
-      margin-bottom: 0;
-      margin-top: .5em;
+  & article {
+    scroll-snap-align: center;
+    scroll-snap-type: proximity;
+
+    display: inline-block;
+
+    min-width: 100%;
+    color: var(--charcoal);
+    display: flex;
+    margin-bottom: .5rem;
+    background-color: var(--tan);
+    /* gap: 1rem; */
+    border-radius: 1rem;
+
+    cursor: pointer;
+
+    & img {
+      display: block;
+      width: auto;
+      /* max-width: 100%; */
+      max-height: 500px;
+      float: left;
+      border-top-left-radius: .5rem;
+      border-bottom-left-radius: .5rem;
     }
 
-    & p {
-      margin-top: .5em;
-      margin-bottom: .5em;
+    & div {
+      padding: 0rem 1rem 1rem 1rem;
+      text-align: justify;
+      margin: auto auto;
+
+      & h2 {
+        margin-bottom: 0;
+        margin-top: .5em;
+      }
+
+      & p {
+        margin-top: .5em;
+        margin-bottom: .5em;
+      }
     }
   }
 }
@@ -215,7 +307,7 @@ header {
   width: 500px;
   max-width: 100%;
   margin: 0 auto;
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
   font-size: 3rem;
   display: flex;
   justify-content: space-evenly;
@@ -295,14 +387,18 @@ input[type=text] {
       &:first-of-type {
         margin-left: 1rem;
       }
-  
+
       &:last-of-type {
         margin-right: 1rem;
+      }
+
+      &:only-of-type {
+        margin: auto;
       }
     }
   }
 
-  
+
 
   .company-info {
     margin: auto;
@@ -330,29 +426,40 @@ input[type=text] {
 }
 
 @media screen and (max-width:960px) {
-  .homepage-article {
-    /* flex-direction: column; */
-    display: inline-block;
-    align-self: center;
-    text-align: center;
+  .homepage-articles {
+    & article {
 
-    & img {
-      margin-right: 1rem;
-      border-bottom-left-radius: 0;
+      /* flex-direction: column; */
+      display: inline-block;
+      align-self: center;
+      text-align: center;
+
+      & img {
+        margin-right: 1rem;
+        border-bottom-left-radius: 0;
+      }
     }
   }
 }
 
 @media screen and (max-width:750px) {
 
-  .homepage-article {
+  #three-or-less {
     display: flex;
-    flex-direction: column;
+  }
 
-    & img {
-      margin: 0 auto;
-      width: 100%;
-      border-top-right-radius: .5rem;
+  .homepage-articles {
+
+    & article {
+
+      display: flex;
+      flex-direction: column;
+
+      & img {
+        margin: 0 auto;
+        width: 100%;
+        border-top-right-radius: .5rem;
+      }
     }
   }
 
@@ -376,6 +483,7 @@ input[type=text] {
 }
 
 .recipe-name {
+  font-family: 'Cormorant Garamond', serif;
   color: var(--charcoal);
   text-align: center;
   margin-bottom: 0;
@@ -574,6 +682,8 @@ input[type=text] {
     font-size: medium;
     padding: .5rem;
     border-radius: .2rem;
+
+    margin: auto;
     cursor: pointer;
     border-style: none;
 
@@ -680,8 +790,77 @@ input[type=text] {
   }
 }
 
-/* Hover-effekter */
-.category-select:hover {
-  background-color: var(--tan);
-  outline: none;
+
+/* ADD-STAR-RATING */
+
+
+.star-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  color: black;
 }
+
+.star {
+  font-size: 24px;
+  /* Justera storleken på stjärnorna om nödvändigt */
+  color: black;
+  /* Gör stjärnorna svarta */
+  cursor: pointer;
+  /* Gör stjärnorna klickbara */
+}
+
+.star.filled {
+  color: gold;
+  /* Fyllt stjärnor ska också vara svarta */
+}
+
+.star.hovered {
+  color: gold;
+  /* Change color when hovered */
+
+   /* KNAPP */
+}
+.star-button {
+  font-size: 19px;
+  display: block; /* Ensure it's a block element for centering */
+  margin: 1cm auto 0; /* Add 1cm margin at the top, auto for left and right */
+  text-align: center; /* Center the text inside the button */
+  background: transparent; /* Remove the gray background */
+  border: none; /* Optional: Remove border if present */
+  cursor: pointer; /* Optional: Change cursor to pointer */
+  color: #000; /* Change text color if needed */
+}
+.star-button:hover {
+  transform: scale(1.05); /* Slightly increase the size of the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+ /* MODAL */
+
+
+.modal-overlay {
+  position: fixed;         /* Position fixed to cover the whole viewport */
+  top: 0;                 /* Align to the top of the viewport */
+  left: 0;                /* Align to the left of the viewport */
+  width: 100vw;           /* Full width of the viewport */
+  height: 100vh;          /* Full height of the viewport */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;          /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  z-index: 1000;         /* Ensure modal is above other content */
+}
+
+.modal-content {
+  background: #fff2da;      /* Background color for modal content */
+  padding: 5px;          /* Space inside the modal */
+  border-radius: 8px;     /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  max-width: 500px;      /* Max width of the modal */
+  width: 90%;            /* Full width on smaller screens */
+}
+
+/* STAR RATING */
+

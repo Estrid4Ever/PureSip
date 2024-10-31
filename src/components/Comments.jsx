@@ -6,6 +6,7 @@ import { fetchRecipeComments } from "../apiCalls";
 export default function Comments({ recipeId }) {
 
     const [comments, setComments] = useState([]);
+    const [commentIsSent, setCommentIsSent] = useState(false);
     const [loading, setLoading] = useState(true);  // State för laddning
     const [error, setError] = useState(null);  // State för felhantering
 
@@ -24,7 +25,8 @@ export default function Comments({ recipeId }) {
             .finally(() => {
                 setLoading(false);
             });
-    }, [comments]);
+
+    }, [commentIsSent]);
 
     if (loading) {
         return <p>Loading...</p>;  // Visa laddningsindikator
@@ -37,9 +39,9 @@ export default function Comments({ recipeId }) {
     return <>
         <div className="comments-container">
 
-            <AddComment comments={comments} recipeId={recipeId}/>
+            <AddComment comments={comments} recipeId={recipeId} commentIsSent={commentIsSent} setCommentIsSent={setCommentIsSent} />
 
-            <CommentList comments={comments}/>
+            <CommentList comments={comments} commentIsSent={commentIsSent} />
 
         </div>
     </>;
