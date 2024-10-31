@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/images/image.png';  // Importera bilden korrekt
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
@@ -12,7 +13,7 @@ export default function Footer() {
                     <input type="tel" placeholder="+46 Mobilnummer" />
                     <button type="submit">Börja prenumerera</button>
                 </form>
-                <p>Genom att anmäla dig godkänner du PureSip:s <a href="/terms">allmänna villkor</a> och <a href="/privacy">integritetspolicy</a>.</p>
+                <p>Genom att anmäla dig godkänner du PureSip:s <Link to={"/terms"}>allmänna villkor</Link> och <Link to={"/privacy"}>integritetspolicy</Link>.</p>
             </div>
             <div className="footer-info">
                 <div className="company-info">
@@ -22,9 +23,9 @@ export default function Footer() {
                     <p><a href="mailto:info@iths.se">info@iths.se</a></p>
                 </div>
                 <div className="footer-links">
-                    <a href="/about">Om PureSip</a>
-                    <a href="/terms">Allmänna villkor</a>
-                    <a href="/privacy">Personuppgiftspolicy</a>
+                    <Link to={"/about"}>Om PureSip</Link>
+                    <Link to={"/terms"}>Allmänna villkor</Link>
+                    <Link to={"/privacy"}>Personuppgiftspolicy</Link>
                 </div>
                 <div className="social-media">
                     <a href="https://www.facebook.com/ITHogskolan" target="_blank" rel="noopener noreferrer" className="fab fa-facebook"></a>
