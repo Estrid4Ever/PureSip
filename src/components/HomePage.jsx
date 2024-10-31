@@ -82,7 +82,7 @@ export default function HomePage() {
                 selectedCategory={selectedCategory}
                 searchTerm={searchTerm}
                 />
-            <Footer />
+            
         </>
     );
 }

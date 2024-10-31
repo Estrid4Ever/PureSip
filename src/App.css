@@ -879,3 +879,218 @@ input[type=text] {
 
 
 
+
+
+
+/* Terms.jsx */
+.terms-container {
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 2rem; 
+  font-family: 'Georgia', serif; 
+  color: #333; 
+  line-height: 1.8; 
+  font-size: 16px; 
+}
+
+/* Rubriker */
+.terms-container h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #111; 
+}
+
+.terms-container h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #111; /* underrubriker */
+}
+
+/* Styckena */
+.terms-container p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333; 
+}
+
+/* För kontaktinformation eller specialstycken */
+.terms-container p.contact-info {
+  font-weight: bold;
+}
+
+
+.terms-container hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2rem 0;
+}
+
+
+/* ABOUT OCH PRIVACY */
+.about-container {
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 2rem; 
+  font-family: 'Georgia', serif; 
+  color: #333; 
+  line-height: 1.8; 
+  font-size: 16px; 
+}
+
+/* Rubriker */
+.about-container h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #111; 
+}
+
+/* Styckena */
+.about-container p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333; 
+}
+
+.privacy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Georgia', serif;
+  color: #333;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.privacy-container h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #111;
+}
+
+.privacy-container h2 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+  color: #222;
+}
+
+.privacy-container h3 {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  color: #444;
+}
+
+.privacy-container p {
+  margin-bottom: 1rem;
+}
+
+.privacy-container ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-container ul li {
+  margin-bottom: 0.5rem;
+}
+
+.privacy-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.privacy-container th, .privacy-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.privacy-container th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.privacy-container td {
+  background-color: #fff;
+}
+
+.privacy-container section {
+  margin-top: 2rem;
+}
+
+/* mobilvyer */
+@media screen and (max-width: 600px) {
+  .privacy-container {
+      padding: 1rem;
+      font-size: 14px;
+  }
+
+  .privacy-container h1 {
+      font-size: 2rem;
+  }
+
+  .privacy-container h2 {
+      font-size: 1.6rem;
+  }
+
+  .privacy-container h3 {
+      font-size: 1.2rem;
+  }
+
+  .privacy-container table th, .privacy-container table td {
+      font-size: 12px;
+      padding: 6px;
+  }
+}
+
+
+
+.sidescroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  min-width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardImg {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.rating-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.description {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
