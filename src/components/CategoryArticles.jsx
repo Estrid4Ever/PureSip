@@ -7,9 +7,36 @@ export default function CategoryArticles() {
     const navigate = useNavigate();
     const [halfWindowSize, setHalfWindowSize] = useState(window.innerWidth / 2);
 
-    const scroll = (scrollOffset) => {
-        cardRef.current.scrollLeft += scrollOffset;
-        console.log(scrollOffset);
+    const scrollRight = (scrollOffset) => {
+        const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
+
+        if (scrollLeft + clientWidth >= scrollWidth - 1) { // Adding a slight buffer
+            
+            cardRef.current.scroll({
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+
+            cardRef.current.scrollLeft += scrollOffset;
+        }
+
+    };
+
+    const scrollLeft = (scrollOffset) => {
+        const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
+
+        if (cardRef.current?.scrollLeft === 0) { // Adding a slight buffer
+            
+            cardRef.current.scroll({
+                left: cardRef.current.scrollWidth,
+                behavior: 'smooth'
+            });
+        } else {
+
+            cardRef.current.scrollLeft += scrollOffset;
+        }
+
     };
 
     const handleResize = () => {
@@ -83,8 +110,8 @@ export default function CategoryArticles() {
 
 
     var scrollButtons = <div className="scroll-buttons">
-        <button onClick={() => scroll(-halfWindowSize)}><i className="fa-solid fa-angle-left"></i></button>
-        <button onClick={() => scroll(halfWindowSize)}><i className="fa-solid fa-angle-right"></i></button>
+        <button onClick={() => scrollLeft(-halfWindowSize)}><i className="fa-solid fa-angle-left"></i></button>
+        <button onClick={() => scrollRight(halfWindowSize)}><i className="fa-solid fa-angle-right"></i></button>
     </div>;
 
     const articles = articlesData.map(article =>
