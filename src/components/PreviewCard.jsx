@@ -14,9 +14,37 @@ export default function PreviewCard({ recipes }) {
 
 	const cardRef = useRef(0);
 
-	const scroll = (scrollOffset) => {
-		cardRef.current.scrollLeft += scrollOffset;
-	};
+	const scrollRight = (scrollOffset) => {
+        const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
+
+        if (scrollLeft + clientWidth >= scrollWidth - 1) { // Adding a slight buffer
+            
+            cardRef.current.scroll({
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+
+            cardRef.current.scrollLeft += scrollOffset;
+        }
+
+    };
+
+    const scrollLeft = (scrollOffset) => {
+        const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
+
+        if (cardRef.current?.scrollLeft === 0) { // Adding a slight buffer
+            
+            cardRef.current.scroll({
+                left: cardRef.current.scrollWidth,
+                behavior: 'smooth'
+            });
+        } else {
+
+            cardRef.current.scrollLeft += scrollOffset;
+        }
+
+    };
 
 	function shortenDescription(text) {
 		const sentences = text.split(".");
@@ -46,11 +74,11 @@ export default function PreviewCard({ recipes }) {
 
 
 	var scrollButtons = recipes.length > 3 ? <div className="scroll-buttons">
-		<button onClick={() => scroll(-330)}><i className="fa-solid fa-angle-left"></i></button>
-		<button onClick={() => scroll(330)}><i className="fa-solid fa-angle-right"></i></button>
+		<button onClick={() => scrollLeft(-330)}><i className="fa-solid fa-angle-left"></i></button>
+		<button onClick={() => scrollRight(330)}><i className="fa-solid fa-angle-right"></i></button>
 	</div> : recipes.length <= 1 ? <></> : <div className="scroll-buttons" id="three-or-less">
-		<button onClick={() => scroll(-330)}><i className="fa-solid fa-angle-left"></i></button>
-		<button onClick={() => scroll(330)}><i className="fa-solid fa-angle-right"></i></button>
+		<button onClick={() => scrollLeft(-330)}><i className="fa-solid fa-angle-left"></i></button>
+		<button onClick={() => scrollRight(330)}><i className="fa-solid fa-angle-right"></i></button>
 	</div>;
 
 	return (
