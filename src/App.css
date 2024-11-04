@@ -6,6 +6,7 @@
   --white: #fff2da;
   --tan: #b68d40;
   --gold: #d6ad60;
+  --transparent-gold: #f5c05e7a;
   --bright-gold: rgb(255, 215, 0);
   --yellow: rgb(255, 255, 0);
   --transparent-black-1: #0000008f;
@@ -14,6 +15,7 @@
   --black: rgb(0, 0, 0);
   --gray: rgba(128, 128, 128, 0.445);
   --red: #ff0000c5;
+  --green: rgb(74, 141, 29);
 
   line-height: 1.5;
   margin-top: 0;
@@ -121,9 +123,9 @@ h1 {
   line-height: 1.1;
 }
 
-button:hover {
+/* button:hover {
   border-color: var(--black);
-}
+} */
 
 button:focus,
 button:focus-visible {
@@ -186,11 +188,54 @@ button:focus-visible {
   flex-direction: row;
   align-items: center;
   margin-bottom: 0;
+  margin-left: 1rem;
 }
 
 .time {
   padding-left: .5rem;
   margin: 0;
+}
+
+.difficulty{
+  margin: 0;
+}
+
+.graph-level {
+  /* height: 2rem; */
+  /* width: fit-content; */
+  margin-right: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 6px;
+
+  & div {
+    border-radius: 3px;
+    width: 3px;
+    height: 11px;
+    border: solid 2px var(--charcoal);
+    margin: 2px;
+
+    &:first-child {
+      height: 6px;
+    }
+
+    &:last-child {
+      height: 16px;
+    }
+  }
+}
+
+.level-easy {
+  background-color: var(--charcoal);
+}
+
+.level-medium{
+  background-color: var(--charcoal);
+}
+
+.level-hard{
+  background-color: var(--charcoal);
 }
 
 .cardTitle {
@@ -206,6 +251,12 @@ button:focus-visible {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  & .difficulty-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .fa {
@@ -290,8 +341,8 @@ header {
   justify-content: center;
   align-items: center;
 
-  & div {
-    margin-bottom: 1em;
+  & .main-cards, .icons, .category-articles {
+    margin-bottom: 3rem;
   }
 }
 
@@ -358,23 +409,28 @@ header {
   height: 0;
 
   & button {
-    background-color: var(--transparent-black-1);
+    background-color: var(--transparent-black-2);
     border-radius: .3rem;
     cursor: pointer;
     border: none;
-    color: var(--gold);
+    color: var(--transparent-gold);
     font-size: 3rem;
     display: inline-block;
     position: relative;
     top: -20rem;
     height: fit-content;
+    width: fit-content;
 
-    transition: all ease-out 0.2s;
+    transition: ease-out 0.2s;
 
     &:hover {
-      transform: scale(1.08);
+      transform: scale(1.04);
+      color: var(--gold);
     }
+
   }
+
+  
 
 }
 
@@ -661,9 +717,10 @@ input[type=text] {
 .difficulty-time {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   /* margin: 0 auto; */
-  width: fit-content;
-  min-width: 200px;
+  min-width: fit-content;
+  width: 150px;
 }
 
 /* Footer */

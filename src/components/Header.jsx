@@ -1,16 +1,29 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import SelectMenu from './SelectMenu';
+import { fetchAllRecipes } from '../apiCalls';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function Header({ recipes, setSearchTerm }) {
 
     const navigate = useNavigate();
+    const [drinks, setDrinks] = useState([]);  // State för att hålla recepten
     const [searchParam, setSearchParam] = useState("");
     const [searchValue, setSearchValue] = useState("");
     const { categoryId, searchId } = useParams();
 
     useEffect(() => {
+        if(recipes) {
+            setDrinks(recipes);
+        } else {
+            fetchAllRecipes()
+                .then((data) => {
+                    if (data) {
+                        setDrinks(data);  // Sätt recepten
+                    }
+                });
+        }
+
         if (!searchId) {
             setSearchValue("");
         }
@@ -18,8 +31,8 @@ export default function Header({ recipes, setSearchTerm }) {
 
 
     // Dynamiskt generera kategorier från recepten
-    const uniqueCategories = recipes && recipes.length > 0 ? [...new Set(
-        recipes
+    const uniqueCategories = drinks && drinks.length > 0 ? [...new Set(
+        drinks
             .flatMap(drink => drink.categories || [])  // Säkerställ att drink.categories existerar
             .map(category => category.charAt(0).toUpperCase() + category.slice(1).toLowerCase())
     )] : [];
@@ -32,7 +45,9 @@ export default function Header({ recipes, setSearchTerm }) {
 
     function handleSearch(searchValue) {
         setSearchValue(searchValue);
-        setSearchTerm(searchValue);
+        if (setSearchTerm) {
+            setSearchTerm(searchValue);
+        }
         setSearchParam("/search/" + searchValue);
     }
 
@@ -49,7 +64,7 @@ export default function Header({ recipes, setSearchTerm }) {
 
             <div>
                 <Link className="header-title-link" to={`/`}>
-                <img src="/PURESIP logoo in black.png" alt="puresip logo" />
+                    <img src="/PURESIP logoo in black.png" alt="puresip logo" />
                 </Link>  {/* Titel */}
 
             </div>

@@ -7,7 +7,7 @@ export default function SelectMenu({ categoryOptions }) {  // Lägg till setSele
     const navigate = useNavigate();
 
     const { categoryId } = useParams("");
-    
+
     const [defaultValue, setDefaultValue] = useState("");
 
     useEffect(() => {
@@ -17,7 +17,10 @@ export default function SelectMenu({ categoryOptions }) {  // Lägg till setSele
     }, [categoryId]);
 
     function handleSelect(categoryValue) {
-        navigate(`/category/${categoryValue}`, { replace: true });
+        if (categoryValue !== "Kategorier") {
+
+            navigate(`/category/${categoryValue}`, { replace: true });
+        }
     }
 
     return (
