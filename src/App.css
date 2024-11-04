@@ -6,6 +6,7 @@
   --white: #fff2da;
   --tan: #b68d40;
   --gold: #d6ad60;
+  --transparent-gold: #f5c05e7a;
   --bright-gold: rgb(255, 215, 0);
   --yellow: rgb(255, 255, 0);
   --transparent-black-1: #0000008f;
@@ -122,9 +123,9 @@ h1 {
   line-height: 1.1;
 }
 
-button:hover {
+/* button:hover {
   border-color: var(--black);
-}
+} */
 
 button:focus,
 button:focus-visible {
@@ -408,23 +409,28 @@ header {
   height: 0;
 
   & button {
-    background-color: var(--transparent-black-1);
+    background-color: var(--transparent-black-2);
     border-radius: .3rem;
     cursor: pointer;
     border: none;
-    color: var(--gold);
+    color: var(--transparent-gold);
     font-size: 3rem;
     display: inline-block;
     position: relative;
     top: -20rem;
     height: fit-content;
+    width: fit-content;
 
-    transition: all ease-out 0.2s;
+    transition: ease-out 0.2s;
 
     &:hover {
-      transform: scale(1.08);
+      transform: scale(1.04);
+      color: var(--gold);
     }
+
   }
+
+  
 
 }
 
