@@ -45,11 +45,11 @@ export default function HomePage() {
             setSearchTerm("");
         }
 
-        
+
         const scrollToElement = () => {
             if (categoryId || searchId) {
                 const mainCard = document.getElementsByClassName("main-cards")[0];
-                
+
                 if (mainCard) {
                     const y = mainCard.getBoundingClientRect().top + window.scrollY;
                     window.scroll({
@@ -77,8 +77,37 @@ export default function HomePage() {
     // Filtrera recepten baserat på både sökord och vald kategori
     const filteredRecipes = recipes.filter(recipe =>
         (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory)) &&  // Kategorifiltrering
-        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())  // Sökfiltrering
+        isSearchMatch(recipe)  // Sökfiltrering
     );
+
+    function isSearchMatch(recipe) {
+
+        if (recipe.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return true;
+        }
+
+        if (JSON.stringify(recipe.ingredients).toLowerCase().includes(searchTerm.toLowerCase())) {
+            return true;
+        }
+
+        if (JSON.stringify(recipe.categories).toLowerCase().includes(searchTerm.toLowerCase())) {
+            return true;
+        }
+
+        if ("lätt".includes(searchTerm.toLowerCase()) && recipe.timeInMins < 5) {
+            return true;
+        }
+
+        if ("medel".includes(searchTerm.toLowerCase()) && recipe.timeInMins >= 5 && recipe.timeInMins <= 7) {
+            return true;
+        }
+
+        if ("svår".includes(searchTerm.toLowerCase()) && recipe.timeInMins > 7) {
+            return true;
+        }
+
+        return false;
+    }
 
     return (
         <>
