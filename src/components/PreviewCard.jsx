@@ -17,7 +17,7 @@ export default function PreviewCard({ recipes }) {
 	const scrollRight = (scrollOffset) => {
         const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
 
-        if (scrollLeft + clientWidth >= scrollWidth - 1) { // Adding a slight buffer
+        if (scrollLeft + clientWidth >= scrollWidth - 100) { // Adding a slight buffer
             
             cardRef.current.scroll({
                 left: 0,
@@ -33,7 +33,7 @@ export default function PreviewCard({ recipes }) {
     const scrollLeft = (scrollOffset) => {
         const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
 
-        if (cardRef.current?.scrollLeft === 0) { // Adding a slight buffer
+        if (cardRef.current?.scrollLeft < 100) { // Adding a slight buffer
             
             cardRef.current.scroll({
                 left: cardRef.current.scrollWidth,
