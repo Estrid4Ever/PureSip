@@ -5,7 +5,18 @@ import StarRating from "./StarRating";
 import PrepTime from "./PrepTime";
 
 export default function Recipe({ drink }) {
-    const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+    const [isModalOpen, setIsModalOpen] = useState(false); // State för modalvisning
+
+    // Funktion för att beräkna svårighetsgraden baserat på tillagningstid
+    function getDifficultyLevel(time) {
+        if (time < 4) {
+            return "Lätt";
+        } else if (time >= 4 && time <= 5) {
+            return "Medel";
+        } else {
+            return "Svår";
+        }
+    }
 
     const drinkPage = drink.ingredients ? (
         <div className="recipe-detail-container">
@@ -16,7 +27,7 @@ export default function Recipe({ drink }) {
                     <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
                         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                             <button className="close-button" onClick={() => setIsModalOpen(false)}>X</button>
-                            <AddStarRating recipeId={drink._id} /> {/* Only one instance here */}
+                            <AddStarRating recipeId={drink._id} /> {/* Endast en instans här */}
                         </div>
                     </div>
                 )}
@@ -32,6 +43,8 @@ export default function Recipe({ drink }) {
                 />
                 <div className="recipe-info">
                     <div className="difficulty-time">
+                        {/* Visa svårighetsgraden här */}
+                        <p>Svårighetsgrad: {getDifficultyLevel(drink.time)}</p>
                         <PrepTime dish={drink} />
                     </div>
                     <h2>Ingredienser</h2>
@@ -46,9 +59,10 @@ export default function Recipe({ drink }) {
                     </ul>
                 </div>
             </div>
-
         </div>
     ) : "";
 
     return (<>{drinkPage}</>);
 }
+
+
