@@ -13,7 +13,16 @@ export default function CategoryArticles() {
     };
 
     const handleResize = () => {
-        setHalfWindowSize(window.innerWidth / 2);
+
+        var scrollAmount = 755;
+
+        const halfWindow = window.innerWidth / 2;
+
+        if(halfWindow < 755) {
+            scrollAmount = halfWindow;
+        }
+        
+        setHalfWindowSize(scrollAmount);
     };
 
     useEffect(() => {
