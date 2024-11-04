@@ -14,6 +14,7 @@
   --black: rgb(0, 0, 0);
   --gray: rgba(128, 128, 128, 0.445);
   --red: #ff0000c5;
+  --green: rgb(74, 141, 29);
 
   line-height: 1.5;
   margin-top: 0;
@@ -186,11 +187,54 @@ button:focus-visible {
   flex-direction: row;
   align-items: center;
   margin-bottom: 0;
+  margin-left: 1rem;
 }
 
 .time {
   padding-left: .5rem;
   margin: 0;
+}
+
+.difficulty{
+  margin: 0;
+}
+
+.graph-level {
+  /* height: 2rem; */
+  /* width: fit-content; */
+  margin-right: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 6px;
+
+  & div {
+    border-radius: 3px;
+    width: 3px;
+    height: 11px;
+    border: solid 2px var(--charcoal);
+    margin: 2px;
+
+    &:first-child {
+      height: 6px;
+    }
+
+    &:last-child {
+      height: 16px;
+    }
+  }
+}
+
+.level-easy {
+  background-color: var(--charcoal);
+}
+
+.level-medium{
+  background-color: var(--charcoal);
+}
+
+.level-hard{
+  background-color: var(--charcoal);
 }
 
 .cardTitle {
@@ -206,6 +250,12 @@ button:focus-visible {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  & .difficulty-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .fa {
@@ -290,8 +340,8 @@ header {
   justify-content: center;
   align-items: center;
 
-  & div {
-    margin-bottom: 1em;
+  & .main-cards, .icons, .category-articles {
+    margin-bottom: 3rem;
   }
 }
 
@@ -661,9 +711,10 @@ input[type=text] {
 .difficulty-time {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   /* margin: 0 auto; */
-  width: fit-content;
-  min-width: 200px;
+  min-width: fit-content;
+  width: 150px;
 }
 
 /* Footer */

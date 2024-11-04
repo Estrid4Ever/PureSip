@@ -3,6 +3,7 @@ import Ingredients from "./Ingredients";
 import AddStarRating from "./AddStarRating";
 import StarRating from "./StarRating";
 import PrepTime from "./PrepTime";
+import Difficulty from "./Difficulty";
 
 export default function Recipe({ drink }) {
     const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
@@ -32,6 +33,7 @@ export default function Recipe({ drink }) {
                 />
                 <div className="recipe-info">
                     <div className="difficulty-time">
+                        <Difficulty time={drink.timeInMins}/>
                         <PrepTime dish={drink} />
                     </div>
                     <h2>Ingredienser</h2>
