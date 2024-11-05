@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 export default function DrinkSearch({ allRecipes }) {
-  const [searchTerm, setSearchTerm] = useState("");  // State för sökfältet
+  const [searchTerm, setSearchTerm] = useState("");  // State for the search field
 
-  // Filtrera drinkarna baserat på vad som skrivs i sökfältet
+  // Filter the drinks based on what is typed in the search field
   const filteredDrinks = allRecipes.filter(drink =>
     drink.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -14,10 +14,10 @@ export default function DrinkSearch({ allRecipes }) {
         type="text"
         placeholder="Search for a drink..."
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}  // Uppdatera sökordet
+        onChange={(e) => setSearchTerm(e.target.value)}  // Update the search term
       />
 
-      {/* Visa filtrerade drinkar */}
+      {/* Show filtered drinks */}
       <ul>
         {filteredDrinks.map(drink => (
           <li key={drink.id}>

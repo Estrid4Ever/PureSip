@@ -1,23 +1,25 @@
 import React from 'react';
-import logo from '../assets/images/image.png';  // Importera bilden korrekt
+import logo from '../assets/images/image.png';  // Import logo image correctly
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
 
+    // Define a function to smoothly scroll to an element by class name
     function scrollToElement(className) {
 
         setTimeout(()=> {
             const mainCard = document.getElementsByClassName(className)[0];
     
+            // Check if the element exists and then scroll to it
             if (mainCard) {
-                const y = mainCard.getBoundingClientRect().top + window.scrollY;
+                const y = mainCard.getBoundingClientRect().top + window.scrollY;  // Calculate the element's position
                 window.scroll({
-                    top: y,
-                    behavior: 'smooth'
+                    top: y, // Set the top position for scrolling
+                    behavior: 'smooth' // Smooth scrolling
                 });
             }
 
-        }, 300)
+        }, 300) // Delay for 300ms before scrolling
 
 
     };

@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from './Header';
+import Header from './Header'; // Import the Header component to be used on the page
 
 const Terms = () => {
 
     return (
 
         <>
-            <Header />
+            <Header /> // Insert the Header component at the top of the page
 
             <div className="terms-container">
                 <h1>Allmänna villkor</h1>
@@ -21,12 +21,12 @@ const Terms = () => {
                 <p>I vår Integritetspolicy hittar du information om hur vi behandlar dina personuppgifter och skyddar din integritet när du använder våra tjänster. Du kan läsa vår Integritetspolicy på www.puresip.com/privacy.</p>
 
                 <h2>ÅLDERSGRÄNS</h2>
-                <p>Du måste ha fyllt 18 år för att använda Tjänsterna.</p>
+                <p>Alla är välkommna att testa på våra alkoholfria drinkar.</p>
 
                 <h2>ANVÄNDNING AV TJÄNSTERNA</h2>
                 <p>Tjänsterna får endast användas för icke-kommersiellt bruk. Du får inte använda Tjänsterna på ett sätt som kan orsaka olägenheter eller skada för PureSip eller andra användare. Du måste följa svensk lag och dessa Användarvillkor.</p>
 
-                {/* Resterande innehåll... */}
+
 
                 <h2>KONTAKT</h2>
                 <p className="contact-info">

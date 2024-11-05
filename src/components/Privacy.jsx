@@ -1,11 +1,13 @@
 import React from 'react';
-import Header from './Header';
+import Header from './Header'; // Import the Header component to be used on the page
+
 
 const Privacy = () => {
     return (
 
         <>
-            <Header />
+            <Header /> // Include the Header component at the top of the page
+
         <div className="privacy-container">
             <h1>Integritetspolicy</h1>
             
