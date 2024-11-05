@@ -1,0 +1,642 @@
+[
+    {
+        "_id": "670677552c493b3e096a633a",
+        "title": "Virgin Mojito",
+        "description": "Virgin Mojito är en fräsch och uppfriskande alkoholfri drink som tar det bästa från den klassiska mojiton och gör den tillgänglig för alla. Den är fylld med färsk mynta och limejuice, vilket ger en härligt syrlig och svalkande smak som påminner om varma sommardagar. Perfekt för de som vill ha en lätt och läskande dryck utan alkohol, men ändå få den välkända mojito-upplevelsen.",
+        "imageUrl": "/images/Virgin Mojito.jpg",
+        "timeInMins": 5,
+        "price": 50,
+        "categories": [
+            "Mocktails"
+        ],
+        "instructions": [
+            "Muddla mynta och lime i ett glas.",
+            "Tillsätt is och häll i sodavatten.",
+            "Rör om och dekorera med mynta."
+        ],
+        "ingredients": [
+            {
+                "name": "Mynta",
+                "amount": 10,
+                "unit": "blad",
+                "_id": "670677552c493b3e096a633b"
+            },
+            {
+                "name": "Lime",
+                "amount": 1,
+                "unit": "st",
+                "_id": "670677552c493b3e096a633c"
+            },
+            {
+                "name": "Sodavatten",
+                "amount": 15,
+                "unit": "cl",
+                "_id": "670677552c493b3e096a633d"
+            },
+            {
+                "name": "Is",
+                "amount": 4,
+                "unit": "kuber",
+                "_id": "670677552c493b3e096a633e"
+            }
+        ],
+        "avgRating": 3.8
+    },
+    {
+        "_id": "6706776c2c493b3e096a78a4",
+        "title": "Blueberry Cooler",
+        "description": "Blueberry Cooler är en underbart fräsch mocktail som kombinerar de söta, naturliga smakerna av färska blåbär med en syrlig touch av citron. Den är lätt att göra och ger en explosion av bärsmak i varje klunk. Perfekt för både fest och vardag när du vill njuta av något läskande utan alkohol, men ändå få den friska känslan av en bärig drink.",
+        "imageUrl": "/images/Bluerry cooler.jpg",
+        "timeInMins": 7,
+        "price": 55,
+        "categories": [
+            "Mocktails"
+        ],
+        "instructions": [
+            "Mixa blåbär och citronsaft i en mixer.",
+            "Häll blandningen i ett glas med is.",
+            "Toppa med sodavatten och rör om."
+        ],
+        "ingredients": [
+            {
+                "name": "Blåbär",
+                "amount": 1,
+                "unit": "dl",
+                "_id": "6706776c2c493b3e096a78a5"
+            },
+            {
+                "name": "Citron",
+                "amount": 1,
+                "unit": "st",
+                "_id": "6706776c2c493b3e096a78a6"
+            },
+            {
+                "name": "Sodavatten",
+                "amount": 10,
+                "unit": "cl",
+                "_id": "6706776c2c493b3e096a78a7"
+            },
+            {
+                "name": "Is",
+                "amount": 5,
+                "unit": "kuber",
+                "_id": "6706776c2c493b3e096a78a8"
+            }
+        ],
+        "avgRating": 3.5384615384615383
+    },
+    {
+        "_id": "670679552c493b3e096c50e0",
+        "title": "Pineapple Fizz",
+        "description": "Pineapple Fizz är en tropisk och uppfriskande mocktail som blandar den söta smaken av ananas med den syrliga tonen från citron. Den är perfekt för varma dagar när du vill ha något svalkande och fräscht, men ändå lätt och alkoholfritt. Med enkel tillagning och en färgglad presentation är det här en drink som kommer att imponera på alla dina gäster.",
+        "imageUrl": "/images/Pineapple Fizz mocktail.jpg",
+        "timeInMins": 5,
+        "price": 60,
+        "categories": [
+            "Mocktails"
+        ],
+        "instructions": [
+            "Blanda ananasjuice och citronsaft i ett glas.",
+            "Tillsätt is och häll i sodavatten.",
+            "Rör om och servera med en citronskiva."
+        ],
+        "ingredients": [
+            {
+                "name": "Ananasjuice",
+                "amount": 10,
+                "unit": "cl",
+                "_id": "670679552c493b3e096c50e1"
+            },
+            {
+                "name": "Citron",
+                "amount": 1,
+                "unit": "st",
+                "_id": "670679552c493b3e096c50e2"
+            },
+            {
+                "name": "Sodavatten",
+                "amount": 10,
+                "unit": "cl",
+                "_id": "670679552c493b3e096c50e3"
+            },
+            {
+                "name": "Is",
+                "amount": 5,
+                "unit": "kuber",
+                "_id": "670679552c493b3e096c50e4"
+            }
+        ],
+        "avgRating": 3.5
+    },
+    {
+        "_id": "670679b02c493b3e096ca6e3",
+        "title": "Strawberry Banana Smoothie",
+        "description": "Denna klassiska smoothie kombinerar den söta smaken av färska jordgubbar med den krämiga konsistensen av banan. Det är en näringsrik och uppfriskande dryck som är perfekt till frukost eller som mellanmål. Med en bas av yoghurt och honung är den både mättande och energigivande, och passar perfekt för hela familjen.",
+        "imageUrl": "/images/Strawberry Banana Smoothie.jpg",
+        "timeInMins": 3,
+        "price": 40,
+        "categories": [
+            "Smoothies"
+        ],
+        "instructions": [
+            "Mixa jordgubbar och banan i en mixer.",
+            "Tillsätt yoghurt och honung, och mixa igen tills allt är slätt.",
+            "Häll upp i ett glas och servera genast."
+        ],
+        "ingredients": [
+            {
+                "name": "Jordgubbar",
+                "amount": 10,
+                "unit": "st",
+                "_id": "670679b02c493b3e096ca6e4"
+            },
+            {
+                "name": "Banan",
+                "amount": 1,
+                "unit": "st",
+                "_id": "670679b02c493b3e096ca6e5"
+            },
+            {
+                "name": "Yoghurt",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "670679b02c493b3e096ca6e6"
+            },
+            {
+                "name": "Honung",
+                "amount": 1,
+                "unit": "msk",
+                "_id": "670679b02c493b3e096ca6e7"
+            }
+        ],
+        "avgRating": 3
+    },
+    {
+        "_id": "670679c62c493b3e096cbb6f",
+        "title": "Green Detox Smoothie",
+        "description": "Denna gröna detox-smoothie är fylld med nyttigheter från spenat, avokado och äpple. Den är perfekt för dig som vill starta dagen med en boost av vitaminer och antioxidanter. Den lena och friska smaken gör den till en favorit för både hälsoentusiaster och de som vill ha något mättande utan att tumma på smaken.",
+        "imageUrl": "/images/Green Detox Smoothie.jpg",
+        "timeInMins": 4,
+        "price": 60,
+        "categories": [
+            "Smoothies"
+        ],
+        "instructions": [
+            "Mixa spenat, avokado och äpple i en mixer.",
+            "Tillsätt kokosvatten och mixa tills slätt.",
+            "Häll upp i ett glas och servera med några isbitar."
+        ],
+        "ingredients": [
+            {
+                "name": "Spenat",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "670679c62c493b3e096cbb70"
+            },
+            {
+                "name": "Avokado",
+                "amount": 1,
+                "unit": "st",
+                "_id": "670679c62c493b3e096cbb71"
+            },
+            {
+                "name": "Äpple",
+                "amount": 1,
+                "unit": "st",
+                "_id": "670679c62c493b3e096cbb72"
+            },
+            {
+                "name": "Kokosvatten",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "670679c62c493b3e096cbb73"
+            }
+        ],
+        "avgRating": 1.5
+    },
+    {
+        "_id": "67067bba2c493b3e096e9e23",
+        "title": "Mango Passion Smoothie",
+        "description": "Mango Passion Smoothie är en tropisk dröm som kombinerar den söta smaken av mogen mango med den fräscha syran från passionsfrukt. Perfekt som ett exotiskt mellanmål eller frukost, den här smoothien ger både en smakupplevelse och ett vitaminrikt tillskott till din dag.",
+        "imageUrl": "/images/Mango Passion Smoothie.jpg",
+        "timeInMins": 5,
+        "price": 65,
+        "categories": [
+            "Smoothies"
+        ],
+        "instructions": [
+            "Mixa mango och passionsfrukt i en mixer.",
+            "Tillsätt yoghurt och apelsinjuice och mixa tills allt är slätt.",
+            "Häll upp i ett glas och njut."
+        ],
+        "ingredients": [
+            {
+                "name": "Mango",
+                "amount": 1,
+                "unit": "st",
+                "_id": "67067bba2c493b3e096e9e24"
+            },
+            {
+                "name": "Passionsfrukt",
+                "amount": 2,
+                "unit": "st",
+                "_id": "67067bba2c493b3e096e9e25"
+            },
+            {
+                "name": "Yoghurt",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "67067bba2c493b3e096e9e26"
+            },
+            {
+                "name": "Apelsinjuice",
+                "amount": 1,
+                "unit": "dl",
+                "_id": "67067bba2c493b3e096e9e27"
+            }
+        ],
+        "avgRating": 4
+    },
+    {
+        "_id": "67067bd32c493b3e096eb634",
+        "title": "Golden Milk (Gurkmejalatte)",
+        "description": "Golden Milk är en populär hälso- och wellness-dryck som kombinerar gurkmeja med mandelmjölk och kryddor för att skapa en antiinflammatorisk, näringsrik och värmande dryck. Perfekt som ett hälsosamt kvällsmål eller för att värma dig under kalla dagar. Gurkmeja har lång historia inom traditionell medicin och är full av antioxidanter.",
+        "imageUrl": "/images/Golden Milk - Gurkmejalatte.jpg",
+        "timeInMins": 10,
+        "price": 40,
+        "categories": [
+            "Hälsodrycker"
+        ],
+        "instructions": [
+            "Värm mandelmjölken i en kastrull på medelvärme.",
+            "Tillsätt gurkmeja, ingefära, kanel och svartpeppar. Rör om tills väl blandat.",
+            "Låt sjuda i 5 minuter och servera med en skvätt honung."
+        ],
+        "ingredients": [
+            {
+                "name": "Mandelmjölk",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "67067bd32c493b3e096eb635"
+            },
+            {
+                "name": "Gurkmeja",
+                "amount": 1,
+                "unit": "tsk",
+                "_id": "67067bd32c493b3e096eb636"
+            },
+            {
+                "name": "Ingefära (riven)",
+                "amount": 0.5,
+                "unit": "tsk",
+                "_id": "67067bd32c493b3e096eb637"
+            },
+            {
+                "name": "Kanel",
+                "amount": 0.5,
+                "unit": "tsk",
+                "_id": "67067bd32c493b3e096eb638"
+            },
+            {
+                "name": "Svartpeppar",
+                "amount": 1,
+                "unit": "krm",
+                "_id": "67067bd32c493b3e096eb639"
+            }
+        ],
+        "avgRating": 3.25
+    },
+    {
+        "_id": "67067be92c493b3e096ece79",
+        "title": "Grön Smoothie Bowl",
+        "description": "En grön smoothie bowl fylld med näringsrika ingredienser som spenat, avokado och chiafrön. Den här frukosten eller mellanmålet är packat med vitaminer, mineraler och fiber för att ge en energiboost och hjälpa dig att hålla dig mätt längre. Toppa med dina favorittillbehör för extra crunch och smak.",
+        "imageUrl": "/images/Green Detox Smoothie.jpg",
+        "timeInMins": 5,
+        "price": 55,
+        "categories": [
+            "Hälsodrycker"
+        ],
+        "instructions": [
+            "Mixa spenat, avokado, banan och kokosvatten i en mixer tills det är slätt.",
+            "Häll upp i en skål och toppa med chiafrön, bär och mandlar.",
+            "Servera direkt."
+        ],
+        "ingredients": [
+            {
+                "name": "Spenat",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "67067be92c493b3e096ece7a"
+            },
+            {
+                "name": "Avokado",
+                "amount": 1,
+                "unit": "st",
+                "_id": "67067be92c493b3e096ece7b"
+            },
+            {
+                "name": "Banan",
+                "amount": 1,
+                "unit": "st",
+                "_id": "67067be92c493b3e096ece7c"
+            },
+            {
+                "name": "Kokosvatten",
+                "amount": 1.5,
+                "unit": "dl",
+                "_id": "67067be92c493b3e096ece7d"
+            },
+            {
+                "name": "Chiafrön",
+                "amount": 1,
+                "unit": "msk",
+                "_id": "67067be92c493b3e096ece7e"
+            }
+        ],
+        "avgRating": 3
+    },
+    {
+        "_id": "67067c002c493b3e096ee4c3",
+        "title": "Spirulina Boost",
+        "description": "Spirulina Boost är en kraftfull hälsodryck som blandar spirulinapulver med färsk apelsinjuice och grönt te för att skapa en näringsrik energiboost. Spirulina är rikt på protein, vitaminer och mineraler och anses vara ett superfood som hjälper till att stärka immunförsvaret och förbättra kroppens återhämtning.",
+        "imageUrl": "/images/Spirulina Boost.jpg",
+        "timeInMins": 5,
+        "price": 45,
+        "categories": [
+            "Hälsodrycker"
+        ],
+        "instructions": [
+            "Blanda spirulinapulver med grönt te i en mixer.",
+            "Tillsätt apelsinjuice och mixa tills slätt.",
+            "Servera i ett glas och njut av en energirik dryck."
+        ],
+        "ingredients": [
+            {
+                "name": "Spirulinapulver",
+                "amount": 1,
+                "unit": "tsk",
+                "_id": "67067c002c493b3e096ee4c4"
+            },
+            {
+                "name": "Grönt te (kylt)",
+                "amount": 1.5,
+                "unit": "dl",
+                "_id": "67067c002c493b3e096ee4c5"
+            },
+            {
+                "name": "Apelsinjuice",
+                "amount": 1,
+                "unit": "dl",
+                "_id": "67067c002c493b3e096ee4c6"
+            }
+        ],
+        "avgRating": 3.4
+    },
+    {
+        "_id": "67067c172c493b3e096efa2b",
+        "title": "Varm Choklad med Havremjölk",
+        "description": "En krämig och laktosfri varm choklad gjord med havremjölk. Denna variant är både len och fyllig i smaken, perfekt för kalla vinterkvällar eller som en mysig dryck till frukost. Med mörk choklad och en hint av vanilj är den en dröm för chokladälskare som vill ha något lite nyttigare.",
+        "imageUrl": "/images/Varm choklad med havremjölk.jpg",
+        "timeInMins": 7,
+        "price": 35,
+        "categories": [
+            "Varma drycker"
+        ],
+        "instructions": [
+            "Värm havremjölken i en kastrull på medelvärme.",
+            "Tillsätt mörk choklad, socker och vaniljextrakt. Vispa tills chokladen smält och blandningen är len.",
+            "Häll upp i en kopp och servera med vispad grädde om så önskas."
+        ],
+        "ingredients": [
+            {
+                "name": "Havremjölk",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "67067c172c493b3e096efa2c"
+            },
+            {
+                "name": "Mörk choklad (hackad)",
+                "amount": 50,
+                "unit": "g",
+                "_id": "67067c172c493b3e096efa2d"
+            },
+            {
+                "name": "Socker",
+                "amount": 1,
+                "unit": "msk",
+                "_id": "67067c172c493b3e096efa2e"
+            },
+            {
+                "name": "Vaniljextrakt",
+                "amount": 0.5,
+                "unit": "tsk",
+                "_id": "67067c172c493b3e096efa2f"
+            }
+        ],
+        "avgRating": 4.75
+    },
+    {
+        "_id": "67067c2b2c493b3e096f0db4",
+        "title": "Chai Latte",
+        "description": "Chai Latte är en värmande och kryddig dryck som kombinerar svart te med aromatiska kryddor som kanel, kardemumma och ingefära. Perfekt för kalla dagar eller som en mysig avslutning på dagen. Med en touch av honung och skummad mjölk blir det en balanserad och smakrik dryck som älskas av många.",
+        "imageUrl": "/images/Chai Latte.jpg",
+        "timeInMins": 10,
+        "price": 45,
+        "categories": [
+            "Varma drycker"
+        ],
+        "instructions": [
+            "Koka upp vatten med alla kryddorna och låt sjuda i 5 minuter.",
+            "Tillsätt svart te och låt dra i ytterligare 3 minuter.",
+            "Sila bort kryddorna och häll upp i en kopp. Tillsätt skummad mjölk och en skvätt honung."
+        ],
+        "ingredients": [
+            {
+                "name": "Vatten",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "67067c2b2c493b3e096f0db5"
+            },
+            {
+                "name": "Svart te",
+                "amount": 1,
+                "unit": "påse",
+                "_id": "67067c2b2c493b3e096f0db6"
+            },
+            {
+                "name": "Kanelstång",
+                "amount": 1,
+                "unit": "st",
+                "_id": "67067c2b2c493b3e096f0db7"
+            },
+            {
+                "name": "Kardemumma",
+                "amount": 3,
+                "unit": "kärnor",
+                "_id": "67067c2b2c493b3e096f0db8"
+            },
+            {
+                "name": "Ingefära (färsk)",
+                "amount": 1,
+                "unit": "tsk",
+                "_id": "67067c2b2c493b3e096f0db9"
+            },
+            {
+                "name": "Mjölk",
+                "amount": 1,
+                "unit": "dl",
+                "_id": "67067c2b2c493b3e096f0dba"
+            },
+            {
+                "name": "Honung",
+                "amount": 1,
+                "unit": "tsk",
+                "_id": "67067c2b2c493b3e096f0dbb"
+            }
+        ],
+        "avgRating": 4.333333333333333
+    },
+    {
+        "_id": "67067c522c493b3e096f36c9",
+        "title": "Pepparmints-Te",
+        "description": "Pepparmints-te är en uppfriskande och lugnande varm dryck som är perfekt för att stilla magen eller njuta av en stunds avkoppling. Med sin friska och milda smak är den ett utmärkt val för kvällarna eller när som helst på dagen. Pepparmynta har länge använts för sina hälsosamma egenskaper och är känt för att hjälpa till att lindra matsmältningsproblem.",
+        "imageUrl": "/images/Pepparmints-te.jpg",
+        "timeInMins": 5,
+        "price": 20,
+        "categories": [
+            "Varma drycker"
+        ],
+        "instructions": [
+            "Koka upp vatten i en kastrull eller vattenkokare.",
+            "Lägg pepparmyntsblad i en kopp och häll över det kokande vattnet.",
+            "Låt dra i 3–5 minuter och sila sedan bort bladen.",
+            "Servera direkt, eventuellt med en skvätt honung om så önskas."
+        ],
+        "ingredients": [
+            {
+                "name": "Färska pepparmyntsblad",
+                "amount": 10,
+                "unit": "blad",
+                "_id": "67067c522c493b3e096f36ca"
+            },
+            {
+                "name": "Vatten",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "67067c522c493b3e096f36cb"
+            },
+            {
+                "name": "Honung (valfritt)",
+                "amount": 1,
+                "unit": "tsk",
+                "_id": "67067c522c493b3e096f36cc"
+            }
+        ],
+        "avgRating": 5
+    },
+    {
+        "_id": "67067c662c493b3e096f4ceb",
+        "title": "Apelsin- och Morotsjuice",
+        "description": "Apelsin- och morotsjuice är en näringsrik och fräsch dryck fylld med vitamin C och betakaroten. Den syrliga smaken från apelsinerna blandat med den söta och jordiga tonen från moroten ger en perfekt balans som både barn och vuxna kan njuta av. Perfekt som en hälsosam frukostdryck eller mellanmål.",
+        "imageUrl": "/images/Apelsin- och Morotsjuice.jpg",
+        "timeInMins": 10,
+        "price": 30,
+        "categories": [
+            "Juicer"
+        ],
+        "instructions": [
+            "Skala och skär apelsiner och morötter i mindre bitar.",
+            "Kör dem genom en juicepress tills du får en slät juice.",
+            "Häll upp i ett glas och servera direkt."
+        ],
+        "ingredients": [
+            {
+                "name": "Apelsin",
+                "amount": 2,
+                "unit": "st",
+                "_id": "67067c662c493b3e096f4cec"
+            },
+            {
+                "name": "Morot",
+                "amount": 3,
+                "unit": "st",
+                "_id": "67067c662c493b3e096f4ced"
+            }
+        ],
+        "avgRating": 4.666666666666667
+    },
+    {
+        "_id": "67067c7b2c493b3e096f630c",
+        "title": "Grönkåls- och Äppeljuice",
+        "description": "En kraftfull grön juice fylld med grönkål, äpplen och citron för en uppfriskande och näringsrik dryck. Grönkål är en superfood som är full av vitaminer och mineraler, och när den kombineras med den söta smaken från äpplen och syran från citron blir den både god och nyttig. Perfekt för att starta dagen med en boost av energi.",
+        "imageUrl": "/images/Grönkåls- och äppeljuice.jpg",
+        "timeInMins": 7,
+        "price": 40,
+        "categories": [
+            "Juicer"
+        ],
+        "instructions": [
+            "Tvätta grönkål och äpplen noggrant.",
+            "Kör grönkålen, äpplen och citronsaft genom en juicepress.",
+            "Häll upp i ett glas och njut av en grön energi-boost."
+        ],
+        "ingredients": [
+            {
+                "name": "Grönkål",
+                "amount": 2,
+                "unit": "dl",
+                "_id": "67067c7b2c493b3e096f630d"
+            },
+            {
+                "name": "Äpple",
+                "amount": 2,
+                "unit": "st",
+                "_id": "67067c7b2c493b3e096f630e"
+            },
+            {
+                "name": "Citron",
+                "amount": 0.5,
+                "unit": "st",
+                "_id": "67067c7b2c493b3e096f630f"
+            }
+        ],
+        "avgRating": 2.6666666666666665
+    },
+    {
+        "_id": "67067c8a2c493b3e096f738b",
+        "title": "Vattenmelon- och Limejuice",
+        "description": "Vattenmelon- och limejuice är den perfekta drycken för varma sommardagar. Den saftiga vattenmelonen ger en naturligt söt smak som balanseras av den syrliga limen. Detta är en uppfriskande och lätt dryck som både hydratiserar och ger dig en härlig smakupplevelse. Perfekt för picknicken eller som ett uppfriskande mellanmål.",
+        "imageUrl": "/images/Vattenmelon- och limejuice.jpg",
+        "timeInMins": 5,
+        "price": 25,
+        "categories": [
+            "Juicer"
+        ],
+        "instructions": [
+            "Skär vattenmelon i bitar och ta bort kärnorna.",
+            "Mixa vattenmelonbitarna och limejuice i en mixer tills allt är slätt.",
+            "Häll upp i ett glas med is och servera direkt."
+        ],
+        "ingredients": [
+            {
+                "name": "Vattenmelon",
+                "amount": 300,
+                "unit": "g",
+                "_id": "67067c8a2c493b3e096f738c"
+            },
+            {
+                "name": "Lime",
+                "amount": 1,
+                "unit": "st",
+                "_id": "67067c8a2c493b3e096f738d"
+            },
+            {
+                "name": "Is",
+                "amount": 3,
+                "unit": "kuber",
+                "_id": "67067c8a2c493b3e096f738e"
+            }
+        ],
+        "avgRating": 2.6
+    }
+]
