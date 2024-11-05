@@ -115,7 +115,7 @@ header {
     align-items:center;
 
     & img {
-      width: 12rem;
+      width: 11rem;
       height: auto;
       margin: 2rem 0rem 2rem 2rem;
     }
@@ -845,10 +845,14 @@ input[type=text] {
   cursor: pointer; /* Optional: Change cursor to pointer */
   color: #000; /* Change text color if needed */
 }
-.star-button:hover {
-  transform: scale(1.05); /* Slightly increase the size of the button */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+.star-button:focus {
+  color: black;
+  outline: none;
 }
+.star-button:hover {
+  transform: scale(1.10); /* Slightly increase the size of the button */
+}
+
 
  /* MODAL */
 
@@ -875,7 +879,22 @@ input[type=text] {
   width: 90%;            /* Full width on smaller screens */
 }
 
-/* STAR RATING */
+.close-button {
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 20px; /* Font size for the button */
+  cursor: pointer; /* Pointer cursor */
+  color: #333; /* Color of the close button */
+  position: absolute;
+  right: 605px;
+}
+.close-button:hover {
+  color: black; /* Change color on hover */
+  transform: scale(1.05);
+}
 
-
+.close-button:focus {
+  color: black; /* Change color on focus */
+  outline: none; /* Remove the outline */
+}
 
