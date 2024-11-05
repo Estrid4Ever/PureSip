@@ -17,7 +17,7 @@ export default function Recipe({ drink }) {
                     <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
                         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                             <button className="close-button" onClick={() => setIsModalOpen(false)}>X</button>
-                            <AddStarRating recipeId={drink._id} /> {/* Only one instance here */}
+                            <AddStarRating recipeId={drink._id} /> 
                         </div>
                     </div>
                 )}
