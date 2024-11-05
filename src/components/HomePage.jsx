@@ -5,7 +5,7 @@ import Header from './Header';
 import Footer from "./Footer";
 import InfoBanner from "./InfoBanner";
 import MainContainer from "./MainContainer";
-import { useLocation } from 'react-router-dom';
+import Loading from "./loading";
 
 export default function HomePage() {
 
@@ -15,11 +15,6 @@ export default function HomePage() {
     const [searchTerm, setSearchTerm] = useState("");  // State för sökord
     const [selectedCategory, setSelectedCategory] = useState("");  // State för vald kategori
     const { categoryId, searchId } = useParams();
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-      }, [pathname]);
 
     useEffect(() => {
         fetchAllRecipes()
@@ -50,10 +45,29 @@ export default function HomePage() {
             setSearchTerm("");
         }
 
+
+        const scrollToElement = () => {
+            if (categoryId || searchId) {
+                const mainCard = document.getElementsByClassName("main-cards")[0];
+
+                if (mainCard) {
+                    const y = mainCard.getBoundingClientRect().top + window.scrollY;
+                    window.scroll({
+                        top: y - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        };
+
+        const timer = setTimeout(scrollToElement, 300);
+
+        return () => clearTimeout(timer);
+
     }, [categoryId, searchId]);
 
     if (loading) {
-        return <p>Loading...</p>;  // Visa laddningsindikator
+        return <Loading></Loading>;  // Visa laddningsindikator
     }
 
     if (error) {
@@ -63,8 +77,37 @@ export default function HomePage() {
     // Filtrera recepten baserat på både sökord och vald kategori
     const filteredRecipes = recipes.filter(recipe =>
         (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory)) &&  // Kategorifiltrering
-        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())  // Sökfiltrering
+        isSearchMatch(recipe)  // Sökfiltrering
     );
+
+    function isSearchMatch(recipe) {
+
+        if (recipe.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return true;
+        }
+
+        if (JSON.stringify(recipe.ingredients).toLowerCase().includes(searchTerm.toLowerCase())) {
+            return true;
+        }
+
+        if (JSON.stringify(recipe.categories).toLowerCase().includes(searchTerm.toLowerCase())) {
+            return true;
+        }
+
+        if ("lätt".includes(searchTerm.toLowerCase()) && recipe.timeInMins < 5) {
+            return true;
+        }
+
+        if ("medel".includes(searchTerm.toLowerCase()) && recipe.timeInMins >= 5 && recipe.timeInMins <= 7) {
+            return true;
+        }
+
+        if ("svår".includes(searchTerm.toLowerCase()) && recipe.timeInMins > 7) {
+            return true;
+        }
+
+        return false;
+    }
 
     return (
         <>
@@ -72,17 +115,18 @@ export default function HomePage() {
                 setSearchTerm={setSearchTerm}
                 recipes={recipes}
             />
+            <InfoBanner />
             <p className="info-text">På PureSip skapar vi smakrika, alkoholfria drycker för dig som vill njuta av festliga smaker utan alkohol.
                 Varje dryck är noggrant framtagen med naturliga ingredienser för att ge en upplevelse som passar alla tillfällen, från vardag till fest.
                 Utforska vår värld av hälsosamma och kreativa alternativ som bjuder på allt från fräschör till lyxiga nyanser.</p>
-            <InfoBanner />
-            <MainContainer 
-                recipes={recipes} 
+            <MainContainer
+                recipes={recipes}
                 filteredRecipes={filteredRecipes}
                 selectedCategory={selectedCategory}
                 searchTerm={searchTerm}
-                />
+            />
             <Footer />
+
         </>
     );
 }

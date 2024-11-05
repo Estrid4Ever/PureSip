@@ -1,14 +1,77 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CategoryArticles() {
 
     const cardRef = useRef(0);
     const navigate = useNavigate();
+    const [halfWindowSize, setHalfWindowSize] = useState(window.innerWidth / 2);
 
-    const scroll = (scrollOffset) => {
-        cardRef.current.scrollLeft += scrollOffset;
+    const scrollRight = (scrollOffset) => {
+        const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
+
+        if (scrollLeft + clientWidth >= scrollWidth - 100) { // Adding a slight buffer
+            
+            cardRef.current.scroll({
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+
+            cardRef.current.scrollLeft += scrollOffset;
+        }
+
     };
+
+    const scrollLeft = (scrollOffset) => {
+        const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
+
+        if (cardRef.current?.scrollLeft < 100) { // Adding a slight buffer
+            
+            cardRef.current.scroll({
+                left: cardRef.current.scrollWidth,
+                behavior: 'smooth'
+            });
+        } else {
+
+            cardRef.current.scrollLeft += scrollOffset;
+        }
+
+    };
+
+    const handleResize = () => {
+
+        var scrollAmount = 755;
+
+        const halfWindow = window.innerWidth / 2;
+
+        if(halfWindow < 755) {
+            scrollAmount = halfWindow;
+        }
+
+        if(halfWindow < 360) {
+            scrollAmount = 360;
+        }
+        
+        setHalfWindowSize(scrollAmount);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    function handleClick(article) {
+
+        const y = document.getElementsByClassName("main-cards")[0].getBoundingClientRect().top + window.scrollY;
+        window.scroll({
+            top: y -100,
+            behavior: 'smooth'
+        });
+
+        navigate(article.navUrl, { replace: true });
+    }
 
 
     const articlesData = [
@@ -51,12 +114,12 @@ export default function CategoryArticles() {
 
 
     var scrollButtons = <div className="scroll-buttons">
-        <button onClick={() => scroll(-550)}><i className="fa-solid fa-angle-left"></i></button>
-        <button onClick={() => scroll(550)}><i className="fa-solid fa-angle-right"></i></button>
+        <button onClick={() => scrollLeft(-halfWindowSize)}><i className="fa-solid fa-angle-left"></i></button>
+        <button onClick={() => scrollRight(halfWindowSize)}><i className="fa-solid fa-angle-right"></i></button>
     </div>;
 
-    const articles = articlesData.map(article => 
-        <article key={article.title} onClick={() => navigate(article.navUrl, { replace: true })}>
+    const articles = articlesData.map(article =>
+        <article key={article.title} onClick={() => handleClick(article)}>
             <img src={article.img} alt={article.imgAlt} />
             <div>
                 <h2>{article.title}</h2>
