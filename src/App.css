@@ -18,6 +18,7 @@
   --gray: rgba(128, 128, 128, 0.445);
   --red: #ff0000c5;
   --green: rgb(74, 141, 29);
+  
 
   line-height: 1.5;
   margin-top: 0;
@@ -948,6 +949,10 @@ input[type=text] {
 /* Footer  start*/
 .subscription {
   margin-bottom: 2rem;
+  & a {
+    color: var(--charcoal);
+    text-decoration: underline;
+  }
 }
 
 .subscription h3 {

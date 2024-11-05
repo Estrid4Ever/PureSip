@@ -32,8 +32,7 @@ export default function Footer() {
                     <input type="tel" placeholder="+46 Mobilnummer" />
                     <button type="submit">Börja prenumerera</button>
                 </form>
-                <p>Genom att anmäla dig godkänner du PureSip:s <Link onClick={scrollToElement("terms-container")} to={"/terms"}>allmänna villkor</Link> 
-                och <Link onClick={scrollToElement("privacy-container")} to={"/privacy"}>integritetspolicy</Link>.</p>
+                <p>Genom att anmäla dig godkänner du PureSip:s <Link onClick={scrollToElement("terms-container")} to={"/terms"}>allmänna villkor</Link> och <Link onClick={scrollToElement("privacy-container")} to={"/privacy"}>integritetspolicy</Link>.</p>
             </div>
             <div className="footer-info">
                 <div className="company-info">
