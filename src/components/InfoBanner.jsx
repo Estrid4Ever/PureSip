@@ -1,4 +1,4 @@
-
+//this div has the banner img as a background in css
 
 export default function InfoBanner() {
   

@@ -35,29 +35,29 @@ export default function CardMedia({ dish }) {
         checkVideo();
     }, [dish]);
 
-    function setSrcAndPlay(event) {
+    function playIfLoaded(event) {
 
         if (isVideoLoaded) {
             event.target.play();
         }
     }
 
-    function deleteSrcAndPause(event) {
+    function pauseAndReload(event) {
 
         event.target.pause();
         setIsVideoLoaded(false);
         event.target.load();
     }
 
-
+    //returns video element if video is avalible otherwise returns img
     const media = (
         isVideoAvailable ? (<video
             key={dish._id}
             className="cardImg"
             alt={`Picture of ` + dish.title}
             poster={dish.imageUrl}
-            onMouseOver={event => setSrcAndPlay(event)}
-            onMouseOut={event => deleteSrcAndPause(event)}
+            onMouseOver={event => playIfLoaded(event)}
+            onMouseOut={event => pauseAndReload(event)}
             onEnded={(event) => event.target.load()}
             onCanPlayThrough={() => setIsVideoLoaded(true)}
             src={videoSrc} >
