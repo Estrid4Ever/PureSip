@@ -13,7 +13,7 @@ export default function Header({ recipes, setSearchTerm }) {
     const { categoryId, searchId } = useParams();
 
     useEffect(() => {
-        if(recipes) {
+        if (recipes) {
             setDrinks(recipes);
         } else {
             fetchAllRecipes()
@@ -61,6 +61,10 @@ export default function Header({ recipes, setSearchTerm }) {
 
     return (
         <header className="header-container">
+            <Link className="header-home-link" to={`/`} title="Home">
+
+                <i className="fa-solid fa-house"></i>
+            </Link>
 
             <div>
                 <Link className="header-title-link" to={`/`}>

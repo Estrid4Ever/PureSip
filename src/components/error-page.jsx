@@ -1,3 +1,5 @@
+//this is the page that shows on a 404 or error.
+
 import { useRouteError } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";

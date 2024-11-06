@@ -6,6 +6,7 @@
   --charcoal: #122620;
   --cream: #f4ebd0;
   --white: #fff2da;
+  --transparent-white: #f4ebd0be;
   --tan: #b68d40;
   --gold: #d6ad60;
   --transparent-gold: #f5c05e7a;
@@ -96,6 +97,21 @@ header {
 
 .header-title-link {
   color: var(--charcoal);
+}
+
+.header-home-link{
+  color: var(--transparent-white);
+  align-self: flex-start;
+  top: .5rem;
+  left: 1rem;
+  font-size: x-large;
+  position: absolute;
+  display: inline-block;
+
+  &:hover {
+    transform: scale(1.1);
+    color: var(--white);
+  }
 }
 
 .searchbar-icon {
@@ -990,12 +1006,17 @@ input[type=text] {
 .footer-links,
 .social-media {
   margin-bottom: 1rem;
+
+  & p>a {
+    text-decoration: underline;
+    color: var(--charcoal);
+  }
 }
 
 .footer-links a,
 .social-media a {
   color: var(--charcoal);
-  text-decoration: none;
+  text-decoration: underline;
   margin: 0 0.5rem;
 }
 

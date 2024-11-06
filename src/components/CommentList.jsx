@@ -1,3 +1,4 @@
+//this component renders comments if there are any. in order of newest to oldest.
 
 export default function CommentList({ comments }) {
 

@@ -1,6 +1,5 @@
-
+//this component reders the loading animation
 export default function Loading() {
-
 
   return (
     <>

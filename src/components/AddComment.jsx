@@ -1,3 +1,5 @@
+// this Component handles the comment input fields, send and cancel buttons, input validation and finally post a new comment.
+
 import { useState } from "react";
 import { postRecipeComments } from "../apiCalls";
 
@@ -6,9 +8,10 @@ export default function AddComment({ comments, recipeId, commentIsSent, setComme
     const [newComment, setNewComment] = useState("");
     const [commentName, setCommentName] = useState("");
     const [fieldsAreValid, setFieldsAreValid] = useState(false);
-    const [nameFieldWarning, setNameFieldWarning] = useState(false);
-    const [commentFieldWarning, setCommentFieldWarning] = useState(false);
+    const [nameFieldWarning, setNameFieldWarning] = useState(false); //if true a red border around the field is activated. hence the timeout in publishNewComment
+    const [commentFieldWarning, setCommentFieldWarning] = useState(false); //if true a red border around the field is activated. hence the timeout in publishNewComment
 
+    //checks if input is valid and then posts comment or gives warning on what field is invalid
     const publishNewComment = () => {
 
         if (commentName.trim() === "" || newComment.trim() === "") {
@@ -41,7 +44,7 @@ export default function AddComment({ comments, recipeId, commentIsSent, setComme
 
             postRecipeComments(recipeId, newCommentData).then((response) => {
                 if (response.ok) {
-                    setCommentIsSent(true);
+                    setCommentIsSent(true); //triggers rerender of CommentList
                 }
             });
         }
@@ -91,6 +94,7 @@ export default function AddComment({ comments, recipeId, commentIsSent, setComme
         return text;
     }
 
+    //removes input fields when comment is sent
     const addCommentOrThanksForComment = commentIsSent ? <div className="comments-thanks">
         <h2 className="comments-thanks-text">Tack för din kommentar!</h2>
     </div> : <div className="comments-add-comment">
