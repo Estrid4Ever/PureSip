@@ -1,3 +1,6 @@
+//this component renders the homepage, categorypage and searchpage.
+//theese 3 pages are basically the same but depending on url params the main previewcard carousel will filter different recipes.
+
 import { useState, useEffect } from "react";
 import { fetchAllRecipes } from '../apiCalls';
 import { useParams } from "react-router-dom";
@@ -9,18 +12,18 @@ import Loading from "./loading";
 
 export default function HomePage() {
 
-    const [recipes, setRecipes] = useState([]);  // State för att hålla recepten
-    const [loading, setLoading] = useState(true);  // State för laddning
-    const [error, setError] = useState(null);  // State för felhantering
-    const [searchTerm, setSearchTerm] = useState("");  // State för sökord
-    const [selectedCategory, setSelectedCategory] = useState("");  // State för vald kategori
-    const { categoryId, searchId } = useParams();
+    const [recipes, setRecipes] = useState([]);  // State for holding recipes
+    const [loading, setLoading] = useState(true);  // State for loading
+    const [error, setError] = useState(null);  // State for error handling
+    const [searchTerm, setSearchTerm] = useState("");  // State for search input
+    const [selectedCategory, setSelectedCategory] = useState("");  // State for category input
+    const { categoryId, searchId } = useParams(); // url params
 
     useEffect(() => {
         fetchAllRecipes()
             .then((data) => {
                 if (data) {
-                    setRecipes(data);  // Sätt recepten
+                    setRecipes(data);
                 } else {
                     setError("No data available");
                 }
@@ -32,15 +35,16 @@ export default function HomePage() {
                 setLoading(false);
             });
 
+        // empties or sets category input depending on ulr params
         if (categoryId) {
             setSelectedCategory(categoryId);
         } else {
             setSelectedCategory("Kategorier");
         }
 
+        // empties or sets search input depending on ulr params
         if (searchId) {
             setSearchTerm(searchId);
-            setSelectedCategory("Kategorier");
         } else {
             setSearchTerm("");
         }
@@ -60,6 +64,7 @@ export default function HomePage() {
             }
         };
 
+        //timer to hopefully await loading (works most of the time)
         const timer = setTimeout(scrollToElement, 300);
 
         return () => clearTimeout(timer);
@@ -67,41 +72,47 @@ export default function HomePage() {
     }, [categoryId, searchId]);
 
     if (loading) {
-        return <Loading></Loading>;  // Visa laddningsindikator
+        return <Loading></Loading>;  // show loader
     }
 
     if (error) {
-        return <p>{error}</p>;  // Visa felmeddelande
+        return <p>{error}</p>;  // show error
     }
 
-    // Filtrera recepten baserat på både sökord och vald kategori
+    // Filter recipes based on search or category input
     const filteredRecipes = recipes.filter(recipe =>
-        (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory)) &&  // Kategorifiltrering
-        isSearchMatch(recipe)  // Sökfiltrering
+        (selectedCategory === "Kategorier" || recipe.categories.includes(selectedCategory)) &&  // Category filtering
+        isSearchMatch(recipe)  // Search filtering
     );
 
     function isSearchMatch(recipe) {
 
+        //checks for match in title
         if (recipe.title.toLowerCase().includes(searchTerm.toLowerCase())) {
             return true;
         }
 
+        //checks for match in ingredients
         if (JSON.stringify(recipe.ingredients).toLowerCase().includes(searchTerm.toLowerCase())) {
             return true;
         }
 
+        //checks for match in categories
         if (JSON.stringify(recipe.categories).toLowerCase().includes(searchTerm.toLowerCase())) {
             return true;
         }
 
+        //checks for match in calculated difficulty
         if ("lätt".includes(searchTerm.toLowerCase()) && recipe.timeInMins < 5) {
             return true;
         }
 
+        //checks for match in calculated difficulty
         if ("medel".includes(searchTerm.toLowerCase()) && recipe.timeInMins >= 5 && recipe.timeInMins <= 7) {
             return true;
         }
 
+        //checks for match in calculated difficulty
         if ("svår".includes(searchTerm.toLowerCase()) && recipe.timeInMins > 7) {
             return true;
         }

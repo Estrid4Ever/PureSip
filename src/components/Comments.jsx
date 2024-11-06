@@ -7,9 +7,10 @@ export default function Comments({ recipeId }) {
 
     const [comments, setComments] = useState([]);
     const [commentIsSent, setCommentIsSent] = useState(false);
-    const [loading, setLoading] = useState(true);  // State för laddning
-    const [error, setError] = useState(null);  // State för felhantering
+    const [loading, setLoading] = useState(true);  // State for loading
+    const [error, setError] = useState(null);  // State for error handeling
 
+    //triggered on pageload and then again on sent comment
     useEffect(() => {
         fetchRecipeComments(recipeId)
             .then((data) => {
@@ -29,11 +30,11 @@ export default function Comments({ recipeId }) {
     }, [commentIsSent]);
 
     if (loading) {
-        return <p>Loading...</p>;  // Visa laddningsindikator
+        return <p>Loading...</p>;  // show loader
     }
 
     if (error) {
-        return <p>{error}</p>;  // Visa felmeddelande
+        return <p>{error}</p>;  // show error
     }
 
     return <>

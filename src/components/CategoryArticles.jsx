@@ -7,6 +7,7 @@ export default function CategoryArticles() {
     const navigate = useNavigate();
     const [halfWindowSize, setHalfWindowSize] = useState(window.innerWidth / 2);
 
+    //scrolls right until it reaches the end of carousel where it instead scrolls all the way back to the beginning
     const scrollRight = (scrollOffset) => {
         const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
 
@@ -23,6 +24,7 @@ export default function CategoryArticles() {
 
     };
 
+    //scrolls left until it reaches the start of carousel where it instead scrolls all the way to the end
     const scrollLeft = (scrollOffset) => {
         const { scrollLeft, scrollWidth, clientWidth } = cardRef.current;
 
@@ -39,6 +41,7 @@ export default function CategoryArticles() {
 
     };
 
+    //checks how far to scroll depending on window with. min 360 px and max 755 px.
     const handleResize = () => {
 
         var scrollAmount = 755;
@@ -62,6 +65,7 @@ export default function CategoryArticles() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    //scrolls to main preview cards carousel
     function handleClick(article) {
 
         const y = document.getElementsByClassName("main-cards")[0].getBoundingClientRect().top + window.scrollY;
